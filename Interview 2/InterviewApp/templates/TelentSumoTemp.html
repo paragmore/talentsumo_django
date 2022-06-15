@@ -1,0 +1,973 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en" >
+   <head>
+      <meta charset="UTF-8">
+      <title>TalentSumo - Form Creation</title>
+      <link rel="icon" href="{% static 'assets/img/logo.png' %}"  type="image/png">
+      <script>document.documentElement.className = document.documentElement.className.replace("no-js","js");</script>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;900&amp;display=swap">
+      <link rel='stylesheet' href="{% static 'assets/form/tailwind.min.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/form/normalize.min.css' %}">
+      <link rel='stylesheet' href="{% static 'assets/form/animate.min.css' %}">
+      <link rel='stylesheet' href="{% static 'assets/form/bootstrap.min.css' %}">
+      <link rel='stylesheet' href="{% static 'assets/form/basic.css' %}">
+      <link rel='stylesheet' href="{% static 'assets/form/dropzone.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/form/style.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/form/bars-square.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/form/asPieProgress.min.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/form/fontawesome.min.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/form/jquery.timesetter.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/form/codemirror.min.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/form/material-ocean.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/form/show-hint.css' %}">
+      <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css'>
+      <link rel="stylesheet" href="{% static 'assets/form/select2.css' %}">
+      <script src="{% static 'assets/form/fontawesome.min.js' %}"></script>
+      <script src="{% static 'assets/form/jquery-2.2.4.min.js' %}"></script>
+      <script src="{% static 'assets/js/bootstrap.min.js' %}" ></script>
+      <script src="{% static 'assets/form/jquery.validate.min.js' %}"></script>
+      <script src="{% static 'assets/form/jquery.barrating.min.js' %}"></script>
+      <script src="{% static 'assets/form/jquery-asPieProgress.min.js' %}"></script>
+      <script src="{% static 'assets/form/inline.js' %}"></script>
+      <script src="{% static 'assets/form/jQuery.slider.js' %}"></script>
+      <script src="{% static 'assets/form/jquery.timesetter.js' %}"></script>
+      <script src="{% static 'assets/form/dropzone.js' %}"></script>
+      <!-- <script src="{% static 'assets/form/jquery-ui.js' %}"></script> -->
+      <script src="{% static 'assets/form/codemirror.min.js' %}"></script>
+      <script src="{% static 'assets/form/xml.js' %}"></script>
+      <script src="{% static 'assets/form/javascript.js' %}"></script>
+      <script src="{% static 'assets/form/css.js' %}"></script>
+      <script src="{% static 'assets/form/htmlmixed.js' %}"></script>
+      <script src="{% static 'assets/form/matchbrackets.js' %}"></script>
+      <script src="{% static 'assets/form/show-hint.js' %}"></script>
+      <script src="{% static 'assets/form/javascript-hint.js' %}"></script>
+      <script src="{% static 'assets/form/html-hint.js' %}"></script>
+      <script src="{% static 'assets/form/jsx.min.js' %}"></script>
+      <script src="{% static 'assets/form/comment.min.js' %}"></script>
+      <script src="{% static 'assets/form/active-line.min.js' %}"></script>
+      <script src="{% static 'assets/form/foldgutter.min.js' %}"></script>
+      <script src="{% static 'assets/form/brace-fold.min.js' %}"></script>
+      <script src="{% static 'assets/form/indent-fold.min.js' %}"></script>
+      <script src="{% static 'assets/form/closebrackets.min.js' %}"></script>
+      <script src="{% static 'assets/form/matchbrackets.min.js' %}"></script>
+      <script src="{% static 'assets/form/python.min.js' %}"></script>
+      <script src="{% static 'assets/form/xml-hint.js' %}"></script>
+      <script src="{% static 'assets/form/css-hint.js' %}"></script>
+      <script src="{% static 'assets/form/sublime.js' %}"></script>
+      <script src="{% static 'assets/form/clike.js' %}"></script>
+      <script src="{% static 'assets/form/php.js' %}"></script>
+      <script src="{% static 'assets/form/canvas2image.js' %}"></script>
+      <script src="{% static 'assets/form/html2canvas.min.js' %}"></script>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js'></script>
+   </head>
+   <body>
+      <div class="container">
+         <div class="row">
+            <div class="col-xs-12 publishdiv p-0">
+               <div class="col-xs-6 p-0 m-0" style="float:left;">
+                  
+               </div>
+               <div class="col-xs-6 p-0 m-0" style="text-align: right;">
+				<button  type="button" id="pubtemplate" class="btn btn-default" onclick="publishtemplate(this);">Save Template</button>
+               </div>
+            </div>
+         </div>
+         <div class="row importcls" id="quiz_ans_upload">
+            <div class="col-12 col-xs-12">
+			  
+            </div>
+         </div>
+         <div class="row">
+            <div class="column1">
+               <div class="row navmenu" id="divelements">
+                  <div class="col-12 col-xs-12 navdiv">
+                     <div class="w-100 h-100 txt">
+                        Navigator
+                     </div>
+                  </div>
+                  <div class="col-12 col-xs-12 divtext">
+                     <div class="w-100 h-100 txt">
+                        <label>Elements</label>
+                        <button id="btnAdd" class="btnicons" onclick="Addbtnclick();">Add
+                        <i class="fa fa-plus-circle"></i>
+                        </button>
+                     </div>
+                  </div>
+                  <div class="col-12 col-xs-12 divtext">
+                     <div class="w-100 h-100 " id="elements">
+                        <div class="w-100 h-100 txt">
+                           <label>Welcome Page</label>
+                           <label class="switch">
+                              <input type="checkbox" id="togBtn" onclick='switchclilck(this);'>
+                              <div class="slider round"></div>
+                           </label>
+                        </div>
+                        <div class="divelements welcomediv" id="listwelcome" style="display:none;"><a class="liwelcome" id="welcome" onclick="elemclick(this.id);"  data-label="welcomeText"><i class="fas fa-home" aria-hidden="true"></i> Welcome</a></div>
+                        <ul id="lielemnts">
+                        </ul>
+                        <div class="divelements" id="listthank" ><a class="lithank" id="thankyou" onclick="elemclick(this.id);" data-label="thankYouText"><i class="fa fa-thumbs-up" aria-hidden="true"></i>Thank You !</a></div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row navmenu">
+                  <div class="col-12 col-xs-12">
+                     <div class="w-100 h-100 " id="addelemdiv" style="display:none;">
+                        <div class="w-100 h-100 txt">
+                           <label>Select An Element</label>
+                           <button id="btnClose" class="btnicons" onclick="AddSectionClose();">
+                           <i class="fa fa-times"></i>
+                           </button>
+                        </div>
+                        <div class="flex flex-col w-56" id="secelm">
+                           <button class="group " id="textinputs">
+                              <div class="flex items-center justify-between h-10 px-2">
+                                 <span class="truncate">Inputs</span>
+                                 <i class="fa fa-angle-down"></i>
+                              </div>
+                              <div class="max-h-1 overflow-hidden duration-300 group-focus:max-h-40">
+                                 <a class="flex items-center h-7 px-4 text-sm " id="shortText" onclick="addelement(this.id);"><i class="fas fa-i-cursor"></i>Short Answer</a>
+                                 <a class="flex items-center h-7 px-4 text-sm " id="longText" onclick="addelement(this.id);" ><i class="fas fa-paragraph"></i>Long Answer</a>
+                                 <a class="flex items-center h-7 px-4 text-sm " id="emailAddress" onclick="addelement(this.id);"><i class="far fa-envelope"></i>Email Address</a>
+                                 <a class="flex items-center h-7 px-4 text-sm " id="phoneNumber" onclick="addelement(this.id);"><i class="fas fa-phone"></i>Phone Number</a>
+                                 <a class="flex items-center h-7 px-4 text-sm " id="passwordField" onclick="addelement(this.id);"><i class="fas fa-eye-slash"></i>Password</a>
+                                 <a class="flex items-center h-7 px-4 text-sm " id="dateField" onclick="addelement(this.id);"><i class="far fa-calendar-alt"></i>Date</a>
+                                 <a class="flex items-center h-7 px-4 text-sm " id="numberField" onclick="addelement(this.id);"><i class="fas fa-hashtag"></i>Number</a>
+                              </div>
+                           </button>
+                           <button class="group " id="codeinputs">
+                              <div class="flex items-center justify-between h-10 px-2">
+                                 <span class="truncate">Coding</span>
+                                 <i class="fa fa-angle-down"></i>
+                              </div>
+                              <div class="max-h-1 overflow-hidden duration-300 group-focus:max-h-40">
+                                 <a class="flex items-center h-7 px-4 text-sm " id="editorText" onclick="addelement(this.id);" ><i class="fas fa-edit"></i>Code Editor</a>
+                              </div>
+                           </button>
+                           <button class="group" id="choiceinputs">
+                              <div class="flex items-center justify-between h-10 px-2 ">
+                                 <span class="truncate">Selections</span>
+                                 <i class="fa fa-angle-down"></i>
+                              </div>
+                              <div class="max-h-1 overflow-hidden duration-300 group-focus:max-h-40">
+                                 <a class="flex items-center h-7 px-4 text-sm " id="multipleChoice" onclick="addelement(this.id);"><i class="fas fa-check-square"></i>Multiple Choice</a>
+                                 <a class="flex items-center h-7 px-4 text-sm " id="singleChoice" onclick="addelement(this.id);"><i class="fas fa-check-circle"></i>Single Choice</a>
+                                 <a class="flex items-center h-7 px-4 text-sm " id="imageChoice" onclick="addelement(this.id);"><i class="far fa-images"></i>Image Choice</a>
+                                 <a class="flex items-center h-7 px-4 text-sm " id="dropdownChoice" onclick="addelement(this.id);"><i class="fas fa-chevron-circle-down"></i>Dropdown</a>
+                                 <a class="flex items-center h-7 px-4 text-sm " id="reviewChoice" onclick="addelement(this.id);"><i class="fab fa-cloudscale"></i>Scale</a>
+                                 <a class="flex items-center h-7 px-4 text-sm " id="matrixChoice" onclick="addelement(this.id);"><i class="fas fa-th"></i>Matrix</a>
+                              </div>
+                           </button>
+                           <button class="group" id="mediainputs">
+                              <div class="flex items-center justify-between h-10 px-2">
+                                 <span class="truncate">Media</span>
+                                 <i class="fa fa-angle-down"></i>
+                              </div>
+                              <div class="max-h-1 overflow-hidden duration-300 group-focus:max-h-40">
+                                 <a class="flex items-center h-7 px-4 text-sm " id="fileUpload" onclick="addelement(this.id);" ><i class="fas fa-upload"></i>File Upload</a>
+                                 <a class="flex items-center h-7 px-4 text-sm " id="audioUpload" onclick="addelement(this.id);"><i class="fas fa-volume-up"></i>Audio</a>
+                                 <a class="flex items-center h-7 px-4 text-sm " id="videoUpload" onclick="addelement(this.id);"><i class="fas fa-video"></i>Video</a>
+                              </div>
+                           </button>
+                           <button class="group "  id="structuralinputs">
+                              <div class="flex items-center justify-between h-10 px-2 ">
+                                 <span class="truncate">Structural</span>
+                                 <i class="fa fa-angle-down"></i>
+                              </div>
+                              <div class="max-h-1 overflow-hidden duration-300 group-focus:max-h-40">
+                                 <a class="flex items-center h-7 px-4 text-sm " id="titleField" onclick="addelement(this.id);"><i class="fas fa-heading"></i>Title</a>
+                                 <a class="flex items-center h-7 px-4 text-sm " id="descField" onclick="addelement(this.id);"><i class="fas fa-align-right"></i>Description</a>
+                                 <a class="flex items-center h-7 px-4 text-sm " id="imageField" onclick="addelement(this.id);"><i class="fas fa-image"></i>Image</a>
+                                 <a class="flex items-center h-7 px-4 text-sm " id="videoField" onclick="addelement(this.id);"><i class="fas fa-video"></i>Video</a>
+                              </div>
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="column2">
+               <div class="row">
+                  <div class="col-12 col-xs-12">
+                     <div class="w-100 h-100 formtxt">
+                        Form Preview
+                     </div>
+                     <div>
+                        <section class="multi-step-form" id="formSection">
+                           <input type="hidden" id="TemplName" name="TemplName" class="TemplName"  value="{{formName}}">
+                           <input type="hidden" id="formImg" name="formImg" class="formImg"  value="{{imgurl}}">
+                           <input type="hidden" id="TemplId" name="TemplId" class="TemplId"  value="{{id}}">
+                           <input type="hidden" id="LongTemplId" name="LongTemplId" class="LongTemplId"  value="{{formLongId}}">
+                           <form action="#" method="post" id="formelements">	
+                           </form>
+                        </section>
+                        <section class='thankyou' id="secThank">
+                           <div class="media">
+                              <div class="pie_progress" role="progressbar" data-goal="100">
+                                 <div class="pie_progress__number">0%</div>
+                                 <div class="pie_progress__label">Submitted</div>
+                              </div>
+                           </div>
+                           <div class="title">
+                              <div class="lblti"><span>Thank You!</span></div>
+                           </div>
+                           <div class="descrip">
+                              <div class="lbldesc"><span>Your form as beeen submitted successfully we will reach you Shortly. thank you for your Time.</span></div>
+                           </div>
+                        </section>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="column3">
+               <div class="row">
+                  <div class="col-sm-12">
+                     <div class="panel panel-default colum3panel">
+                        <div class="tab-card-header">
+                           <ul class="nav nav-tabs" id="mycusprop">
+                              <li>
+                                 <a href="#properties" data-toggle="tab" class="active"><i class="fas fa-cog"></i></a>
+                              </li>
+                              <li><a href="#options" data-toggle="tab"><i class="fas fa-sort-amount-down"></i></a>
+                              </li>
+                              <li id="logicclick"><a href="#logic" data-toggle="tab"><i class="fas fa-wrench"></i></a>
+                              </li>
+                           </ul>
+                        </div>
+                        <div class="panel-body">
+                           <div class="tab-content ">
+                              <div class="tab-pane active" id="properties">
+                                 <div class="advancefields" id="commonproperties" style="display: none;">
+                                    <div class="lblinputNamediv">
+                                       <div class="row">
+                                          <div class="col-sm-12">
+                                             <input type="hidden" id="helemtid">
+                                             <input type="hidden" id="helemttype"><label id='lblName' class='proplbl'>Label Name
+                                             <label>
+                                          </div>
+                                       </div>
+                                       <div class="row">
+                                       <div class="col-sm-12" id="fieldlablediv">
+                                       <div class="pro-controls" id="inplblName"> </div>
+                                       <a id="btn-open"><i class="fas fa-plus-circle" ></i></a>
+                                       </div>
+                                       <div class="col-sm-12" id="fieldsearchdiv" style="display: none;">
+                                       <div id="fieldinputsearchdiv">
+                                       <span class="fas fa-search"></span>
+                                       <input type="text" id="inpufieldSearch" onkeyup="myfieldSearchFunction()" class="pro-controls" placeholder="Refer to information from..." title="Refer to information from...">
+                                       </div>
+                                       <ul name="fieldsearch" id="fieldsearch" class="lielemnts">
+                                       </ul>
+                                       </div>
+                                       </div>
+                                    </div>
+                                    <div class="row lblinputv_adiv">
+                                    <div class="col-sm-12 mt-4">
+                                    <label>Video or Audio Question</label>
+                                    <label class="switch va_switch">
+                                    <input type="checkbox" id="va_togBtn" onclick='va_switchclilck(this);'>
+                                    <div class="slider round"></div>
+                                    </div>
+                                    </div>
+                                    <div class="row lblinputURLdiv">
+                                    <div class="col-sm-12 mt-4">
+                                    <label class="font-width">Please add your video link to the below box, if you wish to record upload your own video, click on the below Button and copy paste the generated url into the box.</label>
+                                    <label class="font-width">Currently, We are supporting youtube, loom, and video links.(you can copy the share url and paste it below.) or you can input the iframe code as well or </label>
+                                    <label class="font-width">Note: For vimeo - only public urls or videos will work. </label>
+                                    <a class="btn-default va_recorbtn mt-2 mb-3" type="button" target="_blank" href="http://talentsumo.click/" >Record</a>
+                                    <label>Enter Video or Audio Link</label>
+                                    <input type="url" id="va_input_url" class="pro-controls"  onchange='va_inputurl_onchange(this);'>
+                                    </div>
+                                    </div>
+                                    <div class="row">
+                                       <div class="col-sm-12">
+                                          <label id='lblDesp' class='proplbl'>Decription
+                                          <label>
+                                       </div>
+                                    </div>
+                                    <div class="row">
+                                    <div class="col-sm-12">
+                                    <div class="pro-controls"  id="inplblDesp"></div>
+                                    </div>
+                                    </div>
+                                 </div>
+                                 <div class="row advancefields" id="welcomefields" style="display:none;">
+                                 <div class="col-sm-12">
+                                 <div class="panel-heading">
+                                 <h4 class="panel-title"><a>Customize Welcome Message </a>  </h4>
+                                 </div>
+                                 <div class="panel-body"> 
+                                 <div class="col-sm-12">
+                                 <label id='lblwimg' class='proplbl'>Choose Image or video<label>
+                                 <input type="file" id="inputwimg" accept=".jpg,.jpeg.,.gif,.png,.mov,.mp4" onchange="welcomeimgChange(this)" />   
+                                 </div>
+                                 <div class="col-sm-12">
+                                 <label id='lblwtitle' class='proplbl'>Title<label>
+                                 <div class="pro-controls"  id="inputwtitle"></div>
+                                 </div>
+                                 <div class="col-sm-12">
+                                 <label id='lblwdesc' class='proplbl'>Description<label>
+                                 <div class="pro-controls"  id="inputwdesc"></div>
+                                 </div>
+                                 <div class="col-sm-12">
+                                 <label id='lblwbtn' class='proplbl'>Button Text<label>
+                                 <input type="text"  class="pro-controls" id="inputwbtn" name="inputwbtn" value="Start" onchange="welbtnonchange(this.id)">
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 <div class="row advancefields" id="thankfields" style="display:none;">
+                                 <div class="col-sm-12">
+                                 <div class="panel-heading">
+                                 <h4 class="panel-title"><a>Customize Thank you Message </a>  </h4>
+                                 </div>
+                                 <div class="panel-body"> 
+                                 <div class="col-sm-12">
+                                 <label id='lblthtitle' class='proplbl'>Title<label>
+                                 <div class="pro-controls" id="inputthtitle"></div>
+                                 </div>
+                                 <div class="col-sm-12">
+                                 <label id='lblthdesc' class='proplbl'>Description<label>
+                                 <div class="pro-controls"  id="inputthdesc"></div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 <div class="row advancefields" id="editorfields" style="display:none;">
+                                 <div class="col-sm-12">
+                                 <div class="panel-heading">
+                                 <h4 class="panel-title"><a>Choose Language </a>  </h4>
+                                 </div>
+                                 <div class="panel-body"> 
+                                 <div class="col-sm-12">
+                                 <select  id="editorlanguage"  onchange="inputeditorlanguageonChange(this.id)">
+                                 <option value="">Select</option>
+                                 <option value="htmlmixed">HTML/CSS/Jquery</option>
+                                 <option value="text/x-csrc">C</option>
+                                 <option value="text/x-c++src">C++</option>
+                                 <option value="text/x-python">Python</option>
+                                 <option value="application/x-httpd-php">PHP</option>
+                                 <option value="text/x-java">Java</option>
+                                 <option value="text/javascript">JavaScript</option>
+                                 <option value="text/jsx">React</option>
+                                 </select>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 <div class="row advancefields" id="textAreafields" style="display:none;">
+                                 <div class="col-sm-12">
+                                 <div class="panel-heading">
+                                 <h4 class="panel-title"><a>LongText Advance </a>  </h4>
+                                 </div>
+                                 <div class="panel-body"> 
+                                 <div class="col-sm-12">
+                                 <label id='lblMaxChar' class='proplbl'>Max Length<label>
+                                 <input class="pro-controls" type="number" id="inplblMaxChar" onchange="longTextonChange(this);">
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 <div class="row advancefields" id="Titlefields" style="display:none;">
+                                 <div class="col-sm-12">
+                                 <div class="panel-body"> 
+                                 <div class="col-sm-12">
+                                 <label id='lbltitletxt' class='proplbl'>Title Text<label>
+                                 <div class="pro-controls"  id="inplbltitletxt"></div>
+                                 </div>
+                                 <div class="col-sm-12">
+                                 <label id='lblsubtitletxt' class='proplbl'>Sub-Title Text<label>
+                                 <div class="pro-controls"  id="inplblsubtitletxt"></div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 <div class="row advancefields" id="Descfields" style="display: none;" >
+                                 <div class="col-sm-12">
+                                 <div class="panel-body"> 
+                                 <div class="col-sm-12">
+                                 <label id='lbldesctxt' class='proplbl'>Name<label>
+                                 <input class="pro-controls" value="Description" type="number" readonly id="inplbldesctxt" placeholder="Description"  >
+                                 </div>
+                                 <div class="col-sm-12">
+                                 <label id='lbldescedittxt' class='proplbl'>Content<label>
+                                 <input class="pro-controls" type="number" id="inplbldescedittxt">
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 <div class="row advancefields" id="Imagefields" style="display:none;">
+                                 <div class="col-sm-12">
+                                 <div class="panel-body"> 
+                                 <div class="col-sm-12">
+                                 <label id='lblimgtxt' class='proplbl'>Name</label>
+                                 <div class="pro-controls"  id="inplblimgtxt"></div>
+                                 </div>
+                                 <div class="col-sm-12">
+                                 <label id='lblimgfile' class='proplbl'>File<label>
+                                 <input class="pro-controls" type="file" id="inplblimgfile" accept=".jpg,.jpeg.,.gif,.png" onchange="welcomeimgChange(this)">
+                                 </div>
+                                 <div class="col-sm-12">
+                                 <div class="panel-group" id="divimgtxtoption" role="tablist" aria-multiselectable="true">
+                                 <div class="panel panel-default">
+                                 <div class="panel-heading" role="tab" id="headingTwo">
+                                 <h4 class="panel-title"> <a class="collapsed" data-toggle="collapse" data-parent="#divimgtxtoption" href="#collapseFour" aria-expanded="false" aria-controls="collapseTwo">Advance <i class="fas fa-angle-down"></i></a> </h4>
+                                 </div>
+                                 <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                 <div class="panel-body"> 
+                                 <div class="col-sm-12 divalign">
+                                 <div class="col-sm-12">
+                                 <label id='lblImgalign' class="imglbl">Image Align<label>
+                                 </div>	<div class="col-sm-12">
+                                 <select name="selectimagealign" id="selectimagealign" onchange="imgoptionOnchange(this)">
+                                 <opntion value="left">Left</option>
+                                 <option value="center" selected>Center</option>
+                                 <option value="right">Right</option>
+                                 </select>
+                                 </div>
+                                 <div class="col-sm-12">
+                                 <label id='lblImgscale' class="imglbl">Image Scale<label>
+                                 </div>	
+                                 <div class="col-sm-12">
+                                 <div class="image_range">
+                                 <div  id="image_range"></div>
+                                 <span  id="image_val">10%</span>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 <div class="row advancefields" id="videofields" style="display:none;">
+                                 <div class="col-sm-12">
+                                 <div class="panel-body"> 
+                                 <div class="col-sm-12">
+                                 <label id='lblimgtxt' class='proplbl'>Name</label>
+                                 <div class="pro-controls"  id="inplblvideotxt"></div>
+                                 </div>
+                                 <div class="col-sm-12">
+                                 <div class="row">
+                                 <div class="col-sm-12 mt-4">
+                                 <label class="font-width">Please add your video link to the below box, if you wish to record upload your own video, click on the below Button and copy paste the generated url into the box.</label>
+                                 <label class="font-width">Currently, We are supporting youtube, loom, and video links.(you can copy the share url and paste it below.) or you can input the iframe code as well or </label>
+                                 <label class="font-width">Note: For vimeo - only public urls or videos will work. </label>
+                                 <a class="btn-default va_recorbtn mt-2 mb-3" type="button" target="_blank" href="http://talentsumo.click/" >Record</a>
+                                 <label>Enter Video or Audio Link</label>
+                                 <input type="url" id="vfield_input_url" class="pro-controls"  onchange='va_inputurl_onchange(this);'>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 <div class="row advancefields" id="datefields" style="display:none;">
+                                    <div class="col-sm-12">
+                                       <div class="panel-heading">
+                                          <h4 class="panel-title"><a>Date Advance </a>  </h4>
+                                       </div>
+                                       <div class="panel-body">
+                                          <div class="col-sm-12">
+                                             <label id='lblMinDate' class='proplbl'>Min Date
+                                             <label>
+                                                <input class="pro-controls" type="date" id="inplblMinDate" onchange="dateonchange(this);" >
+                                          </div>
+                                          <div class="col-sm-12">
+                                          <label id='lblMaxDate' class='proplbl'>Max Date<label>
+                                          <input class="pro-controls" type="date" id="inplblMaxDate" onchange="dateonchange(this);">
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="row advancefields" id="numberfields" style="display:none;">
+                                 <div class="col-sm-12">
+                                 <div class="panel-heading">
+                                 <h4 class="panel-title"><a>Number Advance </a>  </h4>
+                                 </div>
+                                 <div class="panel-body"> 
+                                 <div class="col-sm-12">
+                                 <label id='lblMinNumb' class='proplbl'>Min Number<label>
+                                 <input class="pro-controls" type="number" id="inplblMinNumb" onchange="numberonchange(this);" onkeydown="preventkeys(event)">
+                                 </div>
+                                 <div class="col-sm-12">
+                                 <label id='lblMaxNumb' class='proplbl'>Max Number<label>
+                                 <input class="pro-controls" type="number" id="inplblMaxNumb" onchange="numberonchange(this);" onkeydown="preventkeys(event)">
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 <div class="row advancefields" id="scalefields" style="display: none;" >
+                                 <div class="col-sm-12">
+                                 <div class="panel-heading">
+                                 <h4 class="panel-title"><a>Scale Range </a>  </h4>
+                                 </div>
+                                 <div class="panel-body"> 
+                                 <div class="col-sm-12">
+                                 <div class="scale_range">
+                                 <div  id="scale_range"></div>
+                                 <span  id="scale_val">10</span>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 <div class="col-sm-12">
+                                 <div class="panel-heading">
+                                 <h4 class="panel-title"><a>Scale Default Value </a> </h4>
+                                 </div>
+                                 <div class="panel-body"> 
+                                 <div class="col-sm-12">
+                                 <div class="scale_default">
+                                 <select id="scale_def_sel" onchange="scale_def_selOnchange(this)">
+                                 </select>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 <div class="row advancefields" id="filefields" style="display:none;">
+                                 <div class="col-sm-12">
+                                 <div class="panel-heading">
+                                 <h4 class="panel-title"><a>File Advance </a> </h4>
+                                 </div>
+                                 <div class="panel-body"> 
+                                 <div class="col-sm-12">
+                                 <label class="proplbl" id="lblfile" >No of Files to be Allowed:</label>
+                                 <div class="file_range">
+                                 <div  id="file_range"></div>
+                                 <span  id="file_val">1</span>
+                                 </div>
+                                 </div>
+                                 <div class="col-sm-12 bordpanel">
+                                 <div class="typanel">
+                                 <div class="panel-heading">
+                                 <h4 class="panel-title"><a>Documents </a> </h4>
+                                 </div>
+                                 <div class="pnlcontents">
+                                 <div class="row">
+                                 <div class="col-sm-6">
+                                 <div class="checkbox checkbox-warning"><input id="chklblpdf" type="checkbox" class="styled" checked onclick="fileacceptclick(this);" value=".pdf"><label for="chklblpdf" class="proplbl">.pdf</label></div>
+                                 </div>
+                                 <div class="col-sm-6">
+                                 <div class="checkbox checkbox-warning"><input id="chklbldoc" type="checkbox" class="styled" checked onclick="fileacceptclick(this);"><label for="chklbldoc" class="proplbl">.doc</label></div>
+                                 </div>
+                                 </div>
+                                 <div class="row">
+                                 <div class="col-sm-6">
+                                 <div class="checkbox checkbox-warning"><input id="chklbldocx" type="checkbox" class="styled" checked onclick="fileacceptclick(this);"><label for="chklbldocx" class="proplbl">.docx</label></div>
+                                 </div>
+                                 <div class="col-sm-6">
+                                 <div class="checkbox checkbox-warning"><input id="chklbltxt" type="checkbox" class="styled" checked onclick="fileacceptclick(this);"><label for="chklbltxt" class="proplbl">.txt</label></div>
+                                 </div>
+                                 </div>
+                                 <div class="row">
+                                 <div class="col-sm-6">
+                                 <div class="checkbox checkbox-warning"><input id="chklblrtf" type="checkbox" class="styled" checked onclick="fileacceptclick(this);"><label for="chklblrtf" class="proplbl">.rtf</label></div>
+                                 </div>
+                                 <div class="col-sm-6">
+                                 <div class="checkbox checkbox-warning"><input id="chklblodt" type="checkbox" class="styled" checked onclick="fileacceptclick(this);"><label for="chklblodt" class="proplbl">.odt</label></div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 <div class="typanel">
+                                 <div class="panel-heading">
+                                 <h4 class="panel-title"><a>Presentation </a> </h4>
+                                 </div>
+                                 <div class="pnlcontents">
+                                 <div class="row">
+                                 <div class="col-sm-6">
+                                 <div class="checkbox checkbox-warning"><input id="chklblkey" type="checkbox" class="styled" checked onclick="fileacceptclick(this);"><label for="chklblkey" class="proplbl">.key</label></div>
+                                 </div>
+                                 <div class="col-sm-6">
+                                 <div class="checkbox checkbox-warning"><input id="chklblppt" type="checkbox" class="styled" checked onclick="fileacceptclick(this);"><label for="chklblppt" class="proplbl">.ppt</label></div>
+                                 </div>
+                                 </div>
+                                 <div class="row">
+                                 <div class="col-sm-6">
+                                 <div class="checkbox checkbox-warning"><input id="chklblpptx" type="checkbox" class="styled" checked onclick="fileacceptclick(this);"><label for="chklblpptx" class="proplbl">.pptx</label></div>
+                                 </div>
+                                 <div class="col-sm-6">
+                                 <div class="checkbox checkbox-warning"><input id="chklblodp" type="checkbox" class="styled" checked onclick="fileacceptclick(this);"><label for="chklblodp" class="proplbl">.odp</label></div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 <div class="typanel">
+                                 <div class="panel-heading">
+                                 <h4 class="panel-title"><a>Data </a> </h4>
+                                 </div>
+                                 <div class="pnlcontents">
+                                 <div class="row">
+                                 <div class="col-sm-6">
+                                 <div class="checkbox checkbox-warning"><input id="chklblcsv" type="checkbox" class="styled" checked onclick="fileacceptclick(this);"><label for="chklblcsv" class="proplbl">.csv</label></div>
+                                 </div>
+                                 <div class="col-sm-6">
+                                 <div class="checkbox checkbox-warning"><input id="chklblxml" type="checkbox" class="styled" checked onclick="fileacceptclick(this);"><label for="chklblxml" class="proplbl">.xml</label></div>
+                                 </div>
+                                 </div>
+                                 <div class="row">
+                                 <div class="col-sm-6">
+                                 <div class="checkbox checkbox-warning"><input id="chklbljson" type="checkbox" class="styled" checked onclick="fileacceptclick(this);"><label for="chklbljson" class="proplbl">.json</label></div>
+                                 </div>
+                                 <div class="col-sm-6">
+                                 <div class="checkbox checkbox-warning"><input id="chklblxls" type="checkbox" class="styled" checked onclick="fileacceptclick(this);"><label for="chklblxls" class="proplbl">.xls</label></div>
+                                 </div>
+                                 </div>
+                                 <div class="row">
+                                 <div class="col-sm-6">
+                                 <div class="checkbox checkbox-warning"><input id="chklblxlsx" type="checkbox" class="styled" checked onclick="fileacceptclick(this);"><label for="chklblxlsx" class="proplbl">.xlsx</label></div>
+                                 </div>
+                                 <div class="col-sm-6">
+                                 <div class="checkbox checkbox-warning"><input id="chklblnumbers" type="checkbox" class="styled" checked onclick="fileacceptclick(this);"><label for="chklblnumbers" class="proplbl">.numbers</label></div>
+                                 </div>
+                                 </div>
+                                 <div class="row">
+                                 <div class="col-sm-6">
+                                 <div class="checkbox checkbox-warning"><input id="chklblods" type="checkbox" class="styled" checked onclick="fileacceptclick(this);"><label for="chklblods" class="proplbl">.ods</label></div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 <div class="typanel">
+                                 <div class="panel-heading">
+                                 <h4 class="panel-title"><a>Audio </a> </h4>
+                                 </div>
+                                 <div class="pnlcontents">
+                                 <div class="row">
+                                 <div class="col-sm-6">
+                                 <div class="checkbox checkbox-warning"><input id="chklblmp3" type="checkbox" class="styled" checked onclick="fileacceptclick(this);"><label for="chklblmp3" class="proplbl">.mp3</label></div>
+                                 </div>
+                                 <div class="col-sm-6">
+                                 <div class="checkbox checkbox-warning"><input id="chklblwav" type="checkbox" class="styled" checked onclick="fileacceptclick(this);"><label for="chklblwav" class="proplbl">.wav</label></div>
+                                 </div>
+                                 </div>
+                                 <div class="row">
+                                 <div class="col-sm-6">
+                                 <div class="checkbox checkbox-warning"><input id="chklblaiff" type="checkbox" class="styled" checked onclick="fileacceptclick(this);"><label for="chklblaiff" class="proplbl">.aiff</label></div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 <div class="typanel">
+                                 <div class="panel-heading">
+                                 <h4 class="panel-title"><a>Images </a> </h4>
+                                 </div>
+                                 <div class="pnlcontents">
+                                 <div class="row">
+                                 <div class="col-sm-6">
+                                 <div class="checkbox checkbox-warning"><input id="chklblpng" type="checkbox" class="styled" checked onclick="fileacceptclick(this);"><label for="chklblpng" class="proplbl">.png</label></div>
+                                 </div>
+                                 <div class="col-sm-6">
+                                 <div class="checkbox checkbox-warning"><input id="chklbljpg" type="checkbox" class="styled" checked onclick="fileacceptclick(this);"><label for="chklbljpg" class="proplbl">.jpg</label></div>
+                                 </div>
+                                 </div>
+                                 <div class="row">
+                                 <div class="col-sm-6">
+                                 <div class="checkbox checkbox-warning"><input id="chklblgif" type="checkbox" class="styled" checked onclick="fileacceptclick(this);"><label for="chklblgif" class="proplbl">.gif</label></div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 <div class="typanel">
+                                 <div class="panel-heading">
+                                 <h4 class="panel-title"><a>Archives </a> </h4>
+                                 </div>
+                                 <div class="pnlcontents">
+                                 <div class="row">
+                                 <div class="col-sm-6">
+                                 <div class="checkbox checkbox-warning"><input id="chklblzip" type="checkbox" class="styled" checked onclick="fileacceptclick(this);"><label for="chklblzip" class="proplbl">.zip</label></div>
+                                 </div>
+                                 <div class="col-sm-6">
+                                 <div class="checkbox checkbox-warning"><input id="chklblrar" type="checkbox" class="styled" checked onclick="fileacceptclick(this);"><label for="chklblrar" class="proplbl">.rar</label></div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 <div class="typanel">
+                                 <div class="panel-heading">
+                                 <h4 class="panel-title"><a>Others </a> </h4>
+                                 </div>
+                                 <div class="pnlcontents">
+                                 <div class="row">
+                                 <div class="col-sm-6">
+                                 <div class="checkbox checkbox-warning"><input id="chklblpbix" type="checkbox" class="styled" checked onclick="fileacceptclick(this);"><label for="chklblpbix" class="proplbl">.pbix</label></div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-sm-12" id="accoradvanceparams">
+                                       <div class="panel-group advancefields" id="accordion" role="tablist" aria-multiselectable="true" style="display: none;">
+                                          <div class="panel panel-default">
+                                             <div class="panel-heading" role="tab" id="headingTwo">
+                                                <h4 class="panel-title"> <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Advance <i class="fas fa-angle-down"></i></a> </h4>
+                                             </div>
+                                             <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                                <div class="panel-body">
+                                                   <div class="col-sm-12">
+                                                      <div class="checkbox checkbox-warning"><input id="chklblReq" type="checkbox" class="styled propchk" onclick='requiredclilck(this);'><label for="chklblReq" class="proplbl" id="lblReq" >Required</label></div>
+                                                   </div>
+                                                   <div class="col-sm-12 readonlydiv">
+                                                      <div class="checkbox checkbox-warning"><input id="chklblRead" type="checkbox" class="styled propchk" onclick='readonlyclilck(this);'><label for="chklblRead" class="proplbl" id="lblRead" >Readonly</label></div>
+                                                   </div>
+                                                   <div class="col-sm-12 hiddendiv">
+                                                      <div class="checkbox checkbox-warning"><input id="chklblHidd" type="checkbox" class="styled propchk" onclick='hiddenclilck(this);'><label for="chklblHidd" class="proplbl" id="lblHidd" >Hidden</label></div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="tab-pane" id="options">
+                                 <div class="row" id="optionsfields">
+                                    <div class="col-sm-12">
+                                       <div class="panel-heading">
+                                          <h4 class="panel-title"><a>Element Options </a> </h4>
+                                       </div>
+                                       <div class="panel-body advancefields" id="selectoptions" style="display:none;">
+                                          <div class="col-sm-12">
+                                             <div class="col-sm-5"><button id="btnAddoption" class="btnopticons" onclick="Addoptnbtnclick();"><i class="fa fa-plus""></i>Add option  </button></div>
+                                             <div class="col-sm-6"><button id="btnRemoveoption" class="btnopticons" onclick="Removeoptnbtnclick();"> <i class="fa fa-minus"></i>Remove Option  </button></div>
+                                          </div>
+                                          <div class="row seloptions" id="bindoptions">
+                                          </div>
+                                       </div>
+                                       <div class="panel-body advancefields" id="matrixoptions" style="display:none;">
+                                          <div class="panel-heading">
+                                             <h4 class="panel-title"><a>Left Options </a> </h4>
+                                          </div>
+                                          <div class="col-sm-12">
+                                             <div class="col-sm-5"><button id="btnrowAddoption" class="btnopticons" onclick="Addrowoptnbtnclick();"><i class="fa fa-plus""></i>Add option  </button></div>
+                                             <div class="col-sm-6"><button id="btnrowRemoveoption" class="btnopticons" onclick="Removerowoptnbtnclick();"> <i class="fa fa-minus"></i>Remove Option  </button></div>
+                                          </div>
+                                          <div class="row matrixselleftoptions">
+                                             <div class="col-sm-12">
+                                                <input class="pro-controls" type="text" id="irowvaloption1" data-label="option" data-area="value" placeholder="value">
+                                                <button class="btnopticons" onclick="Deleterowoptnbtnclick();"> <i class="far fa-trash-alt"></i> </button>
+                                             </div>
+                                             <div class="col-sm-12">
+                                                <input class="pro-controls" type="text" id="irowlbloption1" data-label="option" data-area="label" placeholder="label">
+                                             </div>
+                                             <div class="col-sm-12">
+                                                <input class="pro-controls" type="text" id="irowvaloption2" data-label="option" data-area="value" placeholder="value">
+                                                <button  class="btnopticons" onclick="Deleterowoptnbtnclick();"> <i class="far fa-trash-alt"></i> </button>
+                                             </div>
+                                             <div class="col-sm-12">
+                                                <input class="pro-controls" type="text" id="irowlbloption2" data-label="option" data-area="label" placeholder="label">
+                                             </div>
+                                             <div class="col-sm-12">
+                                                <input class="pro-controls" type="text" id="irowvaloption3" data-label="option" data-area="value" placeholder="value">
+                                                <button  class="btnopticons" onclick="Deleterowoptnbtnclick();"> <i class="far fa-trash-alt"></i> </button>
+                                             </div>
+                                             <div class="col-sm-12">
+                                                <input class="pro-controls" type="text" id="irowlbloption3" data-label="option" data-area="label" placeholder="label">
+                                             </div>
+                                             <div class="col-sm-12">
+                                                <input class="pro-controls" type="text" id="irowvaloption4" data-label="option" data-area="value" placeholder="value">
+                                                <button class="btnopticons" onclick="Deleterowoptnbtnclick();"> <i class="far fa-trash-alt"></i> </button>
+                                             </div>
+                                             <div class="col-sm-12">
+                                                <input class="pro-controls" type="text" id="irowlbloption4" data-label="option" data-area="label" placeholder="label">
+                                             </div>
+                                          </div>
+                                          <div class="panel-heading">
+                                             <h4 class="panel-title"><a>Top Options </a> </h4>
+                                          </div>
+                                          <div class="col-sm-12">
+                                             <div class="col-sm-5"><button id="btntopAddoption" class="btnopticons" onclick="Addtopoptnbtnclick();"><i class="fa fa-plus""></i>Add option  </button></div>
+                                             <div class="col-sm-6"><button id="btntopRemoveoption" class="btnopticons" onclick="Removetopoptnbtnclick();"> <i class="fa fa-minus"></i>Remove Option  </button></div>
+                                          </div>
+                                          <div class="row matrixselrightoptions">
+                                             <div class="col-sm-12">
+                                                <input class="pro-controls" type="text" id="itopvaloption1" data-label="option" data-area="value" placeholder="value">
+                                                <button class="btnopticons" onclick="Deletetopoptnbtnclick();"> <i class="far fa-trash-alt"></i> </button>
+                                             </div>
+                                             <div class="col-sm-12">
+                                                <input class="pro-controls" type="text" id="itoplbloption1" data-label="option" data-area="label" placeholder="label">
+                                             </div>
+                                             <div class="col-sm-12">
+                                                <input class="pro-controls" type="text" id="itopvaloption2" data-label="option" data-area="value" placeholder="value">
+                                                <button  class="btnopticons" onclick="Deletetopoptnbtnclick();"> <i class="far fa-trash-alt"></i> </button>
+                                             </div>
+                                             <div class="col-sm-12">
+                                                <input class="pro-controls" type="text" id="itoplbloption2" data-label="option" data-area="label" placeholder="label">
+                                             </div>
+                                             <div class="col-sm-12">
+                                                <input class="pro-controls" type="text" id="itopvaloption3" data-label="option" data-area="value" placeholder="value">
+                                                <button  class="btnopticons" onclick="Deletetopoptnbtnclick();"> <i class="far fa-trash-alt"></i> </button>
+                                             </div>
+                                             <div class="col-sm-12">
+                                                <input class="pro-controls" type="text" id="itoplbloption3" data-label="option" data-area="label" placeholder="label">
+                                             </div>
+                                             <div class="col-sm-12">
+                                                <input class="pro-controls" type="text" id="itopvaloption4" data-label="option" data-area="value" placeholder="value">
+                                                <button class="btnopticons" onclick="Deletetopoptnbtnclick();"> <i class="far fa-trash-alt"></i> </button>
+                                             </div>
+                                             <div class="col-sm-12">
+                                                <input class="pro-controls" type="text" id="itoplbloption4" data-label="option" data-area="label" placeholder="label">
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="panel-body advancefields" id="imageoptions" style="display:none;">
+                                          <div class="col-sm-12">
+                                             <div class="col-sm-5"><button id="btnAddimgoption" class="btnopticons" onclick="Addoptnimgbtnclick();"><i class="fa fa-plus""></i>Add option  </button></div>
+                                             <div class="col-sm-6"><button id="btnRemoveimgoption" class="btnopticons" onclick="Removeoptnimgbtnclick();"> <i class="fa fa-minus"></i>Remove Option  </button></div>
+                                          </div>
+                                          <div class="row seloptions" id="imageselectoptions">
+                                             <div class="col-sm-12">
+                                                <input type="file" class="pro-controls" id="ilblimgoption1" accept=".jpg,.jpeg.,.gif,.png" data-label="imgoption" data-area="label" />   
+                                                <button  class="btnopticons" onclick="Deleteimgoptnbtnclick();"> <i class="far fa-trash-alt"></i> </button>
+                                             </div>
+                                             <div class="col-sm-12">
+                                                <input class="pro-controls" type="text" id="ivalimgoption1" data-label="imgoption" data-area="value" placeholder="value">
+                                             </div>
+                                             <div class="col-sm-12">
+                                                <input type="file" class="pro-controls" id="ilblimgoption2" accept=".jpg,.jpeg.,.gif,.png" data-label="imgoption" data-area="label" />   
+                                                <button  class="btnopticons" onclick="Deleteimgoptnbtnclick();"> <i class="far fa-trash-alt"></i> </button>
+                                             </div>
+                                             <div class="col-sm-12">
+                                                <input class="pro-controls" type="text" id="ivalimgoption2" data-label="imgoption" data-area="value" placeholder="value">
+                                             </div>
+                                             <div class="col-sm-12">
+                                                <input type="file" class="pro-controls" id="ilblimgoption3" accept=".jpg,.jpeg.,.gif,.png" data-label="imgoption" data-area="label" />   
+                                                <button  class="btnopticons" onclick="Deleteimgoptnbtnclick();"> <i class="far fa-trash-alt"></i> </button>
+                                             </div>
+                                             <div class="col-sm-12">
+                                                <input class="pro-controls" type="text" id="ivalimgoption3" data-label="imgoption" data-area="value" placeholder="value">
+                                             </div>
+                                             <div class="col-sm-12">
+                                                <input type="file" class="pro-controls" id="ilblimgoption4" accept=".jpg,.jpeg.,.gif,.png" data-label="imgoption" data-area="label" placeholder="abc" />   
+                                                <button  class="btnopticons" onclick="Deleteimgoptnbtnclick();"> <i class="far fa-trash-alt"></i> </button>
+                                             </div>
+                                             <div class="col-sm-12">
+                                                <input class="pro-controls" type="text" id="ivalimgoption4" data-label="imgoption" data-area="value" placeholder="value">
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="row" style="width: 100%;">
+                                       <div class="col-sm-12">
+                                          <div class="panel-group advancefields" id="divseldfault" role="tablist" aria-multiselectable="true" style="display:none;">
+                                             <div class="panel panel-default">
+                                                <div class="panel-heading" role="tab" id="headingTwo">
+                                                   <h4 class="panel-title"> <a class="collapsed" data-toggle="collapse" data-parent="#divseldfault" href="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">Advance <i class="fas fa-angle-down"></i></a> </h4>
+                                                </div>
+                                                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                                   <div class="panel-body">
+                                                      <div class="col-sm-12 divassg">
+                                                         <div class="checkbox checkbox-warning"><input id="chklblAssign" type="checkbox" class="styled optchk" onchange="Assignbtnclick(this);" ><label for="chklblAssign" class="proplbl" id="lblAssing" >Assign Values to options</label></div>
+                                                      </div>
+                                                      <div class="col-sm-12 defopt">
+                                                         <label id='lblDefault' class="optlbl">Default Options</label>
+                                                         <select name="selectdefault" id="selectdefault" onchange="seldefaultChange(this);">
+                                                         </select>
+                                                      </div>
+                                                      <div class="col-sm-12 matrixadvancefields">
+                                                         <label id='matrxlblDefault' class="optlbl">Input Type</label>
+                                                         <select name="matrixselectoptions" id="matrixselectoptions" onchange="seltinputtypechange(this);">
+                                                            <option>Single Choice</option>
+                                                            <option>Multiple Choice</option>
+                                                         </select>
+                                                      </div>
+                                                      <div class="col-sm-12 defoptrsn" style="display: none;">
+                                                         <label id='lbldfltopteason' class="optlbl">Default Option Reason</label>
+                                                         <div class="pro-controls"  id="inputdfltopteason" st></div>
+                                                         <div id="inputdfltpycounter" style="color:red;">Maximum words allowed 100</div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="tab-pane" id="logic">
+                                 <div class="row" id="logicfields">
+                                    <div class="col-sm-12" id="logicmain">
+                                       <div class="panel-heading">
+                                          <h4 class="panel-title"><a>Element Logic </a> </h4>
+                                          <p>Only display this element when specific rules are met</p>
+                                       </div>
+                                       <div class="panel-body" id="logicoptions">
+                                          <div class="col-sm-12">
+                                             <div class="col-sm-5"><button id="btnlogiceleAddoption" class="btnopticons" onclick="Addlogicelebtnclick();"><i class="fa fa-plus""></i>Add Element  </button></div>
+                                             <div class="col-sm-7"><button id="btnlogiceleRemoveoption" class="btnopticons" onclick="Removelogicelebtnclick();"> <i class="fa fa-minus"></i>Remove Element(s)  </button></div>
+                                          </div>
+                                          <div class="col-sm-12" id="logicfieldsearchdiv" style="display: none;">
+                                             <div id="logicfieldinputsearchdiv">
+                                                <h4 class="panel-title"><a>Select an element</a> </h4>
+                                                <p>Add an element which will act as a trigger</p>
+                                                <span class="fas fa-search"></span>
+                                                <input type="text" id="logicinpufieldSearch" onkeyup="mylogicfieldSearchFunction()" class="pro-controls" placeholder="Type an Element Name.." title="Type an Element Name..">
+                                             </div>
+                                             <ul name="logicfieldsearch" id="logicfieldsearch" class="lielemnts">
+                                             </ul>
+                                          </div>
+                                          <div class="col-sm-12" id="logicaddedelements">
+                                             <div id="logicmessage">
+                                                Click "+ Add element" above to start adding logic to this element.
+                                             </div>
+                                             <div id="previewlogic">
+                                                <ul class="elementslist">
+                                                </ul>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-sm-12" id="logicinner" style="display: none;">
+                                       <div class="panel-heading">
+                                          <h4 class="panel-title"><a onclick="blacktomainlogic(this);"><span class="fas fa-angle-left pull-left"></span> Element Logic </a> </h4>
+                                          <p>Define when this logic rule is supposed to be triggered</p>
+                                       </div>
+                                       <div class="col-sm-12" id="logicselectoptions" style="display: none;">
+                                          <p>
+                                             Display this element if
+                                             <select id="logicoptionselect" onchange="logicoptionselectChange(this);">
+                                                <option value="and">All</option>
+                                                <option value="or">Any</option>
+                                             </select>
+                                             of the following matches:
+                                          </p>
+                                       </div>
+                                       <div class="panel-body" id="ruleoptions">
+                                          <div class="col-sm-12">
+                                             <h4 class="panel-title">Logic Defination</h4>
+                                             <input type="hidden" id="logicruleeletype" name="logicruleeletype" value="">
+                                          </div>
+                                          <div class="col-sm-12">
+                                             <div class="col-sm-5"><button id="btnruleeleAddoption" class="btnopticons" onclick="Addruleelebtnclick();"><i class="fa fa-plus""></i>Add Rule  </button></div>
+                                             <div class="col-sm-7"><button id="btnruleeleDeleteoption" class="btnopticons" onclick="Removeruleelebtnclick();"> <i class="fa fa-minus"></i>Remove Rule(s)  </button></div>
+                                          </div>
+                                          <div class="col-sm-12" id="ruleaddedelements">
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="tempdiv" style="display:none;"></div>
+      <script src="{% static 'assets/form/script4.js' %}"></script>
+      <script src="{% static 'assets/form/select2.js' %}"></script>
+      <div id="codein"></div>
+   </body>
+</html>
+{% endblock %}

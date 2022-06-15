@@ -1,0 +1,724 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>TalentSumo - Students Lists</title>
+
+    <link rel="icon" href="{% static 'assets/img/logo.png' %}"  type="image/png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}"  />
+    <!-- themefy CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/themefy_icon/themify-icons.css' %}"  />
+    <!-- select2 CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/niceselect/css/nice-select.css' %}"  />
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/owl_carousel/css/owl.carousel.css' %}"  />
+    <!-- gijgo css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/gijgo/gijgo.min.css' %}"  />
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/font_awesome/css/all.min.css' %}"  />
+    <link rel="stylesheet" href="{% static 'assets/vendors/tagsinput/tagsinput.css' %}"  />
+
+    <!-- date picker -->
+     <link rel="stylesheet" href="{% static 'assets/vendors/datepicker/date-picker.css' %}"  />
+
+     <link rel="stylesheet" href="{% static 'assets/vendors/vectormap-home/vectormap-2.0.2.css' %}"  />
+     
+     <!-- scrollabe  -->
+     <link rel="stylesheet" href="{% static 'assets/vendors/scroll/scrollable.css' %}"  />
+    <!-- datatable CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/datatable/css/jquery.dataTables.min.css' %}"  />
+    <link rel="stylesheet" href="{% static 'assets/vendors/datatable/css/responsive.dataTables.min.css' %}"  />
+    <!-- text editor css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/text_editor/summernote-bs4.css' %}"  />
+    <!-- morris css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/morris/morris.css' %}" >
+    <!-- metarial icon css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/material_icon/material-icons.css' %}"  />
+
+    <!-- menu css  -->
+    <link rel="stylesheet" href="{% static 'assets/css/metisMenu.css' %}" >
+    <!-- style CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}"  />
+    <link rel="stylesheet" href="{% static 'assets/css/colors/default.css' %}"  id="colorSkinCSS">
+</head>
+<body class="crm_body_bg">
+    
+<style>
+#importstudentModel .import-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  margin-top: 3%;
+}
+#importstudentModel input[type="file"] {
+  display: none;
+}
+#importstudentModel select
+{
+    margin-top: 2%;
+}
+#Students_Listform input[type="text"],#importstudentModel select
+{
+    width: 100%;
+    border: 1px solid #E5ECFF;
+    background-color: white !important;
+    height: 40px;
+    margin-bottom: 2%;
+}
+.editList
+{
+    margin-right: 2%;
+    color: #007bff !important;
+}
+.deleteList
+{
+    margin-right: 2%;
+    color: red !important; 
+}
+.sformlbl
+{
+    line-height: 60px;
+    font-weight: 700;
+    font-size: 18px;
+}
+.revcom
+{
+    color:green;
+}
+    .metismenu li a.active .nav_title span:hover
+    {
+        color:#19191a !important;
+    }
+    .floated {
+   float:left;
+   margin-right:5px;
+}
+.search_field select {
+    height: 35px;
+    width: 100%;
+    margin: auto;
+    margin-top: 2%;
+}
+.cmargin
+{
+    margin-left: -15%;  
+}
+.tbltool
+{
+    color:cadetblue;
+}
+.reportsent
+{
+    width: 70%;
+    background: green;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+    font-size: 12px;
+}
+ #tbl_formData_info td:last-child ,  #tbl_formData_info th:last-child{
+     width: 40%;
+ }
+ .alert-msg
+    {
+        color: red;
+        text-align: left !important;
+        width: 100%;
+        float: left;
+    }
+.reportnotsent
+{
+    width: 70%;
+    background: orangered;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+    font-size: 12px;
+}
+#memberEmail
+{
+    width: 100%;
+    height: 40px;
+    border: 1px solid #dddddd;
+    color: #333333;
+    margin-bottom: 5%;
+}
+.deleteMember
+{
+    color: red !important;
+}
+#profileDetails input,textarea
+{
+    border: 1px solid #E5ECFF;
+    background-color: white !important;
+}
+#profileDetails label{
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+}
+.opty img
+{
+    opacity: 0.7;
+}
+</style>
+
+<!-- main content part here -->
+ 
+ <!-- sidebar  -->
+ <nav class="sidebar">
+    <div class="logo d-flex justify-content-between">
+        <a class="large_logo" href="{% url 'home' %}"><img src="{% static 'assets/img/logo.png' %}"  alt=></a>
+        <a class="small_logo" href="{% url 'home' %}"><img src="{% static 'assets/img/logo.png' %}"  alt=></a>
+        <div class="sidebar_close_icon d-lg-none">
+            <i class="ti-close"></i>
+        </div>
+    </div>
+    <ul id="sidebar_menu">
+        <li class=>
+            <a href="{% url 'home' %}" aria-expanded="false">
+                <div class="nav_icon_small">
+                    <img src="{% static 'assets/img/menu-icon/dashboard.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Dashboard </span>
+                </div>
+            </a>
+        </li>
+        <li class=>
+            <a href="{% url 'students' %}" aria-expanded="false">
+                <div class="nav_icon_small">
+                    <img src="{% static 'assets/img/menu-icon/students.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Students List</span>
+                </div>
+            </a>
+        </li>
+           <li class=>
+            <a href="{% url 'workspace' %}" aria-expanded="false">
+                <div class="nav_icon_small">
+                    <img src="{% static 'assets/img/menu-icon/form.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Workspace </span>
+                </div>
+            </a>
+        </li>
+              {% if request.session.Plan == 'Tier Four' %}
+            <li class=>
+                <a href="{% url 'aifeedback' %}" aria-expanded="false">
+                    <div class="nav_icon_small opty">
+                        <img src="{% static 'assets/img/menu-icon/feedback.png' %}"  alt=>
+                    </div>
+                    <div class="nav_title">
+                        <span>AI Feedback </span>
+                    </div>
+                </a>
+            </li>
+        {% endif %}
+        <li class=>
+            <a href="{% url 'team' %}" aria-expanded="false">
+                <div class="nav_icon_small opty">
+                    <img src="{% static 'assets/img/menu-icon/team.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Team Members </span>
+                </div>
+            </a>
+        </li>
+        <li class=>
+            <a href="{% url 'Campaign' %}" aria-expanded="false">
+                <div class="nav_icon_small opty">
+                    <img src="{% static 'assets/img/menu-icon/campaign.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Campaign Details </span>
+                </div>
+            </a>
+        </li>
+        <li class=>
+            <a href="{% url 'smtp' Id='1' %}" aria-expanded="false">
+                <div class="nav_icon_small opty">
+                    <img src="{% static 'assets/img/menu-icon/settings.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Settings </span>
+                </div>
+            </a>
+        </li>
+        <li class=>
+            <a href="{% url 'profile' %}" aria-expanded="false">
+                <div class="nav_icon_small opty">
+                    <img src="{% static 'assets/img/menu-icon/user.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Profile </span>
+                </div>
+            </a>
+        </li>
+      </ul>
+</nav>
+ <!--/ sidebar  -->
+
+
+<section class="main_content dashboard_part large_header_bg">
+        <!-- menu  -->
+    <div class="container-fluid no-gutters">
+        <div class="row">
+            <div class="col-lg-12 p-0 ">
+                <div class="header_iner d-flex justify-content-between align-items-center">
+                    <div class="sidebar_icon d-lg-none">
+                        <i class="ti-menu"></i>
+                    </div>
+                    <div class="line_icon open_miniSide d-none d-lg-block">
+                        <img src="{% static 'assets/img/line_img.png' %}"  alt=>
+                    </div>
+                    <div class="serach_field-area d-flex align-items-center">
+                    </div>
+                    <div class="header_right d-flex justify-content-between align-items-center">
+                        <!--<div class="header_notification_warp d-flex align-items-center">
+                            <li>
+                                <a class="CHATBOX_open" href="#"> <img src="{% static 'assets/img/icon/msg.svg' %}"  alt=> <span>2</span>  </a>
+                            </li>
+                        </div>-->
+                        <div class="profile_info">
+                            <img src="{% static 'assets/img/client_img.png' %}"  alt="#">
+                           <div class="profile_info_iner">
+                                <div class="profile_author_name">
+                                    <h5>{{ request.session.userName }}</h5>
+                                </div>
+                                <div class="profile_info_details">
+                                    <a href="{% url 'profile' %}">Profile </a>
+                                </div>
+                                <div class="profile_info_details">
+                                    <a href="{% url 'team'%}">Team Members </a>
+                                </div>
+                                <div class="profile_info_details">
+                                    <a href="{% url 'smtp' Id='1'%}">Settings </a>
+                                </div>
+                                <div class="profile_info_details">
+                                    <a href="/logout">Log Out </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ menu  -->
+    <div class="main_content_iner overly_inner ">
+        <div class="container-fluid p-0 ">
+            <!-- page title  -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page_title_box d-flex flex-wrap align-items-center justify-content-between">
+                        <div class="page_title_left d-flex align-items-center">
+                            <h3 class="f_s_25 f_w_700 dark_text mr_30" >Lists Details</h3>
+                        </div>
+                        <div class="page_title_right">
+                            <div class="page_date_button d-flex align-items-center"> 
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="white_card card_height_100 mb_30 pt-4">
+                        <div class="white_card_body">
+                            <div class="QA_section">
+                                <div class="white_box_tittle list_header">
+                                    <input type="hidden" id="userplan" name="userplan" value="{{ request.session.Plan }}">
+                                    <div class="row justify-content-center p-0 m-0" style="width: 100%;margin: 0px;">
+                                        <div class="col-sm-10">
+                                        </div>
+                                          <div class="col-sm-2">
+                                            <a  onclick="showimportList();" class="btn_1">Import Students</a>
+                                          </div>
+                                    </div>
+                                    </div>
+                                </div>       
+                                <div class="QA_table mb_30">
+                                    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+                                        <table class="table table-custom ng-scope ng-table" id='tbl_listsData'>
+                                            <thead class="ng-scope">
+                                            <tr>
+                                            <th class="header ">Sr. No</th>
+                                            <th class="header ">List Name</th></th>
+                                            <th class="no-sort"></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                            </table>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="listAddModel" tabindex="-1" role="dialog" aria-labelledby="updatedStatusTitle" data-backdrop="static" data-keyboard="false" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="listtitle">List Creation Wizard</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">
+             <form id="Students_Listform">
+                    {% csrf_token %}
+                  <div class="row" style="width: 100%;text-align: left;padding-left: 4%;">
+                      <div class="col-lg-12">
+                            <input type="hidden" id="addlistid" name="addlistid" value="">
+                            <input type="text" id="listName" name="listName" required placeholder="List Name" value="List Name">
+                            <label id="ealert-msg" class="alert-msg text-center" style="display: none;">This list already exits.</label>
+                        </div>
+                          <div class="col-lg-12" style="text-align: right;">
+                              <button type="submit" id="listaddsubmit"  class="btn_1">Add Now</button>
+                        </div>
+                </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="ListDeleteModel" tabindex="-1" role="dialog" aria-labelledby="updatedStatusTitle" data-backdrop="static" data-keyboard="false" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="">Remove List Wizard</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="row" style="width: 100%;text-align: left;padding-left: 4%;">
+                    <div class="col-lg-12 mb-2">
+                          <input type="hidden" id="listid" name="listid" value="">
+                          <strong>Are u sure you want to remove this list?</strong>
+                      </div>
+                      <div class="col-lg-12" style="margin-bottom: 5%;">
+                        <span>Note: removing this list will delete all the students associated with this list.</span>
+                    </div>
+                        <div class="col-lg-12" style="text-align: right;">
+                            <button type="submit" id="listDelsubmit" class="btn_1">Remove List</button>
+                      </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="importstudentModel" tabindex="-1" role="dialog" aria-labelledby="updatedStatusTitle" data-backdrop="static" data-keyboard="false" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="listimporttitle">Import Students Wizard</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">
+             <form id="import_Listform">
+                    {% csrf_token %}
+                  <div class="row" style="width: 100%;text-align: left;padding-left: 4%;">
+                    <div class="col-lg-12 mb-2">
+                        <strong>Enter Name of the list where you want to import?</strong>
+                        <input type="text" id="import_stud_li_sel" name="import_stud_li_sel" class="form-control" required>
+                    </div>
+                    <div class="col-lg-12 mb-2">
+                        <strong>Sample Student List</strong>
+                        <textarea  id="import_sample_list" name="import_sample_list" class="form-control" rows="3" readonly>https://docs.google.com/spreadsheets/d/1xDm8eGkR_9xX1vwCIAHddediO4CsBBjb7GZHKxxNm34/edit?usp=sharing</textarea>
+                    </div>
+                    <div class="col-lg-12 mb-2" style="text-align: center;">
+                        <strong>Choose file to import list?</strong>
+                        <br>
+                        <label for="import_choose_file" class="import-file-upload">
+                            <i class="fas fa-upload"></i> Upload Answer Template
+                        </label>
+                        <input id="import_choose_file" type="file" accept=".xlsx, .xls, .csv" required/>
+                    </div>
+                          <div class="col-lg-12" style="text-align: right;">
+                              <button type="submit" id="listimportsubmit"  class="btn_1">Import Now</button>
+                        </div>
+                </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+<!-- footer part -->
+<div class="footer_part">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="footer_iner text-center">
+                    <p>2022 © copyrights <a href="#"> <i class="ti-heart"></i> </a><a href="#"> Talent Sumo</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<!-- main content part end -->
+
+<!-- ### CHAT_MESSAGE_BOX   ### -->
+
+
+<!--/### CHAT_MESSAGE_BOX  ### -->
+
+<!--<div id="back-top" style="display: none;">
+    <a title="Go to Top" href="#">
+        <i class="ti-angle-up"></i>
+    </a>
+</div>-->
+
+<!-- footer  -->
+<script src="{% static 'assets/js/jquery-3.4.1.min.js' %}" ></script>
+<!-- popper js -->
+<script src="{% static 'assets/js/popper.min.js' %}" ></script>
+<!-- bootstarp js -->
+<script src="{% static 'assets/js/bootstrap.min.js' %}" ></script>
+<!-- sidebar menu  -->
+<script src="{% static 'assets/js/metisMenu.js' %}" ></script>
+<!-- waypoints js -->
+<script src="{% static 'assets/vendors/count_up/jquery.waypoints.min.js' %}" ></script>
+<!-- waypoints js -->
+<script src="{% static 'assets/vendors/chartlist/Chart.min.js' %}" ></script>
+<!-- counterup js -->
+<script src="{% static 'assets/vendors/count_up/jquery.counterup.min.js' %}" ></script>
+
+<!-- nice select -->
+<script src="{% static 'assets/vendors/niceselect/js/jquery.nice-select.min.js' %}" ></script>
+<!-- owl carousel -->
+<script src="{% static 'assets/vendors/owl_carousel/js/owl.carousel.min.js' %}" ></script>
+
+<!-- responsive table -->
+<script src="{% static 'assets/vendors/datatable/js/jquery.dataTables.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/dataTables.responsive.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/jszip.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/pdfmake.min.js" ></script>
+<script src="{% static 'assets/vendors/datatable/js/vfs_fonts.js' %}" ></script>
+
+<!-- datepicker  -->
+<script src="{% static 'assets/vendors/datepicker/datepicker.js' %}" ></script>
+<script src="{% static 'assets/vendors/datepicker/datepicker.en.js' %}" ></script>
+<script src="{% static 'assets/vendors/datepicker/datepicker.custom.js' %}" ></script>
+
+<script src="{% static 'assets/js/chart.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/chartjs/roundedBar.min.js' %}" ></script>
+
+<!-- progressbar js -->
+<script src="{% static 'assets/vendors/progressbar/jquery.barfiller.js' %}" ></script>
+<!-- tag input -->
+<script src="{% static 'assets/vendors/tagsinput/tagsinput.js' %}" ></script>
+<!-- text editor js -->
+<script src="{% static 'assets/vendors/text_editor/summernote-bs4.js' %}" ></script>
+
+		<script>				
+		$(document).ready(function() {
+            $.ajax({
+		type:"POST",
+		url: "/get_lists/",
+		data: {},
+		success: function(data2) 
+		{ 
+            $("#tbl_listsData tbody").empty();
+            $.each(data2, function(i, v) {
+                $("#tbl_listsData tbody").append('<tr><td>'+(i+1)+'</td><td>'+data2[i][1]+'</td><td><a href="https://test.techdivaa.com/studentslists/'+data2[i][0]+'" id="view_'+data2[i][0]+'" class="editList">Student Details</a></td></tr>');
+            });
+            var  table =$('#tbl_listsData').DataTable({
+                dom: 'lBfrtip',
+		        "lengthMenu": [[10,50, 100, 150, -1], [10,50, 100, 150, "All"]],
+		        "fixedColumns": true,
+		        "order": [[ 1, "asc" ]],
+		        "columnDefs": [{ targets: 'no-sort', orderable: false }],
+		        "bDestroy": true,
+		    });
+		}
+    });
+    $("#import_Listform").submit(function(e)
+    {
+        e.preventDefault();
+        var extension=$('#import_choose_file').val().replace(/^.*\./, '');
+	    var fd = new FormData();
+	    var files = $('#import_choose_file')[0].files;
+	    fd.append('file',files[0]);
+        fd.append('extension',extension);
+	    fd.append('listid',$('#import_stud_li_sel').val());
+	    var xhr=new XMLHttpRequest();
+	    xhr.open("POST","/import_students/",true);
+		xhr.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				if (xhr.status === 200) {
+					var data=xhr.responseText;
+					if(data == 'sucess')
+					{
+                        $('#import_Listform').trigger("reset");
+                        $("#importstudentModel").modal('hide');
+                        refreshLists();
+					}
+				} 
+				else {
+					console.log("Error", xhr.statusText);
+				}
+			}
+		};
+	    xhr.send(fd);
+        return false;
+    });
+    $("#Students_Listform").submit(function(e)
+    {
+        e.preventDefault();
+        error_message = $("#ealert-msg").text();
+        if(error_message == 'valid')
+        {
+            $("#ealert-msg").hide();
+            btn_text = $("#listaddsubmit").text();
+            if(btn_text.trim() == "Add Now")
+            {
+                $.ajax({
+                    type: "POST",
+                    url: "/add_list/",
+                    data: { 'ulistName': $('#listName').val() },
+                    success: function (data) {
+                        if (data == "success") {
+                            $('#Students_Listform').trigger("reset");
+                            $("#listAddModel").modal('hide');
+                            refreshLists();
+                        }
+                    }
+                });
+            }
+            else if(btn_text.trim() == "Update Now")
+            {
+                $.ajax({
+                    type: "POST",
+                    url: "/update_list/",
+                    data: { 'ulistid': $('#addlistid').val(),'ulistName': $('#listName').val() },
+                    success: function (data) {
+                        if (data == "success") {
+                            $('#Students_Listform').trigger("reset");
+                            $("#listAddModel").modal('hide');
+                            refreshLists();
+                        }
+                    }
+                });
+            }
+        }
+        else{
+            $("#ealert-msg").show();
+            $("#ealert-msg").text("Please enter a valid List Name");
+        }
+    });
+    $('#listName').on("change", function(e){
+        $.ajax({
+            type: "GET",
+            url: "/check_list/",
+            data: { 'ulistName': $('#listName').val() },
+            success: function (data) {
+                if (data == "Exits") {
+                    $("#ealert-msg").show();
+                    $("#ealert-msg").text("This list already exits.");
+                }
+                else {
+                    $("#ealert-msg").hide();
+                    $("#ealert-msg").text("valid");
+                }
+            }
+        });
+    });
+    $("#listDelsubmit").click(function(e){
+        $.ajax({
+            type: "POST",
+            url: "/delete_list/",
+            data: { 'ulistid': $('#listid').val() },
+            success: function (data) {
+                if (data == "success") {
+                    $("#listid").val('');
+                    $("#ListDeleteModel").modal('hide');
+                    refreshLists();
+                }
+            }
+        });
+    });
+});
+
+function showAddList()
+{
+    $('#Students_Listform').triger("reset");
+    $("#listtitle").text("Create List Wizard");
+    $("#listaddsubmit").text("Add Now");
+    $("#listName").val('');
+    $("#addlistid").val('');
+    $("#listAddModel").modal('show');
+}
+function listEdit(ev)
+{
+    var row=$("#"+ev).closest("tr");
+    var id=$("#"+ev).attr("data_label");
+    var listName=$("td:eq(0)",row).text();
+    $('#Students_Listform').trigger("reset");
+    $("#listtitle").text("Edit List Wizard");
+    $("#listName").val(listName);
+    $("#addlistid").val(id);
+    $("#listaddsubmit").text("Update Now");
+    $("#listAddModel").modal('show');
+}
+function listDelete(ev)
+{
+    var id=$("#"+ev).attr("data_label");
+    $("#listid").val(id);
+    $("#ListDeleteModel").modal('show');
+}
+
+
+function refreshLists()
+{
+    $('#tbl_listsData').dataTable().fnDestroy();
+    $.ajax({
+		type:"POST",
+		url: "/get_lists/",
+		data: {},
+		success: function(data2) 
+		{ 
+            $("#tbl_listsData tbody").empty();
+            $.each(data2, function(i, v) {
+                $("#tbl_listsData tbody").append('<tr><td>'+(i+1)+'</td><td>'+data2[i][1]+'</td><td><a href="https://test.techdivaa.com/studentslists/'+data2[i][0]+'" id="view_'+data2[i][0]+'" class="editList">Student Details</a></td></tr>');
+            });
+            var  table =$('#tbl_listsData').DataTable({
+                dom: 'lBfrtip',
+		        "lengthMenu": [[10,50, 100, 150, -1], [10,50, 100, 150, "All"]],
+		        "fixedColumns": true,
+		        "order": [[ 1, "asc" ]],
+		        "columnDefs": [{ targets: 'no-sort', orderable: false }],               
+		        "bDestroy": true,
+		    });
+		}
+    });
+}
+
+function showimportList()
+{
+    $("#import_stud_li_sel").val("");
+    $("#importstudentModel").modal('show');
+}
+</script>
+<script src="{% static 'assets/js/custom.js' %}"></script>
+</body>
+</html>
+
+
+{% endblock %}

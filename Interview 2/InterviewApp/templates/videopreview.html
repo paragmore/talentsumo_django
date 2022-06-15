@@ -1,0 +1,107 @@
+{% load static %}
+{% block content %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <link rel="shortcut icon" href="{% static 'assets/video/images/talentsumo.png' %}" />
+    <!-- Bootstrap CSS -->
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'assets/video/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/video/css/main.css' %}">
+
+    <!-- Google icon -->
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+
+    <title>Talent Sumo</title>
+</head>
+<body>
+    <!-- Just an image -->
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+             <img src="{% static 'assets/video/images/talentsumoLogo.jpg' %}" height="100" alt="">
+        </a>
+    </nav>
+    <!-- nav image end -->
+    <div class="container" id="previewcontainer">
+         <input type="hidden" id="videostatus" name="videostatus" value="Not Exits">
+        <div class="row ">
+            <div class="col-12 videopage">
+                
+                    <div class="previewvideo">
+                        <video src=""></video>
+                        <button>
+                            <span class="material-icons-outlined">
+                                play_arrow
+                            </span>
+                        </button>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+      <div class="container" id="videocontainer" style="display:none;">
+        <div class="row ">
+            <div class="col-12 videopage">
+                
+                    <div class="previewvideo">
+                        <video id="preceedvideo" class="prowindow" playsinline="true"  autoplay="true" muted="muted" controls= "true" loop></video>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+     <script src="{% static 'assets/video/js/jquery-3.2.1.slim.min.js' %}"></script>
+    <script src="{% static 'assets/video/js/popper.min.js' %}"></script>
+    <script src="{% static 'assets/video/js/bootstrap.min.js' %}"></script>
+           <script>
+    var url = $(location).attr('href');
+    var filename = url.split('/').pop().split('#')[0].split('?')[0];
+    $(document).ready(function() {
+        getvideostatus(); 
+        setInterval(function() {
+            getvideostatus(); 
+        }, 30000); 
+    });
+    
+    function getvideostatus(){
+        var videostatus = $("#videostatus").val();
+        if(videostatus.trim() == 'Not Exits')
+        {
+            let xhr = new XMLHttpRequest(); 
+            xhr.open("POST", "https://test.techdivaa.com/checkvideo/"); 
+            xhr.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+            var response = this.responseText;  
+            if(response == "exits")
+            { 	
+                $("#videostatus").val("Exits");
+                $("#previewcontainer").hide();
+                $("#videocontainer").show();
+                var video = $('#videocontainer video')[0];
+                video.src = 'https://storage.googleapis.com/tal_interview_app_videos/'+filename;
+                video.load();
+                video.play();
+            }
+            else
+            {
+                $("#previewcontainer").show();
+                $("#videocontainer").hide();
+            }
+        }};
+        var frmName=new FormData();
+        frmName.append("uFileName",filename);
+        xhr.send(frmName);
+        }
+    }
+    </script>
+</body>
+</html>
+
+{% endblock %}

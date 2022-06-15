@@ -1,0 +1,1 @@
+from InterviewDashb.wsgi import application

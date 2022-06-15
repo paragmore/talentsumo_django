@@ -1,0 +1,1 @@
+from formApp.wsgi import application

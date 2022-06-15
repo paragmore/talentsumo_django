@@ -1,0 +1,150 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="UTF-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Response - TalentSumo</title>
+<link rel="icon" href="{% static 'assets/img/logo.png' %}" type="image/png">
+<script>document.documentElement.className = document.documentElement.className.replace("no-js","js");</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;900&amp;display=swap">
+<link rel="stylesheet" href="{% static 'assets/form/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/form/tailwind.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/form/normalize.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/form/animate.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/form/main.css' %}">  
+<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'assets/form/flipclock.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/form/style1.css' %}">
+<link rel="stylesheet" href="{% static 'assets/form/all.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/form/bars-square.css' %}">
+<link rel="stylesheet" href="{% static 'assets/form/basic.css' %}">
+<link rel="stylesheet" href="{% static 'assets/form/dropzone.css' %}">
+<link rel="stylesheet" href="{% static 'assets/form/asPieProgress.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/form/fontawesome.min.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css">
+<script src="{% static 'assets/form/fontawesome.min.js' %}"></script>
+<script src="{% static 'assets/form/jquery-2.2.4.min.js' %}"></script>
+<script src="{% static 'assets/form/popper.min.js' %}"></script>
+<script src="{% static 'assets/form/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/form/jquery.validate.min.js' %}"></script>
+<script src="{% static 'assets/form/jquery.barrating.min.js' %}"></script>
+<script src="{% static 'assets/form/jquery-asPieProgress.min.js' %}"></script>
+<script src="{% static 'assets/form/flipclock.min.js' %}"></script>
+<script src="{% static 'assets/form/inline.js' %}"></script>
+<script src="{% static 'assets/form/all.min.js' %}"></script>
+<script src="{% static 'assets/form/jQuery.slider.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
+<link rel="stylesheet" href="{% static 'assets/form/codemirror.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/form/material-ocean.css' %}">
+<link rel="stylesheet" href="{% static 'assets/form/show-hint.css' %}">
+<script src="{% static 'assets/form/jquery-ui.js' %}"></script>
+<script src="{% static 'assets/form/codemirror.min.js' %}"></script>
+<script src="{% static 'assets/form/xml.js' %}"></script>
+<script src="{% static 'assets/form/javascript.js' %}"></script>
+<script src="{% static 'assets/form/css.js' %}"></script>
+<script src="{% static 'assets/form/htmlmixed.js' %}"></script>
+<script src="{% static 'assets/form/matchbrackets.js' %}"></script>
+<script src="{% static 'assets/form/show-hint.js' %}"></script>
+<script src="{% static 'assets/form/javascript-hint.js' %}"></script>
+<script src="{% static 'assets/form/html-hint.js' %}"></script>
+<script src="{% static 'assets/form/jsx.min.js' %}"></script>
+<script src="{% static 'assets/form/comment.min.js' %}"></script>
+<script src="{% static 'assets/form/active-line.min.js' %}"></script>
+<script src="{% static 'assets/form/foldgutter.min.js' %}"></script>
+<script src="{% static 'assets/form/brace-fold.min.js' %}"></script>
+<script src="{% static 'assets/form/indent-fold.min.js' %}"></script>
+<script src="{% static 'assets/form/closebrackets.min.js' %}"></script>
+<script src="{% static 'assets/form/matchbrackets.min.js' %}"></script>
+<script src="{% static 'assets/form/python.min.js' %}"></script>
+<script src="{% static 'assets/form/xml-hint.js' %}"></script>
+<script src="{% static 'assets/form/css-hint.js' %}"></script>
+<script src="{% static 'assets/form/sublime.js' %}"></script>
+<script src="{% static 'assets/form/clike.js' %}"></script>
+<script src="{% static 'assets/form/php.js' %}"></script>
+</head>
+<body>
+<div class="tem_div">
+</div> 	
+<div class="progressmain" id="progress">
+<div class="bar" id="bar"></div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-12 col-xs-12">
+<section class="multi-step-form">
+	<form  id="review_form">
+		{% for col in data %}
+			{% if col.field == 'commReview' %}
+				<fieldset id="fieldques{{forloop.counter}}"><p>	<button class="removeButton btn-prev" type="button" aria-controls="fieldques{{forloop.counter|add:"-1"}}"  onclick="prevbtnclick(this);"><i class="far fa-arrow-alt-circle-up"></i>Return</button></p><div class="lbl"><span>Overall Feedback</span></div><input class="form-control input" type="text" data-type="text" value="{{col.ans}}"><p class="controls" aria-hidden="true"><button class="nextButton btn-next" type="button" aria-controls="fieldques{{forloop.counter|add:"1"}}" onclick="nextbtnclick(this);">Next</button><button class="btn btn-default btn-enter" type="button" aria-controls="fieldques{{forloop.counter|add:"1"}}" onclick="enterbtnclick(this);">Press <span class="f-string-em">Enter</span></button></p></fieldset>
+			{% elif col.field == 'overGrade' %}
+				<fieldset id="fieldques{{forloop.counter}}"><p>	<button class="removeButton btn-prev" type="button" aria-controls="fieldques{{forloop.counter|add:"-1"}}"  onclick="prevbtnclick(this);"><i class="far fa-arrow-alt-circle-up"></i>Return</button></p><div class="lbl"><span>OverAll Grade</span></div><input class="form-control input" type="text" data-type="text" value="{{col.ans}}"></fieldset>
+			{% elif col.field == 'AutoGrade' %}
+				<fieldset id="fieldques{{forloop.counter}}"><p>	<button class="removeButton btn-prev" type="button" aria-controls="fieldques{{forloop.counter|add:"-1"}}"  onclick="prevbtnclick(this);"><i class="far fa-arrow-alt-circle-up"></i>Return</button></p><div class="lbl"><span>Auto Grade</span></div><input class="form-control input" type="text" data-type="text" value="{{col.ans}}"><p class="controls" aria-hidden="true"><button class="nextButton btn-next" type="button" aria-controls="fieldques{{forloop.counter|add:"1"}}" onclick="nextbtnclick(this);">Next</button><button class="btn btn-default btn-enter" type="button" aria-controls="fieldques{{forloop.counter|add:"1"}}" onclick="enterbtnclick(this);">Press <span class="f-string-em">Enter</span></button></p></fieldset>
+			{% elif col.rev != 'No' and col.ans|length > 0 %}
+				<fieldset id="fieldques{{forloop.counter}}">
+					<p>	<button class="removeButton btn-prev" type="button" aria-controls="fieldques{{forloop.counter|add:"-1"}}"  onclick="prevbtnclick(this);"><i class="far fa-arrow-alt-circle-up"></i>Return</button></p>
+					{% if 'youtube' in col.que|lower or 'loom' in col.que|lower or 'vimeo' in col.que|lower  or 'talentsumo' in col.que|lower%}
+						<div class="lbla_v" ><iframe src="{{col.que}}"></iframe></div><input class="form-control input" type="text" data-type="text">
+					{% else %}
+						<div class="lbl"><span>{{col.que|title}}</span></div>
+					{% endif %}
+					<video width="320" height="240" controls src="{{col.ans}}" type="video/mp4"></video>
+					<p class="controls" aria-hidden="true"><button class="nextButton btn-next" type="button" aria-controls="fieldques{{forloop.counter|add:"1"}}" onclick="nextbtnclick(this);">Next</button><button class="btn btn-default btn-enter" type="button" aria-controls="fieldques{{forloop.counter|add:"1"}}" onclick="enterbtnclick(this);">Press <span class="f-string-em">Enter</span></button></p></fieldset>
+			{% elif col.rev != 'No' and col.ans|length == 0%}
+				<fieldset id="fieldques{{forloop.counter}}">
+					<p>	<button class="removeButton btn-prev" type="button" aria-controls="fieldques{{forloop.counter|add:"-1"}}"  onclick="prevbtnclick(this);"><i class="far fa-arrow-alt-circle-up"></i>Return</button></p>
+					{% if 'youtube' in col.que|lower or 'loom' in col.que|lower or 'vimeo' in col.que|lower  or 'talentsumo' in col.que|lower%}
+						<div class="lbla_v" ><iframe src="{{col.que}}"></iframe></div><input class="form-control input" type="text" data-type="text">
+					{% else %}
+						<div class="lbl"><span>{{col.que|title}}</span></div>
+					{% endif %}
+					<input class="form-control input" type="text" data-type="text" value="Not Applicable">
+					<p class="controls" aria-hidden="true"><button class="nextButton btn-next" type="button" aria-controls="fieldques{{forloop.counter|add:"1"}}" onclick="nextbtnclick(this);">Next</button><button class="btn btn-default btn-enter" type="button" aria-controls="fieldques{{forloop.counter|add:"1"}}" onclick="enterbtnclick(this);">Press <span class="f-string-em">Enter</span></button></p></fieldset>
+			{% elif forloop.counter == 1 %}
+				<fieldset id="fieldques{{forloop.counter}}">
+					<div class="lbl"><span>{{col.que|title}}</span></div>
+					<input class="form-control input" type="text" data-type="text" value="{{col.ans|title}}">
+					<p class="controls" aria-hidden="true"><button class="nextButton btn-next" type="button" aria-controls="fieldques{{forloop.counter|add:"1"}}" onclick="nextbtnclick(this);">Next</button><button class="btn btn-default btn-enter" type="button" aria-controls="fieldques{{forloop.counter|add:"1"}}" onclick="enterbtnclick(this);">Press <span class="f-string-em">Enter</span></button></p></fieldset>
+			{% elif forloop.counter == 2 %}
+				<fieldset id="fieldques{{forloop.counter}}">
+					<p>	<button class="removeButton btn-prev" type="button" aria-controls="fieldques{{forloop.counter|add:"-1"}}"  onclick="prevbtnclick(this);"><i class="far fa-arrow-alt-circle-up"></i>Return</button></p>
+					<div class="lbl"><span>{{col.que|title}}</span></div>
+					<input class="form-control input" type="text" data-type="text" value="{{col.ans}}"><p class="controls" aria-hidden="true"><button class="nextButton btn-next" type="button" aria-controls="fieldques{{forloop.counter|add:"1"}}" onclick="nextbtnclick(this);">Next</button><button class="btn btn-default btn-enter" type="button" aria-controls="fieldques{{forloop.counter|add:"1"}}" onclick="enterbtnclick(this);">Press <span class="f-string-em">Enter</span></button></p></fieldset>
+			{% elif  'data:image/png;base64' in col.ans %}
+				<fieldset id="fieldques{{forloop.counter}}">
+					<p>	<button class="removeButton btn-prev" type="button" aria-controls="fieldques{{forloop.counter|add:"-1"}}"  onclick="prevbtnclick(this);"><i class="far fa-arrow-alt-circle-up"></i>Return</button></p>
+					{% if 'youtube' in col.que|lower or 'loom' in col.que|lower or 'vimeo' in col.que|lower  or 'talentsumo' in col.que|lower%}
+						<div class="lbla_v" ><iframe src="{{col.que}}"></iframe></div><input class="form-control input" type="text" data-type="text">
+					{% else %}
+						<div class="lbl"><span>{{col.que|title}}</span></div>
+					{% endif %}
+					<img src="{{col.ans}}">
+					<p class="controls" aria-hidden="true"><button class="nextButton btn-next" type="button" aria-controls="fieldques{{forloop.counter|add:"1"}}" onclick="nextbtnclick(this);">Next</button><button class="btn btn-default btn-enter" type="button" aria-controls="fieldques{{forloop.counter|add:"1"}}" onclick="enterbtnclick(this);">Press <span class="f-string-em">Enter</span></button></p></fieldset>
+			{% else %}
+				<fieldset id="fieldques{{forloop.counter}}">
+					<p>	<button class="removeButton btn-prev" type="button" aria-controls="fieldques{{forloop.counter|add:"-1"}}"  onclick="prevbtnclick(this);"><i class="far fa-arrow-alt-circle-up"></i>Return</button></p>
+					{% if 'youtube' in col.que|lower or 'loom' in col.que|lower or 'vimeo' in col.que|lower  or 'talentsumo' in col.que|lower%}
+						<div class="lbla_v" ><iframe src="{{col.que}}"></iframe></div><input class="form-control input" type="text" data-type="text">
+					{% else %}
+						<div class="lbl"><span>{{col.que|title}}</span></div>
+					{% endif %}
+					<input class="form-control input" type="text" data-type="text" value="{{col.ans}}">
+					<p class="controls" aria-hidden="true"><button class="nextButton btn-next" type="button" aria-controls="fieldques{{forloop.counter|add:"1"}}" onclick="nextbtnclick(this);">Next</button><button class="btn btn-default btn-enter" type="button" aria-controls="fieldques{{forloop.counter|add:"1"}}" onclick="enterbtnclick(this);">Press <span class="f-string-em">Enter</span></button></p></fieldset>
+			{% endif %}
+		{% endfor %}
+	</form>
+</section>
+</div>
+</div>
+</div>
+<script src="{% static 'assets/form/script6.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script> 
+<script src="{% static 'assets/form/dropzone.js' %}"></script>
+<script src="{% static 'assets/form/adapter-latest.js' %}"></script>
+<script src="{% static 'assets/form/jquery.validate.min.js' %}"></script>
+</body>
+</html>
+{% endblock %}

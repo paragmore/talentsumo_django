@@ -1,0 +1,2384 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>TalentSumo - Workspace</title>
+
+    <link rel="icon" href="{% static 'assets/img/logo.png' %}"  type="image/png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}"  />
+    <!-- themefy CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/themefy_icon/themify-icons.css' %}"  />
+    <!-- select2 CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/niceselect/css/nice-select.css' %}"  />
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/owl_carousel/css/owl.carousel.css' %}"  />
+    <!-- gijgo css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/gijgo/gijgo.min.css' %}"  />
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/font_awesome/css/all.min.css' %}"  />
+    <link rel="stylesheet" href="{% static 'assets/vendors/tagsinput/tagsinput.css' %}"  />
+
+    <!-- date picker -->
+     <link rel="stylesheet" href="{% static 'assets/vendors/datepicker/date-picker.css' %}"  />
+
+     <link rel="stylesheet" href="{% static 'assets/vendors/vectormap-home/vectormap-2.0.2.css' %}"  />
+     
+     <!-- scrollabe  -->
+     <link rel="stylesheet" href="{% static 'assets/vendors/scroll/scrollable.css' %}"  />
+    <!-- datatable CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/datatable/css/jquery.dataTables.min.css' %}"  />
+    <link rel="stylesheet" href="{% static 'assets/vendors/datatable/css/responsive.dataTables.min.css' %}"  />
+    <link rel="stylesheet" href="{% static 'assets/vendors/datatable/css/buttons.dataTables.min.css' %}"  />
+    <!-- text editor css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/text_editor/summernote-bs4.css' %}"  />
+    <!-- morris css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/morris/morris.css' %}" >
+    <!-- metarial icon css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/material_icon/material-icons.css' %}"  />
+
+    <!-- menu css  -->
+    <link rel="stylesheet" href="{% static 'assets/css/metisMenu.css' %}" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}"  />
+    <link rel="stylesheet" href="{% static 'assets/css/colors/default.css' %}"  id="colorSkinCSS">
+</head>
+<body class="crm_body_bg">
+    
+<style>
+#importformtitle
+{
+text-transform: capitalize;
+}
+.import-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  float: right;
+}
+#importformModel input[type="file"] {
+  display: none;
+}
+    .visibility
+    {
+        visibility: visible !important;
+        opacity: 1 !important;
+        display: block;
+    }
+    .displaynone
+    {
+        display: none;
+    }
+    .ulimportformli
+    {
+        background: black;
+        padding: 4%;
+        color: white;
+        text-align: left;
+        border-radius: 5px;
+        margin-top: 2%;
+        padding-left: 12%;
+    }
+    .ulimportformli li{
+        height: 30px;
+        line-height: 30px;
+        border-bottom: 1px solid #5a5a56;
+        cursor: pointer;
+        padding-left: 5%;
+    }
+    .ulimportformli li:last-child{
+        border-bottom:none;
+    }
+    .clist
+    {
+        color: #333333;
+        float: right;
+        padding: 7px;
+        font-size: 14px;
+        margin: 2%;
+    }
+    .CHATBOX_open,.CHATBOX_open img,.CHATBOX_open label
+    {
+        cursor:pointer;
+    }
+    .main_content .main_content_iner
+    {
+        min-height: 200vh;
+    }
+    .respspan
+    {
+        float: left;
+    background: white;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 2%;
+    padding-right: 2%;
+    margin-left: 2%;
+    font-size: 12px;
+    font-weight: 600;
+    }
+.nav.nav-tabs .nav-item.show:focus, .nav.nav-tabs .nav-item.show.active, .nav.nav-tabs .nav-link:focus, .nav.nav-tabs .nav-link.active
+{
+    color: #333333;
+    background-color: #fff;
+    border-color: transparent transparent #333333;
+    font-size: 17px;
+    font-weight: 700;
+}
+.nav-item a
+{
+    color: #333333;
+    font-weight: 700;
+}
+.image-list-small
+{
+    float: left;
+    max-width:100% !important
+}
+.image-list-small li a{
+    text-align: center;
+}
+#sharedwithList ul, #sharedbyList ul
+{
+width:100%;
+}
+.sharedwithuText,.sharedbyhuText,.talentsumoFolText
+{
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+    height: 250px;
+    line-height: 250px; 
+    font-weight:600px;
+}
+.image-list-small li
+{
+    float: left;
+}
+.image-list-small .details
+{
+    margin-bottom: 10px;
+}
+.disabled{
+    pointer-events:none;
+}
+#campaignModel .select2-container
+{
+    min-width: auto;
+}
+#campaignModel input[type="text"],#campaignModel select,#campaignModel input[type="date"]
+{
+    width: 100%;
+    float: right;
+    border: 1px solid #E5ECFF;
+    background-color: white !important;
+    height: 40px;
+    margin-bottom: 2%;
+}
+.disabledcursor
+{
+     cursor:not-allowed !important;
+}
+.image-author
+{
+    font-size: 14px !important;
+}
+.image-author i{
+    font-size: 8px;
+    padding-right: 2%;
+    padding-bottom: 3%;
+}
+.select2-container--default .select2-selection--single
+{
+    line-height: 40px !important;
+    height: 40px !important;
+}
+.select2-container
+{
+    width: 100% !important;
+    margin-bottom: 5% !important;
+    height: 40px;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered
+{
+    line-height: 40px !important;
+
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow
+{
+    height:  40px !important;
+}
+.green
+{
+    color: green;
+}
+.gray
+{
+    color: gray;   
+}
+.tab-pane 
+{
+    padding: 4%;
+}
+#formName
+{
+    height: 35px;
+    width: 100%;
+    padding-left: 1%;
+    margin-bottom: 5%;
+    border:1px solid #dddddd;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 200px;
+}
+
+/* Make the image to responsive */
+.container img {
+  width: 100%;
+  height: auto;
+}
+
+/* The overlay effect (full height and width) - lays on top of the container and over the image */
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .3s ease;
+  background-color: white;
+  width: 60%;
+  height: 180px;
+  max-height: 500px;
+}
+
+/* When you mouse over the container, fade in the overlay icon*/
+.container:hover .overlay {
+  opacity: 1;
+}
+.menu-btn
+{
+    position: absolute;
+    width: 24%;
+    padding-top: 5px;
+    color: black;
+}
+.menu-btn button{
+    background: none;
+    border: none;
+}
+    .alert-msg {
+        display: none;
+        color: red;
+        text-align: left !important;
+        width: 100%;
+        float: left;
+    }
+.btn-open{
+    color: black;
+    cursor: pointer;
+    float: left;
+    left: 143px;
+    position: absolute;
+    background: white;
+    border: 1px solid #333333;
+}
+.overlay1,.overlay2,.overlay3,.overlay4
+{
+    position: absolute;
+    background-color: black;
+    padding: 5px;
+    border-radius: 12px;
+    margin-left: 2%;
+    top: 30px;
+}
+.overlay1 button,.overlay2 button,.overlay3 button,.overlay4 button{
+  background-color: black; /* Green background */
+  border: none;/* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  width: 100%; /* Set a width if needed */
+  display: block; /* Make the buttons appear below each other */
+  text-align: left;
+}
+#sharedwithList .overlay1 button:last-child
+{
+    border-top:none;
+}
+.overlay1 button:last-child,.overlay2 button:last-child,.overlay3 button:last-child{
+    border-top: 2px solid #333333;
+}
+.overlay1 button i,.overlay2 button i,.overlay3 button i,.overlay4 button i{
+    padding-right: 5px;
+}
+
+.overlay1 button:not(:last-child),.overlay2 button:not(:last-child),.overlay3 button:not(:last-child),.overlay4 button:not(:last-child) {
+  border-bottom: none; /* Prevent double borders */
+}
+#folderName
+{
+    width: 100%;
+    margin-bottom: 5%;
+    border: 1px solid #333333b0;
+    height: 40px;
+    line-height: 40px;
+    padding: 2%;
+    font-size: 14px;
+}
+
+/* Add a background color on hover */
+
+.icon1:hover,.icon2:hover,.icon3:hover,.icon2:focus,.icon3:focus
+{
+    color: black;
+}
+.select2-container--default .select2-results__option[aria-selected=true]
+{
+    background-color: transparent !important;
+}
+.select2-container--default .select2-results__option--highlighted[aria-selected]
+{
+    background-color: black !important;
+}
+/* The icon inside the overlay is positioned in the middle vertically and horizontally */
+.icon1 {
+    color: #333333;
+    height: 25px;
+    padding: 2%;
+    line-height: 15px;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+.small_logo img
+{
+    width: 20% !important;
+}
+.icon2 {
+    color: #333333;
+    height: 25px;
+    padding: 2%;
+    line-height: 15px;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    cursor: pointer;
+}
+.icon3 {
+    color: #333333;
+    height: 25px;
+    padding: 2%;
+    line-height: 15px;
+    font-size: 20px;
+    position: absolute;
+    top: 75%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    cursor: pointer;
+}
+.icon4 {
+    color: #333333;
+    height: 25px;
+    padding: 2%;
+    line-height: 15px;
+    font-size: 20px;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    cursor: pointer;
+}
+
+/* When you move the mouse over the icon, change color */
+.fa-user:hover {
+  color: #eee;
+}
+.image-list-small .details h3 a
+{
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.listimg
+{
+    height: 50%;
+    line-height: 200px;
+    vertical-align: middle;
+    margin: auto;
+    margin-top: 25%;
+    width: 100%;
+}
+.listimgform
+{
+    width: 100%;
+    height: 50%;
+    margin-top: 30%;
+}
+.folderName span{
+    float: right;
+}
+.wkdashboard
+{
+    color: black;
+    padding-left: 5px;
+    font-size: 12px;
+    font-weight: 600;
+}
+.col1
+{
+    width: 18%;
+    float: left;
+}
+.col2
+{
+    width: 81%;
+    float: left;
+    padding: 3%;
+}
+.main_content
+{
+    padding-left: 0px !important;
+}
+.divbuttons
+{
+    width: 100%;
+    height: 450px !important;
+    overflow: auto;
+}
+.talentsumoFoldersDiv
+{
+    margin-top: 2%;
+}
+.divbuttons::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+.select2-container {
+  min-width: 400px;
+}
+
+.select2-results__option {
+  padding-right: 20px;
+  vertical-align: middle;
+}
+.select2-results__option:before {
+  content: "";
+  display: inline-block;
+  position: relative;
+  height: 20px;
+  width: 20px;
+  border: 2px solid #333333;
+  border-radius: 4px;
+  background-color: #fff;
+  margin-right: 20px;
+  vertical-align: middle;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 65px;
+  height: 25px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 5px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #333333;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #333333;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+  left:15px;
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+.select2-results__option[aria-selected=true]:before {
+  font-family:fontAwesome;
+  content: "\f00c";
+  color: #fff;
+  background-color: #333333;
+  border: 0;
+  display: inline-block;
+  padding-left: 3px;
+}
+.select2-container--default .select2-results__option[aria-selected=true] {
+	background-color: #fff;
+}
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+	background-color: #eaeaeb;
+	color: #272727;
+}
+.select2-container--default .select2-selection--multiple {
+	margin-bottom: 10px;
+}
+.select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple {
+	border-radius: 4px;
+}
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+	border-color: #333333;
+	border-width: 2px;
+}
+.select2-container--default .select2-selection--multiple {
+	border-width: 2px;
+}
+.select2-container--open .select2-dropdown--below {
+	
+	border-radius: 6px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+}
+.select2-selection .select2-selection--multiple:after {
+	content: 'hhghgh';
+}
+/* select with icons badges single*/
+.select-icon .select2-selection__placeholder .badge {
+	display: none;
+}
+
+.select-icon .select2-results__option:before,
+.select-icon .select2-results__option[aria-selected=true]:before {
+	display: none !important;
+	/* content: "" !important; */
+}
+.select-icon  .select2-search--dropdown {
+	display: none;
+}
+.divbuttons::-webkit-scrollbar-track {
+  background: #f6f7fb;        /* color of the tracking area */
+}
+
+.divbuttons::-webkit-scrollbar-thumb {
+  background-color: #333333;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid #f6f7fb;  /* creates padding around scroll thumb */
+}
+.divbuttons button.active{
+    border-left: 2px solid black;
+    background: #0000001f !important;
+}
+.divbuttons button:first-child{
+    border-top: 1px solid #858688;
+}
+.tmpName
+{
+    float: left;
+}
+.tmpDelete
+{
+    float: right;
+    margin-right: 5px;
+    font-size: 13px;
+    color: red;
+}
+.tmpEdit
+{
+    float: right;
+    margin-right: 10px;
+    font-size: 10px;
+}
+.tmpName i{
+    margin-right: 5px;
+}
+.divbuttons button{
+    width: 100%;
+    border: none;
+    background: #f6f7fb;
+    color: black;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 25px;
+    height: 35px;
+    vertical-align: middle;
+    border: 1px solid #858688;
+    border-top: none;
+    border-right: none;
+}
+.col1 .lsttempDiv{
+    margin-bottom: 6% !important;
+}
+.tempDivbutton
+{
+    height: 60px;
+    width: 100%;
+    line-height: 60px;
+    background: #f6f7fb;
+    padding: 4%;
+}
+.talentsumoFolder
+{
+    height: auto;
+    max-height:200px;
+    width: 100%;
+    line-height: 30px;
+    background: #f6f7fb;
+    padding: 4%;
+}
+.talentSumospantxt
+{
+    font-size: 15px;
+    font-weight:800;
+}
+.talentsumoFolder button{
+    width: 100%;
+    border: none;
+    height: 40px;
+    background: #f6f7fb;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 700;
+}
+.tempDivbutton button
+{
+    width: 100%;
+    border: none;
+    height: 55px;
+    line-height: 55px;
+    /* border: 1px solid #858688; */
+    background: #f6f7fb;
+    /* border-right: none; */
+    text-align: left;
+    font-size: 16px;
+    font-weight: 700;
+}
+.active
+{
+    background: #0000001f !important;
+}
+.tempFilderdiv
+{
+    height: 40px;
+    width: 100%;
+    background: #f6f7fb;
+}
+.folderName
+{
+    font-size: 16px;
+    font-weight: 700;
+    padding: 5px;
+    float: left;
+    width: 100%;
+}
+
+.folderSearch,.folderviews,.folderAdd
+{
+    font-size: 10px;
+    color: white;
+    padding: 8px;
+    border-radius: 69px;
+    height: 25px;
+    width: 25px;
+    background-color: #abaebc;
+    border-radius: 50%;
+    display: inline-block;
+    line-height: 0px;
+    margin-left: 5px;
+}
+.folderAdd
+{
+    background: black;
+}
+.folderviews
+{
+    background: white;
+    color: black;
+    font-size: 12px;
+}
+input:focus,input:hover{
+    outline:none;
+    border:1px solid #dddddd;
+}
+.togglesearch{
+    background: #E8E8E4;
+    position: absolute;
+    top: 250px;
+    left: 14%;
+    width: 250px;
+    height: 60px;
+    line-height: 60px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 50%);
+    border-top: 4px solid #333333;
+    display: none;
+}
+ 
+.togglesearch:before{
+  content: "";
+  position: absolute;
+  top: -32px;
+  left: 6px;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 14px solid transparent;
+  border-bottom: 14px solid #333333;
+}
+ 
+.togglesearch input[type="text"]{
+    width: 150px;
+    padding: 5px 10px;
+    margin-left: 15px;
+    border: 1px solid #333333;
+    outline: none;
+    height: 35px;
+}
+ 
+.togglesearch input[type="button"]{
+    width: 65px;
+    padding: 0px 0;
+    background: black;
+    color: #fff;
+    margin-left: -6px;
+    border: 1px solid #333333;
+    outline: none;
+    cursor: pointer;
+    height: 40px;
+    line-height: 40px;
+}
+</style>
+
+<!-- main content part here -->
+ 
+<section class="main_content dashboard_part large_header_bg">
+        <!-- menu  -->
+        <input type="hidden" id="userplan" name="userplan" value="{{ request.session.Plan }}">
+    <div class="container-fluid no-gutters">
+        <div class="row">
+         <div class="col-lg-12 p-0 ">
+                <div class="header_iner d-flex justify-content-between align-items-center">
+                    <div class="sidebar_icon d-lg-none">
+                        <i class="ti-menu"></i>
+                    </div>
+                    <div class="line_icon open_miniSide d-none d-lg-block">
+                        <div class="logo d-flex justify-content-between">
+                            <a class="small_logo" href="{% url 'home' %}"><img src="{% static 'assets/img/logo.png' %}"  alt=></a>
+                            <div class="sidebar_close_icon d-lg-none">
+                                <i class="ti-close"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="serach_field-area d-flex align-items-center">
+                    </div>
+                    <div class="header_right d-flex justify-content-between align-items-center">
+                        <div class="header_notification_warp d-flex align-items-center">
+                            <li>
+                                <a class="CHATBOX_open" href="{% url 'home' %}"> <img src="{% static 'assets/img/menu-icon/dashboard.png' %}"  alt=><label class="wkdashboard">Dashboard</label> </a>
+                            </li>
+                        </div>
+                        <div class="profile_info">
+                            <img src="{% static 'assets/img/client_img.png' %}"  alt="#">
+                           <div class="profile_info_iner">
+                                <div class="profile_author_name">
+                                    <h5>{{ request.session.userName }}</h5>
+                                </div>
+                                <div class="profile_info_details">
+                                    <a href="{% url 'profile' %}">Profile </a>
+                                </div>
+                                <div class="profile_info_details">
+                                    <a href="{% url 'team'%}">Team Members </a>
+                                </div>
+                                <div class="profile_info_details">
+                                    <a href="{% url 'smtp' Id='1'%}">Settings </a>
+                                </div>
+                                <div class="profile_info_details">
+                                    <a href="/logout">Log Out </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ menu  -->
+    <div class="main_content_iner overly_inner " style="background-color: white;">
+        <div class="col1">
+            <div class="talentsumoFolder">      
+                <span class="talentSumospantxt">Talent Sumo Folder's </span>      
+                <div class="talentsumoFoldersDiv">
+                </div>   
+            </div>
+             <div class="tempDivbutton">
+                <button id="btntemplates" class="active">Interview Templates</button>
+            </div>
+            <div class="tempDivbutton">
+                <button id="btnsharedwithu" class="">Shared With You</button>
+            </div>
+            <div class="tempDivbutton lsttempDiv" style="margin-bottom: 4%;">
+                <button id="btnsharedbyu" class="">Shared By You</button>
+            </div>
+            <div class="tempFilderdiv">
+                <span class="folderName">Interview Folders <span class="folderviews" style="display:none;"><i class="fas fa-redo"></i></span><span class="folderSearch searchbar"><i class="fas fa-search"></i> <div class="togglesearch">
+                    <input type="text" placeholder="" id="inpursearch"/>
+                    <input type="button" value="Search" id="foldersearch" onclick="searchfolder();"/>
+                </div></span><a onclick="addFolderClick();"><span class="folderAdd"><i class="fas fa-plus"></i></span></a></span>
+            </div>
+            <div class="divbuttons">               
+               
+            </div>
+        </div>
+        <div class="col2">
+            <div class="talentsumodiv" style="display:none;">
+                <ul class="image-list-small" id="TalentsumoList">
+                                        
+                </ul>
+                <div class="talentsumoFolText">Coming Soon.</div>
+            </div>
+            <div class="sharedwithudiv" style="display:none;">
+                <ul class="image-list-small" id="sharedwithList">
+                                        
+                </ul>
+                <div class="sharedwithuText">There is no interview shared with you.</div>
+            </div>
+            <div class="sharedbyudiv" style="display:none;">
+                <ul class="image-list-small" id="sharedbyList">
+                                        
+                </ul>
+                <div class="sharedbyhuText">There is no interview shared by you.</div>
+            </div>
+            <div class="tempdiv">
+                <div class="row justify-content-center p-0 m-0" style="width: 100%;margin: 0px;">
+                    <div class="col-sm-8">
+                       
+                      </div>
+                      <div class="col-sm-2">
+                       
+                      </div>
+                      <div class="col-sm-2">
+                        <a class="btn_1" id="importformbtn">Import Form</a>
+                        <ul class="ulimportformli displaynone">
+                            <li class="quiz" onclick="importformview('quiz');">Quiz</li>
+                            <li class="interview" onclick="importformview('interview');">Interview/Viva</li>
+                        </ul>
+                      </div>
+                </div>
+                <ul class="image-list-small" id="templist">
+                                        
+                </ul>
+            </div>
+            <div class="formdiv">
+                <input type="hidden" id="folderId" name="folderId">
+                <ul class="image-list-small" id="formlist">
+                                        
+                </ul>
+            </div>
+        </div>
+    </div>
+<!-- footer part -->
+<div class="footer_part">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="footer_iner text-center">
+                    <p>2022 © copyrights <a href="#"> <i class="ti-heart"></i> </a><a href="#"> Talent Sumo</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<div class="modal fade" id="formNameModel" tabindex="-1" role="dialog" aria-labelledby="updatedStatusTitle" data-backdrop="static" data-keyboard="false" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="forNametitle">Form Name</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <form id="Nameform">
+                {% csrf_token %}
+              <div class="row" style="width: 100%;text-align: left;padding-left: 4%;">
+                  <div class="col-lg-12">
+                        <input type="text" id="formName" name="formName" required placeholder="Form Name" value="Untitled Form">
+                        <input type="hidden" id="temptype" name="temptype" value="">
+                        <input type="hidden" id="tempid" name="tempid" value="">
+                        <input type="hidden" id="templongid" name="templongid" value="">
+                        <input type="hidden" id="tempimg" name="tempimg" value="">
+                    </div>
+                    <div class="col-lg-12 mt-2 mb-4" >
+                        <label>Select interaction type</label>
+                      <select id="intervtypesel" style="width: 100%;height: 30px;margin-bottom: 15px;border: 1px solid #dddddd;" onchange="interviewtypeOnchange(this);" >
+                            <option value="0">Select</option>
+                            <option value="interview">Interview</option>
+                            <option value="quiz">Quiz</option>
+                            <option value="code">Coding Test</option>
+                            <option value="viva">Viva</option>  
+                            <option value="feedback">Feedback</option>
+                            <option value="story">Story</option>
+                            <option value="course">Course</option>
+                            <option value="public_interview">Public Interview</option>
+                            <option value="learning_plan">Learning Plan</option>
+                            <option value="assignment">Assignment</option>
+                        </select>
+                    </div>
+                        <div class="col-lg-12 mt-2 mb-4" id="negativediv">
+                            <label>You want Negative Scoring?</label>
+                            <label class="switch" style="float: right;">
+                                <input type="checkbox" id="negativScorechk" name="negativScorechk">
+                                <div class="slider round"></div>
+                            </label>                                 
+                        </div>
+                        <div class="col-lg-12 mt-2 mb-4" id="autoreportdiv">
+                            <label>Want to send answer key automatically ?</label>
+                            <label class="switch" style="float: right;">
+                                <input type="checkbox" id="autoreportchk" name="autoreportchk">
+                                <div class="slider round"></div>
+                            </label>                                 
+                        </div>
+                        <div class="col-lg-12 mt-0 mb-4">
+                            <label> Want to share with your team ? </label>
+                            <label class="switch" style="float: right;">
+                                <input type="checkbox" id="publicchk" name="publicchk">
+                                <div class="slider round"></div>
+                            </label>                                
+                        </div>
+                        <div class="col-lg-12" style="float: right;padding: 0px;">
+                            <div class="col-lg-5" style="float: left;text-align: left;padding: 0px;line-height: 30px;">Select Folder</div>
+                            <select id="foldersel" style="width: 100%;height: 30px;margin-bottom: 15px;border: 1px solid #dddddd;" >
+                                <option>select</option>
+                            </select>
+                        </div>
+                      <div class="col-lg-12" style="text-align: right;" id="FormNameSubmitDiv">
+                          <button type="submit" id="formsubmit"  class="btn_1">Submit</button>
+                    </div>
+            </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="formDeleteModel" tabindex="-1" role="dialog" aria-labelledby="updatedStatusTitle" data-backdrop="static" data-keyboard="false" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Confirm Delete</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="row" style="width: 100%;text-align: left;padding-left: 4%;">
+                <div class="col-lg-12">
+                      <input type="hidden" id="dtempid" name="dtempid" value="">
+                      <input type="hidden" id="dtemplongid" name="dtemplongid" value="">
+                      <span>Are u sure you want to delete this form?</span>
+                  </div>
+                    <div class="col-lg-12" style="text-align: right;margin-top:2%;">
+                        <button type="submit" id="formDelsubmit" class="btn_1">Delete Interview</button>
+                  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <div class="modal fade" id="folderDeleteModel" tabindex="-1" role="dialog" aria-labelledby="updatedStatusTitle" data-backdrop="static" data-keyboard="false" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Confirm Delete</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="row" style="width: 100%;text-align: left;padding-left: 4%;">
+                <div class="col-lg-12">
+                      <input type="hidden" id="dfolid" name="dfolid" value="">
+                      <span>Are u sure you want to delete this Folder?</span>
+                  </div>
+                    <div class="col-lg-12" style="text-align: right;">
+                        <button type="submit" id="foldDelsubmit" class="btn_1">Delete Folder</button>
+                  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="addFolderModel" tabindex="-1" role="dialog" aria-labelledby="updatedStatusTitle" data-backdrop="static" data-keyboard="false" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="folderNametitle">Folder Name</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <form id="folderNameform">
+                {% csrf_token %}
+              <div class="row" style="width: 100%;text-align: left;padding-left: 4%;">
+                  <div class="col-lg-12">
+                        <input type="text" id="folderName" name="folderName" required placeholder="Folder Name" value="Folder Name">
+                        <input type="hidden" id="folderId" name="folderId" value="">
+                    </div>
+                      <div class="col-lg-12" style="text-align: right;">
+                          <button type="submit" id="foldersubmit"  class="btn_1">Create Folder</button>
+                    </div>
+            </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="teamMemberModel" tabindex="-1" role="dialog" aria-labelledby="updatedStatusTitle" data-backdrop="static" data-keyboard="false" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Colloboration Wizard</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <form id="MembersForm">
+                {% csrf_token %}
+              <div class="row" style="width: 100%;text-align: left;padding-left: 4%;">
+                  <div class="col-lg-12">
+                    <select id="memberSelect" multiple="true" required>
+                    </select>
+                        <input type="hidden" id="foldId" name="foldId" value="">
+                        <input type="hidden" id="formId" name="formId" value="">
+                        <input type="hidden" id="formLongId" name="formLongId" value="">
+                    </div>
+                      <div class="col-lg-12" style="text-align: right;">
+                          <button type="submit" id="colloboratesubmit"  class="btn_1">Colloborate Now</button>
+                    </div>
+            </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="upgradeModel" tabindex="-1" role="dialog" aria-labelledby="updatedStatusTitle" data-backdrop="static" data-keyboard="false" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Upgrade Plan</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+              <div class="row" style="width: 100%;text-align: left;padding-left: 4%;">
+                  <div class="col-lg-12" style="margin-bottom: 3%;">
+                   <span>You exceeded the Minimum Quota.Please upgrade your Plan.</span>
+                    </div>
+                      <div class="col-lg-12" style="text-align: right;">
+                          <button type="submit" id="upgradeOk"  class="btn_1" data-dismiss="modal" aria-label="Close">Ok</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="modal fade" id="campaignModel" tabindex="-1" role="dialog" aria-labelledby="updatedStatusTitle" data-backdrop="static" data-keyboard="false" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Create Campaign Wizard</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form id="campaign_form">
+                {% csrf_token %}
+              <div class="row" style="width: 100%;text-align: left;padding-left: 4%;">
+                <div class="col-lg-6">
+                    <input type="hidden" id="campformid" name="campformid" value="">
+                    <label for="campName">Campaign Name</label>
+                </div>
+                <div class="col-lg-6">
+                    <input type="text" id="campName" name="campName" required placeholder="Campaign Name " value="">
+                </div>
+                <div class="col-lg-6">
+                    <label for="campdate">Campaign Date</label>
+                </div>
+                <div class="col-lg-6">
+                    <input type="date" id="campdate" name="campdate" required placeholder="Campaign Date " value="">
+                </div>
+                <div class="col-lg-6">
+                    <label for="studentEmail">Select list to run campaign on</label>
+                </div>
+                <div class="col-lg-6">
+                    <select  id="campstulist" name="campstulist" required multiple>
+                    </select>
+                </div>
+                <div class="col-lg-12" style="text-align: right;">
+                    <button type="submit" id="camplistsubmit"  class="btn_1" >Schedule Now</button>
+                    <label id="ealert-msg" class="alert-msg text-center" style="display: none;">This email already exits.</label>
+                </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="importformModel" tabindex="-1" role="dialog" aria-labelledby="updatedStatusTitle" data-backdrop="static" data-keyboard="false" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="importformtitle">Create Interview using ExcelSheet</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <form id="import_uploadform">
+                {% csrf_token %}
+              <div class="row" style="width: 100%;text-align: left;padding-left: 4%;">
+                  <div class="col-lg-12">
+                        <input type="hidden" id="impformtype" name="impformtype" value="">
+                    </div>
+                        <div class="col-lg-12 mt-2 mb-4" >
+                            <label>Upload via google sheet?</label>
+                            <label class="switch" style="float: right;">
+                                <input type="checkbox" id="googlebtn" name="googlebtn" onclick="googleurlclick(this)">
+                                <div class="slider round"></div>
+                            </label>                                 
+                        </div>
+                        <div class="col-lg-12 mb-2" id="import_sample_quiz_div">
+                            <strong>Sample Quiz Question</strong>
+                            <textarea  id="import_sample_quiz" name="import_sample_quiz" class="form-control" rows="3" readonly>https://docs.google.com/spreadsheets/d/1R8JuAQbjfnLzf9o9kA2vqniM7wt6WLaepLX5Q1UYMwI/edit?usp=sharing</textarea>
+                        </div>
+                        <div class="col-lg-12 mb-2" id="import_sample_interview_div">
+                            <strong>Sample Interview/Viva Question</strong>
+                            <textarea  id="import_sample_interview" name="import_sample_interview" class="form-control" rows="3" readonly>https://docs.google.com/spreadsheets/d/1ylRW2NIYPX26lYUaovd5wljZnruXaoM4LJ0u4tKaeYc/edit?usp=sharing</textarea>
+                        </div>
+                        <div class="col-lg-12 mt-2 mb-4" id="impoupload" >
+                            <label>Select File</label>
+                            <label for="imp-file-upload" class="import-file-upload">
+                                <i class="fas fa-upload"></i> Upload Q/A ExcelSheet
+                            </label>
+                            <input id="imp-file-upload" type="file" accept=".xlsx, .xls, .csv" />
+                        </div>
+                        <div class="col-lg-12 mt-0 mb-4" id="impourl">
+                            <label>Enter public view url</label>
+                            <input type="url" id="googlepurl" class="form-control" name="googlepurl">                               
+                        </div>
+                      <div class="col-lg-12" style="text-align: right;">
+                          <button type="submit" id="importformsubmit"  class="btn_1">Import Now</button>
+                    </div>
+            </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="{% static 'assets/js/jquery-3.4.1.min.js' %}" ></script>
+<script src="{% static 'assets/js/modernizr-2.8.3.min.js' %}" ></script>
+<script src="{% static 'assets/js/responsive-overlay-menu.js' %}" ></script>
+<!-- popper js -->
+<script src="{% static 'assets/js/popper.min.js' %}" ></script>
+<!-- bootstarp js -->
+<script src="{% static 'assets/js/bootstrap.min.js' %}" ></script>
+<!-- sidebar menu  -->
+<script src="{% static 'assets/js/metisMenu.js' %}" ></script>
+<!-- waypoints js -->
+<script src="{% static 'assets/vendors/count_up/jquery.waypoints.min.js' %}" ></script>
+<!-- waypoints js -->
+<script src="{% static 'assets/vendors/chartlist/Chart.min.js' %}" ></script>
+<!-- counterup js -->
+<script src="{% static 'assets/vendors/count_up/jquery.counterup.min.js' %}" ></script>
+
+<!-- nice select -->
+<script src="{% static 'assets/vendors/niceselect/js/jquery.nice-select.min.js' %}" ></script>
+<!-- owl carousel -->
+<script src="{% static 'assets/vendors/owl_carousel/js/owl.carousel.min.js' %}" ></script>
+
+<!-- responsive table -->
+<script src="{% static 'assets/vendors/datatable/js/jquery.dataTables.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/dataTables.responsive.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/dataTables.buttons.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/buttons.flash.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/jszip.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/pdfmake.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/vfs_fonts.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/buttons.html5.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/buttons.print.min.js' %}" ></script>
+
+<!-- datepicker  -->
+<script src="{% static 'assets/vendors/datepicker/datepicker.js' %}" ></script>
+<script src="{% static 'assets/vendors/datepicker/datepicker.en.js' %}" ></script>
+<script src="{% static 'assets/vendors/datepicker/datepicker.custom.js' %}" ></script>
+
+<script src="{% static 'assets/js/chart.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/chartjs/roundedBar.min.js' %}" ></script>
+
+<!-- progressbar js -->
+<script src="{% static 'assets/vendors/progressbar/jquery.barfiller.js' %}" ></script>
+<!-- tag input -->
+<script src="{% static 'assets/vendors/tagsinput/tagsinput.js' %}" ></script>
+<!-- text editor js -->
+<script src="{% static 'assets/vendors/text_editor/summernote-bs4.js' %}" ></script>
+<script src="{% static 'assets/js/custom.js' %}"></script>
+<link href="{% static 'assets/js/select2.min.css' %}" rel="stylesheet" />
+<link href="{% static 'assets/js/select2.min.css' %}" rel="stylesheet" />
+<script src="{% static 'assets/js/select2.min.js' %}"></script>
+<script>
+    $(document).ready(function() {
+        var dtToday = new Date();
+        var month = dtToday.getMonth() + 1;
+        var day = dtToday.getDate()+1;
+        var year = dtToday.getFullYear();
+        if(month < 10)
+            month = '0' + month.toString();
+        if(day < 10)
+            day = '0' + day.toString();
+        var maxDate = year + '-' + month + '-' + day;
+        $('#campdate').attr('min', maxDate);
+        $("#autoreportdiv").hide();
+        $("#negativediv").hide();        
+        $("#importformbtn").click(function(e){
+            $('.ulimportformli').toggle();
+        });
+
+        $.ajax({
+		type:"POST",
+		url: "/get_campaignlist/",
+		data: {},
+		success: function(data) 
+		{ 
+            $("#campstulist").empty();
+            $("#campstulist").append('<option value="">Select</option>')
+			$.each(data, function(k, v) {
+                $("#campstulist").append('<option value="'+data[k][0]+'">'+data[k][1]+'</option>')
+			});
+            $("#campstulist").select2({
+			    placeholder : "Choose list for campaign",
+                width: "resolve",
+			    allowClear: true,
+		    });
+		}
+        });
+        $(".fa-search").click(function() {
+	    $(".togglesearch").toggle();
+	    $("input[type='text']").focus();
+	    });
+     if($("#userplan").val().trim()=="Tier Three"){
+        $(".talentsumoFolder").show();
+        refreshTalentSumoFold();
+     }
+     else{
+         $(".talentsumoFolder").hide();
+     }
+     $.ajax({
+		type:"POST",
+		url: "/get_templates/",
+		data: {},
+		success: function(data) 
+		{ 
+			$.each(data, function(k, v) {
+			    if((data[k][4]).toString().trim()=='blank')
+			    {
+                    $("#templist").append('<li><a onClick="templateClick(this.id);" id="'+data[k][4]+'" class="" data-label="'+data[k][3]+'" data-img="https://test.techdivaa.com'+data[k][1]+'" ><img class="listimg" src= "https://test.techdivaa.com'+data[k][1]+'"><img></a><div class="details"><h3><a href="#">'+data[k][0]+'</a></h3><p class="image-author"></p></div></li>');
+			    }
+			    else
+			    {
+			       $("#templist").append('<li><div class="menu-btn" id="templatebtn_'+data[k][3]+'"><button type="button" onclick="templbtnoverlay(this.id);" class="btn-open" id="tempbtn_'+data[k][3]+'"><i class="fas fa-ellipsis-h"></i></button><div class="overlay4" style="display:none;" id="tempoverdiv_'+data[k][3]+'" ><button id="view'+data[k][3]+'" data-label="'+data[k][6]+'" onclick="viewTemplateVlick(this.id)"><i class="fas fa-copy"></i>View Template</button><button id="'+data[k][4]+'" class="" data-label="'+data[k][3]+'" data-img="https://test.techdivaa.com'+data[k][1]+'" onclick="templateClick(this.id)"><i class="fas fa-copy"></i>Copy Template</button></div></div><a href="https://test.techdivaa.com/preview/'+data[k][6]+'" target="_blank" ><img class="listimg" src= "https://test.techdivaa.com'+data[k][1]+'"><img></a><div class="details"><h3><a href="#">'+data[k][0]+'</a></h3><p class="image-author"></p></div></li>'); 
+			    }
+			});
+		}
+    });
+     refreshfolders();
+    $("#campaign_form").submit(function(e)
+    {
+        e.preventDefault();
+        campaignName = $("#campName").val();
+        camp_formid = $("#campformid").val();
+        campaignDate = $("#campdate").val();
+        selevalue = []
+        seletext = []
+        selectvalues = $('#campstulist').select2("data");
+        selectvalues.forEach(function (item) { 
+            seletext.push(item.text);
+            selevalue.push(item.id);
+        });
+        $("#camplistsubmit").attr("disabled",true);
+        if(selectvalues.length !=0)
+        {
+            $.ajax({
+		        type:"POST",
+		        url: "/check_campaign/",
+		        data: {"camp_name":campaignName,"camp_date":campaignDate,"camp_lists":JSON.stringify(selevalue),"camp_list_names":JSON.stringify(seletext),"camp_formId":camp_formid},
+		        success: function(data) 
+		        { 
+                    if(data != "Valid")
+                    {
+                        $("#ealert-msg").text(data);
+                        $("#ealert-msg").show();
+                    }
+                    else{
+                        $("#ealert-msg").text('valid');
+                        $("#ealert-msg").hide();
+                        $.ajax({
+                            type:"POST",
+		                    url: "/add_campaign/",
+		                    data: {"camp_name":campaignName,"camp_date":campaignDate,"camp_lists":JSON.stringify(selevalue),"camp_list_names":JSON.stringify(seletext),"camp_formId":camp_formid},
+		                    success: function(data) 
+		                    { 
+                                if(data=="success")
+                                {
+                                    $("#camplistsubmit").attr("disabled",false);
+                                    $('#campaign_form').trigger("reset");
+                                    $("#campaignModel").modal('hide');
+                                    refreshForm();
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+        }
+    });
+    $("#folderNameform").submit(function(e)
+    {
+        e.preventDefault();
+        $("#foldersubmit").attr("disabled",true);
+        folName = $("#folderName").val();
+        folId = $("#folderId").val();
+        btntxt = $("#foldersubmit").text();
+        if(btntxt=="Create Folder")
+        {
+        $.ajax({
+            type:"POST",
+            url: "/folder_creation/",
+            data: {'folName': folName.trim()},
+            success: function(data) 
+            { 
+                if(data=="success")
+                {
+                    $("#foldersubmit").attr("disabled",false);
+                    $("#addFolderModel").modal('hide');
+                    refreshfolders();
+                }
+            }
+        });
+    }
+    else if(btntxt=="Update Folder")
+    {
+        $.ajax({
+            type:"POST",
+            url: "/update_folders/",
+            data: {'folName': folName.trim(),'folId': folId.trim()},
+            success: function(data) 
+            { 
+                if(data=="success")
+                {
+                    $("#addFolderModel").modal('hide');
+                    refreshfolders();
+                }
+            }
+        });
+    }
+    });
+    $("#MembersForm").submit(function(e)
+    {
+        e.preventDefault();
+        $("#colloboratesubmit").attr("disabled",true);
+        selectvalues = $('#memberSelect').select2("val");
+        if(selectvalues.length !=0)
+        {
+            formId = $("#formId").val();
+            formLongId=$("#formLongId").val(); 
+            $.ajax({
+            type:"POST",
+            url: "/share_Form/",
+            data: {'formId': formId.trim(),'formLongId': formLongId.trim(),'userList': JSON.stringify(selectvalues)},
+            success: function(data) 
+            { 
+                if(data=="success")
+                {
+                    $("#colloboratesubmit").attr("disabled",false);
+                    $("#teamMemberModel").modal('hide');
+                }
+            }
+        });
+        }
+    });
+    $("#btntemplates").click(function(){
+        $(".tempdiv").show();
+        $('.overlay4').hide();
+        $(".sharedwithudiv").hide();
+        $(".talentsumodiv").hide();
+        $(".sharedbyudiv").hide();
+        $(".formdiv").hide();
+        $(".tempDivbutton").find('button').removeClass('active');
+        $('#btntemplates').addClass('active');
+        $(".divbuttons").find('button').removeClass('active');
+        $(".talentsumoFoldersDiv").find('button').removeClass("active");
+    });
+
+    $("#btnsharedwithu").click(function()
+    {
+        $.ajax({
+		type:"POST",
+		url: "/get_sharedwithforms/",
+		data: {},
+		success: function(data2) 
+		{ 
+            $("#sharedwithList").empty();
+            dlength = data2.length;
+            if(dlength>0)
+            {
+                $(".sharedwithuText").hide();
+			    $.each(data2, function(k, v) {
+                publishurl = data2[k][9];
+                status = '';
+                if(publishurl !=null)
+                {
+                    status='<a><i class="fas fa-circle green"></i>Active</a>';
+                }
+                else{
+                    status='<a><i class="fas fa-circle gray"></i>Draft</a>';
+                }
+                $("#sharedwithList").append('<li><div class="menu-btn" id="sharedivbtn_'+data2[k][0]+'"><button type="button" onclick="btnoverlay(this.id);" class="btn-open" id="sharebtn_'+data2[k][0]+'"><i class="fas fa-ellipsis-h"></i></button><div class="overlay1" style="display:none;" id="shareoverdiv_'+data2[k][0]+'" ><button id="dupbtn_'+data2[k][0]+'" data-name="'+data2[k][1]+'" data-public="'+data2[k][14]+'"   data-negative="'+data2.data[k][22]+'" data-autoscore="'+data2.data[k][25]+'" data-intype="'+data2.data[k][19]+'" data-label="'+data2[k][2]+'" data-folder="'+data2[k][13]+'" onclick="DuplicateClick(this.id)"><i class="fas fa-copy"></i>Duplicate Form</button></div></div><a href="https://test.techdivaa.com/form/'+data2[k][2]+'" target="_blank" id="'+data2[k][0]+'" class="" data-label="'+data2[k][2]+'" ><img class="listimg" src= "https://test.techdivaa.com'+data2[k][6]+'"><img></a><div class="details"><h3><a href="#">'+data2[k][1]+'</a></h3><p class="image-author">'+status+'</p></div></li>')
+			});
+            }
+            else
+            {
+                $(".sharedwithuText").show();
+            }
+            $(".tempdiv").hide();
+            $(".sharedwithudiv").show();
+            $(".talentsumodiv").hide();
+            $(".sharedbyudiv").hide();
+            $(".formdiv").hide();
+            $(".tempDivbutton").find('button').removeClass('active');
+            $("#btnsharedwithu").addClass('active');
+            $(".divbuttons").find('button').removeClass('active');
+            $(".talentsumoFoldersDiv").find('button').removeClass("active");
+		}
+    });
+    });
+    $("#btnsharedbyu").click(function()
+    {
+        $.ajax({
+		type:"POST",
+		url: "/get_sharedbyforms/",
+		data: {},
+		success: function(data2) 
+		{ 
+		    dlength = data2.length;
+            $("#sharedbyList").empty();
+            if(dlength>0)
+            {
+                $(".sharedbyhuText").hide();
+			    $.each(data2, function(k, v) {
+                publishurl = data2[k][9];
+                status = '';
+                if(publishurl !=null)
+                {
+                    status='<a><i class="fas fa-circle green"></i>Active</a>';
+                }
+                else{
+                    status='<a><i class="fas fa-circle gray"></i>Draft</a>';
+                }
+                $("#sharedbyList").append('<li><div class="menu-btn" id="divbtn_'+data2[k][0]+'"><button type="button" onclick="btnoverlay(this.id);" class="btn-open" id="btn_'+data2[k][0]+'"><i class="fas fa-ellipsis-h"></i></button><div class="overlay1" style="display:none;" id="overdiv_'+data2[k][0]+'" ><button onclick="Viewbuttonclick(this.id);" id="vbtn_'+data2[k][0]+'"  data-label="'+data2[k][2]+'"><i class="fas fa-eye"></i> View Form</button><button id="ebtn_'+data2[k][0]+'" data-label="'+data2[k][1]+'" data-public="'+data2[k][14]+'"   data-negative="'+data2[k][22]+'" data-autoscore="'+data2[k][25]+'" data-intype="'+data2[k][19]+'" data-folder="'+data2[k][13]+'" onclick="EditClick(this.id)"><i class="fas fa-edit"></i> Edit Form</button><button id="dupbtn_'+data2[k][0]+'" data-name="'+data2[k][1]+'" data-public="'+data2[k][14]+'" data-label="'+data2[k][2]+'"   data-negative="'+data2[k][22]+'" data-autoscore="'+data2[k][25]+'" data-intype="'+data2[k][19]+'" data-folder="'+data2[k][13]+'" onclick="DuplicateClick(this.id)"><i class="fas fa-copy"></i>Duplicate Form</button><button id="delbtn_'+data2[k][0]+'" data-label="'+data2[k][2]+'" onclick="DeleteClick(this.id)"><i class="fas fa-trash"></i>Delete Form</button></div></div><a href="https://test.techdivaa.com/form/'+data2[k][2]+'" target="_blank" id="'+data2[k][0]+'" class="" data-label="'+data2[k][2]+'" ><img class="listimg" src= "https://test.techdivaa.com'+data2[k][6]+'"><img></a><div class="details"><h3><a href="#">'+data2[k][1]+'</a></h3><p class="image-author">'+status+'</p></div></li>')
+			});
+            }
+            else
+            {
+                $(".sharedbyhuText").show();
+            }
+            $(".tempdiv").hide();
+            $(".sharedwithudiv").hide();
+            $(".talentsumodiv").hide();
+            $(".sharedbyudiv").show();
+            $(".formdiv").hide();
+            $(".tempDivbutton").find('button').removeClass('active');
+            $("#btnsharedbyu").addClass('active');
+            $(".divbuttons").find('button').removeClass('active');
+             $(".talentsumoFoldersDiv").find('button').removeClass("active");
+		}
+    });
+    });
+    
+    $('#import_uploadform').submit(function(e){
+        e.preventDefault();
+        var extension = '';
+        var idGen = '';
+        googleurl = '';
+        var ffileName ='';
+        var fd = new FormData();
+        if($("#googlebtn").is(':checked'))
+        {
+            idGen =new Generator();
+            ffileName =  idGen.getId()+"_" + randomIntFromInterval(1, 100)+"_" + ".xlsx"; 
+            fd.append('file','');
+	        fd.append('url',$("#googlepurl").val());
+	        fd.append('google','yes');
+            fd.append('fileName',ffileName);
+            fd.append('extension','');
+            fd.append('formtype',$("#impformtype").val());
+        }
+        else{
+            file =  $('#imp-file-upload')[0].files;
+            extension=$('#imp-file-upload').val().replace(/^.*\./, '');
+            idGen =new Generator();
+            ffileName =  idGen.getId() + "." + extension; 
+            fd.append('file',file[0]);
+	        fd.append('url','');
+	        fd.append('google','no');
+            fd.append('extension',extension);
+            fd.append('fileName',ffileName);
+            fd.append('formtype',$("#impformtype").val());
+        }
+        $("#importformsubmit").attr("disabled",true);
+        var xhr=new XMLHttpRequest();
+	    xhr.open("POST","/upload_import_interview/",true);
+		xhr.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				if (xhr.status === 200) {
+					var data=xhr.responseText;
+                    $("#importformsubmit").attr("disabled",false);
+                    if(data == 'not valid')
+                    {
+                        alert("Excel sheet format is not valid");
+                    }
+                    else{
+                        $("#importformModel").modal('hide');
+                        window.open('https://test.techdivaa.com/form/'+ data, '_blank').focus();
+                    }
+				} 
+				else {
+					console.log("Error", xhr.statusText);
+				}
+			}
+		};
+	    xhr.send(fd);
+    });
+    $(".folderviews").click(function ()
+    {
+        $(".folderviews").toggle();
+        $(".divbuttons button").show();
+    })
+    $("#formDelsubmit").click(function (e)
+    {
+        e.preventDefault();
+        formId = $("#dtempid").val();
+        formlongID = $("#dtemplongid").val();
+        $.ajax({
+            type:"POST",
+            url: "/del_form/",
+            data: {'formId': formId.trim(),'formlongID':formlongID},
+            success: function(data) 
+            { 
+                if(data=="success")
+                {
+                    $("#formDeleteModel").modal('hide');
+                    refreshForm();
+                }
+            }
+        });
+    });
+    $("#foldDelsubmit").click(function(e){
+        folId= $("#dfolid").val();
+        $.ajax({
+            type:"POST",
+            url: "/delete_folders/",
+            data: {'folId': folId.trim()},
+            success: function(data) 
+            { 
+                if(data=="success")
+                {
+                    $("#folderDeleteModel").modal('hide');
+                    refreshfolders();
+                    refreshForm();
+                }
+            }
+        });
+    })
+  $('#Nameform').submit(function(e){
+      e.preventDefault();
+      subtxt = $("#formsubmit").text();
+      $("#formsubmit").attr("disabled",true);
+      if(subtxt.trim() == "Create Interview")
+      {
+        tempName = $("#temptype").val();
+        if(tempName.trim() =='blank')
+        {
+           imgUrl='https://i.imgur.com/1AGR1Q8.png'; 
+        }
+        else
+        {
+            imgUrl= $("#tempimg").val();
+        }
+        base64img = '';
+        let base64image = getBase64Image(imgUrl).then(function(base64image) {
+            base64img = base64image;
+            inpuName = $("#formName").val();
+            folId = $("#foldersel").val();
+            intev_type = $("#intervtypesel").val();
+            tempId= $("#tempid").val();
+            public = '';
+            negativemarking = '';
+            autoreport = '';
+            if($("#publicchk").is(':checked'))
+            {
+                public = 1;
+            }
+            else{
+                public = 0;
+            }
+            if($("#negativScorechk").is(':checked'))
+            {
+                negativemarking = 'yes';
+            }
+            else{
+                negativemarking = 'no';
+            }
+            if($("#autoreportchk").is(':checked'))
+            {
+                autoreport = 'yes';
+            }
+            else{
+                autoreport = 'no';
+            }
+            $.ajax({
+                type:"POST",
+                url: "/form_creation/",
+                data: {'tmpName': inpuName.trim(),'tmpType': tempName.trim(),'tmpId': tempId.trim(),'tmppublic': public,'tmpImg': base64img,'folID':folId,'nmarking':negativemarking,'inter_type':intev_type,'autoreporting':autoreport},
+                success: function(data) 
+                { 
+                    $("#formsubmit").attr("disabled",false);
+                    $("#intervtypesel").attr("disabled",false);
+                    $("#formNameModel").modal('hide');
+                    window.open('https://test.techdivaa.com/form/'+ data, '_blank').focus();
+                }
+                });
+        }, function(reason) {
+            console.log(reason); // Error!
+        });
+    }
+    else if(subtxt.trim() == "Update Interview")
+    {
+        formName = $("#formName").val();
+        formId= $("#tempid").val();
+        folId = $("#foldersel").val();
+        intev_type = $("#intervtypesel").val();
+        public = '';
+        negativemarking = '';
+        autoreport = '';
+        if($("#publicchk").is(':checked'))
+        {
+        public = 1;
+            }
+        else{
+            public = 0;
+        }
+        if($("#negativScorechk").is(':checked'))
+        {
+            negativemarking = 'yes';
+        }
+        else{
+            negativemarking = 'no';
+        }
+        if($("#autoreportchk").is(':checked'))
+            {
+                autoreport = 'yes';
+            }
+            else{
+            autoreport = 'no';
+        }
+        $.ajax({
+            type:"POST",
+            url: "/update_form/",
+            data: {'formId': formId.trim(),'tmppublic': public,'formName': formName.trim(),'folID':folId,'nmarking':negativemarking,'inter_type':intev_type,'autoreporting':autoreport},
+            success: function(data) 
+            { 
+                if(data=="success")
+                {
+                    $("#intervtypesel").attr("disabled",false);
+                    $("#formsubmit").attr("disabled",false);
+                    $("#formNameModel").modal('hide');
+                    refreshForm();
+                }
+            }
+        });
+    }
+    else if(subtxt == "Copy Interview")
+    {
+        forLongId =  $("#templongid").val();
+        formId =  $("#tempid").val();
+        formName =  $("#formName").val();
+        folId = $("#foldersel").val();
+        intev_type = $("#intervtypesel").val();
+        public = '';
+        negativemarking = '';
+        autoreport = '';
+        if($("#publicchk").is(':checked'))
+        {
+        public = 1;
+        }
+        else{
+            public = 0;
+        }
+        if($("#negativScorechk").is(':checked'))
+            {
+                negativemarking = 'yes';
+            }
+            else{
+                negativemarking = 'no';
+            }
+            if($("#autoreportchk").is(':checked'))
+            {
+                autoreport = 'yes';
+            }
+            else{
+                autoreport = 'no';
+            }
+        $.ajax({
+            type:"POST",
+            url: "/duplicate_form/",
+            data: {'formId': formId.trim(),'formLongID': forLongId.trim(),'FoldID': folId.trim(),'FormName': formName.trim(),'FPublic': public,'nmarking':negativemarking,'inter_type':intev_type,'autoreporting':autoreport},
+            success: function(data) 
+            { 
+                if(data=="success")
+                {
+                    $("#intervtypesel").attr("disabled",false);
+                    $("#formsubmit").attr("disabled",false);
+                    $("#formNameModel").modal('hide');
+                    refreshForm();
+                }
+            }
+        });
+    }
+      return false;
+  });
+});
+
+function searchfolder()
+{
+    $('.divbuttons button').hide();
+   var txt = $('#inpursearch').val();
+   $('.divbuttons button:contains("'+txt+'")').show();
+   $('#inpursearch').val('');
+   $(".togglesearch").toggle();
+   $(".folderviews").toggle();
+}
+function iconclick(ev)
+{
+    div = $("#"+ev).find('.divicon');
+    div.show();
+}
+function refreshfolders()
+{
+    $(".divbuttons").empty();
+    $.ajax({
+		type:"POST",
+		url: "/get_folders/",
+		data: {},
+		success: function(data) 
+		{ 
+			$.each(data, function(k, v) {
+                $(".divbuttons").append('<button id="btn_'+data[k][0]+'" onclick="btn_tempNameClick(this.id);" class="btntabs"><span class="tmpName"><i class="fas fa-folder"></i>'+data[k][1]+'</span><a id="del_'+data[k][0]+'" onclick="btn_tempDeleteClick(this.id);"><span class="tmpDelete"><i class="fas fa-times"></i></span></a><a id="edit_'+data[k][0]+'" onclick="btn_tempEditClick(this.id);"><span class="tmpEdit"><i class="fas fa-pen"></i></span></a></button>')
+			});
+		}
+    });
+}
+
+function refreshTalentSumoFold()
+{
+    $(".talentsumoFoldersDiv").empty();
+    $.ajax({
+		type:"POST",
+		url: "/get_talentfolders/",
+		data: {},
+		success: function(data) 
+		{ 
+            data1 = JSON.parse(data)
+			$.each(data1, function(k, value) {
+                $(".talentsumoFoldersDiv").append('<button id="btn_'+data1[k]['id']+'" onclick="btn_TalentsumoFolClick(this.id);" class="btntabs"><span class="tmpName"><i class="fas fa-folder"></i>'+data1[k]['name']+'</span></button>')
+			});
+		}
+    });
+}
+function btn_TalentsumoFolClick(ev)
+{
+    alert(ev.replace("btn_",""));
+    folderid = ev.replace("btn_","");
+    $.ajax({
+		type:"POST",
+		url: "/get_Talenttemplates/",
+		data: {'FolderId':folderid},
+		success: function(data) 
+		{ 
+            dlength =data.length; 
+            if(dlength>0)
+            {
+                $(".talentsumoFolText").hide();
+                $("#TalentsumoList").empty();
+                $.each(data, function(k, v) {
+                     $("#TalentsumoList").append('<li><div class="menu-btn" id="templatebtn_'+data[k][3]+'"><button type="button" onclick="templbtnoverlay(this.id);" class="btn-open" id="tempbtn_'+data[k][3]+'"><i class="fas fa-ellipsis-h"></i></button><div class="overlay4" style="display:none;" id="tempoverdiv_'+data[k][3]+'" ><button id="view'+data[k][3]+'" data-label="'+data[k][6]+'" onclick="viewTemplateVlick(this.id)"><i class="fas fa-copy"></i>View Template</button><button id="'+data[k][4]+'" class="" data-label="'+data[k][3]+'" data-img="https://test.techdivaa.com'+data[k][1]+'" onclick="templateClick(this.id)"><i class="fas fa-copy"></i>Copy Template</button></div></div><a href="https://test.techdivaa.com/preview/'+data[k][6]+'" target="_blank" ><img class="listimg" src= "https://test.techdivaa.com'+data[k][1]+'"><img></a><div class="details"><h3><a href="#">'+data[k][0]+'</a></h3><p class="image-author"></p></div></li>'); 
+                    //$("#TalentsumoList").append('<li><a onClick="templateClick(this.id);" id="'+data[k][4]+'" class="" data-label="'+data[k][3]+'" ><img class="listimg" src= "https://test.techdivaa.com'+data[k][1]+'"><img></a><div class="details"><h3><a href="#">'+data[k][0]+'</a></h3><p class="image-author"></p></div></li>')
+			    });
+                $(".sharedwithudiv").hide();
+                $(".talentsumodiv").show();
+                $(".sharedbyudiv").hide();
+                $(".formdiv").hide();
+                $(".tempdiv").hide();
+            }
+		    else
+		    {
+		        $("#TalentsumoList").empty();
+		        $(".talentsumoFolText").show();
+		    }
+		}
+    });
+    $(".tempDivbutton").find('button').removeClass('active');
+    $(".divbuttons").find('button').removeClass('active');
+    $(".talentsumoFoldersDiv button").not("#"+ev).removeClass("active");
+    $("#"+ev).addClass("active");
+    
+
+}
+function btn_tempNameClick(ev)
+{
+    $(".divbuttons button").not("#"+ev).removeClass("active");
+    $("#"+ev).addClass("active");
+    $(".sharedwithudiv").hide();
+    $(".talentsumodiv").hide();
+    $(".sharedbyudiv").hide();
+    $(".formdiv").show();
+    $(".tempdiv").hide();
+    $("#folderId").val(ev.replace("btn_",""));
+    $(".tempDivbutton").find('button').removeClass('active');
+    $(".talentsumoFoldersDiv").find('button').removeClass("active");
+    
+    refreshForm();
+}
+function btn_tempEditClick(ev)
+{
+    $("#folderNametitle").text("Folder Edit Wizard");
+    $("#folderName").val($("#"+ev.replace("edit_","btn_")).text());
+    $("#foldersubmit").text("Update Folder");
+    $("#folderId").val(ev.replace("edit_",""));
+    $("#addFolderModel").modal('show');
+
+}
+function btn_tempDeleteClick(ev)
+{
+    $("#folderDeleteModel").modal('show');
+    $("#dfolid").val(ev.replace("del_",""));
+}
+function refreshForm()
+{
+    folId = $("#folderId").val();
+    $.ajax({
+		type:"POST",
+		url: "/get_forms/",
+		data: {'FolderId':folId},
+		success: function(data2) 
+		{ 
+		    console.log(data2);
+            $("#formlist").empty();
+			$.each(data2.data, function(k, v) {
+                publishurl = data2.data[k][9];
+                responses = data2.responses[k];
+                status = '';
+                responsetext = '';
+                if(parseInt(responses) !=0)
+                {
+                    responsetext = responses + ' responses';
+                }
+                else{
+                    responsetext ='';
+                }
+                if(publishurl !=null)
+                {
+                    status='<a><i class="fas fa-circle green"></i>Active</a>';
+                    $("#formlist").append('<li>	<div class="menu-btn" id="listdivbtn_'+data2.data[k][0]+'"><button type="button" onclick="btnoverlay2(this.id);" class="btn-open" id="listbtn_'+data2.data[k][0]+'"><i class="fas fa-ellipsis-h"></i></button><div class="overlay2" style="display:none;" id="listoverdiv_'+data2.data[k][0]+'" ><button onclick="Viewbuttonclick(this.id);" id="vbtn_'+data2.data[k][0]+'"  data-label="'+data2.data[k][2]+'"><i class="fas fa-eye"></i> View Form</button><button id="ebtn_'+data2.data[k][0]+'" data-label="'+data2.data[k][1]+'" data-public="'+data2.data[k][14]+'"  data-negative="'+data2.data[k][22]+'" data-autoscore="'+data2.data[k][25]+'" data-intype="'+data2.data[k][19]+'" data-folder="'+data2.data[k][13]+'" onclick="EditClick(this.id)"><i class="fas fa-edit"></i> Edit Form</button><button id="campbtn_'+data2.data[k][0]+'" data-label="'+data2.data[k][1]+'" data-public="'+data2.data[k][14]+'" data-folder="'+data2.data[k][13]+'" onclick="CampaignClick(this.id)"><i class="fas fa-edit"></i> Create Campaign </button><button id="dupbtn_'+data2.data[k][0]+'" data-name="'+data2.data[k][1]+'" data-public="'+data2.data[k][14]+'" data-label="'+data2.data[k][2]+'"   data-negative="'+data2.data[k][22]+'" data-autoscore="'+data2.data[k][25]+'" data-intype="'+data2.data[k][19]+'" data-folder="'+data2.data[k][13]+'" onclick="DuplicateClick(this.id)"><i class="fas fa-copy"></i>Duplicate Form</button><button id="delbtn_'+data2.data[k][0]+'" data-label="'+data2.data[k][2]+'" onclick="DeleteClick(this.id)"><i class="fas fa-trash"></i>Delete Form</button></div></div><a href="https://test.techdivaa.com/form/'+data2.data[k][2]+'" target="_blank" id="'+data2.data[k][0]+'" class="" data-label="'+data2.data[k][2]+'" ><img class="listimg" src= "https://test.techdivaa.com'+data2.data[k][6]+'"><img></a><div class="details"><h3><a href="#">'+data2.data[k][1]+'</a></h3><p class="image-author">'+status+'</p></div></li>');
+                }
+                else{
+                    status='<a><i class="fas fa-circle gray"></i>Draft</a>';
+                    $("#formlist").append('<li>	<div class="menu-btn" id="listdivbtn_'+data2.data[k][0]+'"><button type="button" onclick="btnoverlay2(this.id);" class="btn-open" id="listbtn_'+data2.data[k][0]+'"><i class="fas fa-ellipsis-h"></i></button><div class="overlay2" style="display:none;" id="listoverdiv_'+data2.data[k][0]+'" ><button onclick="Viewbuttonclick(this.id);" id="vbtn_'+data2.data[k][0]+'"  data-label="'+data2.data[k][2]+'"><i class="fas fa-eye"></i> View Form</button><button id="ebtn_'+data2.data[k][0]+'" data-label="'+data2.data[k][1]+'" data-public="'+data2.data[k][14]+'" data-negative="'+data2.data[k][22]+'" data-autoscore="'+data2.data[k][25]+'" data-intype="'+data2.data[k][19]+'" data-folder="'+data2.data[k][13]+'" onclick="EditClick(this.id)"><i class="fas fa-edit"></i> Edit Form</button><button id="dupbtn_'+data2.data[k][0]+'" data-name="'+data2.data[k][1]+'" data-public="'+data2.data[k][14]+'" data-label="'+data2.data[k][2]+'"   data-negative="'+data2.data[k][22]+'" data-autoscore="'+data2.data[k][25]+'" data-intype="'+data2.data[k][19]+'" data-folder="'+data2.data[k][13]+'" onclick="DuplicateClick(this.id)"><i class="fas fa-copy"></i>Duplicate Form</button><button id="delbtn_'+data2.data[k][0]+'" data-label="'+data2.data[k][2]+'" onclick="DeleteClick(this.id)"><i class="fas fa-trash"></i>Delete Form</button></div></div><a href="https://test.techdivaa.com/form/'+data2.data[k][2]+'" target="_blank" id="'+data2.data[k][0]+'" class="" data-label="'+data2.data[k][2]+'" ><img class="listimg" src= "https://test.techdivaa.com'+data2.data[k][6]+'"><img></a><div class="details"><h3><a href="#">'+data2.data[k][1]+'</a></h3><p class="image-author">'+status+'</p></div></li>');
+                }
+			});
+		}
+    });
+}
+function templbtnoverlay(ev){
+    divid = $("#"+ev).parent().attr('id');
+    overdiv = $("#"+divid).find(".overlay4").attr('id');
+    $('.overlay4').not("#"+overdiv).hide();
+    $("#"+divid).find(".overlay4").toggle();
+}
+function btnoverlay2(ev)
+{
+    divid = $("#"+ev).parent().attr('id');
+    overdiv = $("#"+divid).find(".overlay2").attr('id');
+    $('.overlay2').not("#"+overdiv).hide();
+    $("#"+divid).find(".overlay2").toggle();
+    $(".overlay1").hide();
+    $(".overlay3").hide();
+}
+function btnoverlay(ev)
+{
+    divid = $("#"+ev).parent().attr('id');
+    overdiv = $("#"+divid).find(".overlay1").attr('id');
+    $('.overlay1').not("#"+overdiv).hide();
+    $("#"+divid).find(".overlay1").toggle();
+    //$(".overlay1").hide();
+}
+function viewTemplateVlick(ev)
+{
+    forId = $("#"+ev).attr('data-label');
+    $(".overlay4").hide();
+    window.open('https://test.techdivaa.com/preview/'+ forId, '_blank').focus();  
+}
+function Viewbuttonclick(ev)
+{
+    forId = $("#"+ev).attr('data-label');
+    divid = $("#"+ev).parent().attr('id');
+    $(".overlay1").hide();
+    $(".overlay2").hide();
+    window.open('https://test.techdivaa.com/form/'+ forId, '_blank').focus();  
+}
+function getBase64Image(imgUrl) {
+  return new Promise(
+    function(resolve, reject) {
+      var img = new Image();
+      img.src = imgUrl;
+      img.setAttribute('crossOrigin', 'anonymous');
+      img.onload = function() {
+        var canvas = document.createElement("canvas");
+        canvas.width = img.width;
+        canvas.height = img.height;
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0);
+        var dataURL = canvas.toDataURL("image/png");
+        resolve(dataURL.replace(/^data:image\/(png|jpg);base64,/, ""));
+      }
+      img.onerror = function() {
+        reject("The image could not be loaded.");
+      }
+
+    });
+
+}
+function addFolderClick()
+{
+    $("#folderNametitle").text("Create Folder Wizard");
+    $("#folderName").val("Folder Name");
+    $("#foldersubmit").text("Create Folder");
+    $("#addFolderModel").modal('show');
+}
+function EditClick(ev)
+{
+    $(".overlay2").hide();
+    $(".overlay1").hide();
+    $(".overlay4").hide();
+    $('#autoreportdiv').hide();
+    $("#negativediv").hide();
+    $('#negativScorechk').prop('checked', false);
+    $('#autoreportchk').prop('checked', false);
+    $('#publicchk').prop('checked', false);
+    forName = $("#"+ev).attr('data-label');
+    forPublic = $("#"+ev).attr('data-public');
+    forNegative = $("#"+ev).attr('data-negative');
+    forAutoScore = $("#"+ev).attr('data-autoscore');
+    forFormType = $("#"+ev).attr('data-intype');
+    folId = $("#"+ev).attr('data-folder');
+    if(forPublic == 1)
+    {
+        $('#publicchk').prop('checked', true);
+    }
+    else{
+        $('#publicchk').prop('checked', false);
+    }
+    if(forNegative.trim() == 'yes')
+    {
+        $('#negativScorechk').prop('checked', true);
+    }
+    else{
+        $('#negativScorechk').prop('checked', false);
+    }
+    if(forAutoScore.trim() == 'yes')
+    {
+        $('#autoreportchk').prop('checked', true);
+    }
+    else{
+        $('#autoreportchk').prop('checked', false);
+    }
+    $('#intervtypesel').val(forFormType);
+    if(forFormType == 'quiz')
+    {
+        $('#autoreportdiv').show();
+        $("#negativediv").show(); 
+    }
+    else if(forFormType == 'code')
+    {
+        $('#autoreportdiv').hide();
+        $("#negativediv").show(); 
+    }
+    else if (forFormType == 'interview' || forFormType == 'viva')
+	{
+		$('#autoreportdiv').show();
+		$("#negativediv").hide(); 
+	}
+    else{
+        $('#autoreportdiv').hide();
+        $("#negativediv").hide(); 
+    }
+    $("#formName").val(forName);
+    $("#tempid").val(ev.replace("ebtn_",""));
+    $("#forNametitle").text("Interview Edit Wizard");
+    $("#formsubmit").text("Update Interview");
+    refreshFolSelect(folId);
+    $("#formNameModel").modal('show');
+}
+function ShareClick(ev)
+{
+    var selected = [];
+    formId = ev.replace("share_","");
+    forLongId = $("#"+ev).attr('data-label');
+    folId = $("#folderId").val();
+    $('.overlay1').hide();
+    $("#foldId").val(folId);
+    $("#formId").val(formId);
+    $("#formLongId").val(forLongId);
+    console.log(formId)
+    var country = ["Australia", "Bangladesh", "Denmark", "Hong Kong", "Indonesia", "Netherlands", "New Zealand", "South Africa"];
+    $.ajax({
+		type:"POST",
+		url: "/get_members/",
+		data: {'formId': formId.trim()},
+		success: function(data) 
+		{ 
+            $("#memberSelect").empty();
+			$.each(data.emailist, function(k, v) {
+                $("#memberSelect").append('<option value="'+data.emailist[k][0]+'" data-badge="">'+data.emailist[k][1]+'</option>');
+			});
+            $.each(data.sharedList, function(k, v) {
+                $("#memberSelect").val(data.sharedList[k][0]);
+            });
+		}
+    });
+    $("#memberSelect").select2({
+			closeOnSelect : false,
+			placeholder : "Placeholder",
+			// allowHtml: true,
+			allowClear: true,
+			tags: true // создает новые опции на лету
+		});
+   // $('#memberSelect').val(selection).trigger('change');
+    $("#teamMemberModel").modal('show');
+}
+function CampaignClick(ev)
+{
+    $("#campformid").val(ev.replace("campbtn_",""));
+    $('#campaign_form').trigger("reset");
+    $("#campstulist").select2('val', 'All');
+    $("#campaignModel").modal('show');
+}
+function DuplicateClick(ev)
+{
+    $(".overlay1").hide();
+    $(".overlay2").hide();
+    $(".overlay4").hide();
+    $('#autoreportdiv').hide();
+    $("#negativediv").hide();
+    $('#negativScorechk').prop('checked', false);
+    $('#autoreportchk').prop('checked', false);
+    $('#publicchk').prop('checked', false);
+    forName = $("#"+ev).attr('data-name');
+    forPublic = $("#"+ev).attr('data-public');
+    forNegative = $("#"+ev).attr('data-negative');
+    forAutoScore = $("#"+ev).attr('data-autoscore');
+    forFormType = $("#"+ev).attr('data-intype');
+    folId = $("#"+ev).attr('data-folder');
+    if(forPublic == 1)
+    {
+        $('#publicchk').prop('checked', true);
+    }
+    else{
+        $('#publicchk').prop('checked', false);
+    }
+    if(forNegative.trim() == 'yes')
+    {
+        $('#negativScorechk').prop('checked', true);
+    }
+    else{
+        $('#negativScorechk').prop('checked', false);
+    }
+    if(forAutoScore.trim() == 'yes')
+    {
+        $('#autoreportchk').prop('checked', true);
+    }
+    else{
+        $('#autoreportchk').prop('checked', false);
+    }
+    $('#intervtypesel').val(forFormType);
+    $("#intervtypesel").attr("disabled",true);
+    if(forFormType == 'quiz')
+    {
+        $('#autoreportdiv').show();
+        $("#negativediv").show(); 
+    }
+    else if(forFormType == 'code')
+    {
+        $('#autoreportdiv').hide();
+        $("#negativediv").show(); 
+    }
+    else{
+        $('#autoreportdiv').hide();
+        $("#negativediv").hide(); 
+    }
+    
+    $("#formName").val(forName + ' - Copy');
+    $("#tempid").val(ev.replace("dupbtn_",""));
+    $("#templongid").val($("#"+ev).attr('data-label').trim());
+    $("#forNametitle").text("Interview Duplicate Wizard");
+    $("#formsubmit").text("Copy Interview");
+    refreshFolSelect(folId);
+    $("#formNameModel").modal('show');
+						
+}
+function DeleteClick(ev)
+{
+    forLongId = $("#"+ev).attr('data-label');
+    $("#dtemplongid").val(forLongId);
+    $("#dtempid").val(ev.replace("delbtn_",""));
+    $("#formDeleteModel").modal('show');
+}
+function templateClick(ev)
+{
+    userplan = $("#userplan").val();
+    intertype = ev;
+    $('.overlay4').hide();
+    if(userplan=='Tier One')
+    {
+    $.ajax({
+		type:"GET",
+		url: "/get_formCount/",
+		data: {},
+		success: function(data) 
+		{  
+            if(parseInt(data) <2)
+            {
+			    tempId = $("#"+ev).attr('data-label');
+                tempimg =$("#"+ev).attr('data-img');
+                $("#formName").val("Interview Name");
+                $("#temptype").val(ev);
+                $("#tempid").val(tempId);
+                $("#tempimg").val(tempimg);
+                $("#forNametitle").text("Interview Creation Wizard");
+                $("#formsubmit").text("Create Interview");
+                $("#intervtypesel").val("0");
+                $("#publicchk").prop("checked",false);
+                $("#negativScorechk").prop("checked",false);
+                $("#autoreportchk").prop("checked",false);
+                refreshFolSelect(0);   
+                if(intertype == 'blank')
+                {
+                    $("#intervtypesel").prop("disabled",false);
+                }
+                else if(intertype == 'inteview')
+                {
+                    $("#intervtypesel").val("interview");
+                    $("#intervtypesel").prop("disabled",true);
+                }
+                $("#formNameModel").modal('show');
+            }
+            else{
+                $("#upgradeModel").modal('show');
+            }
+		}
+    });
+}
+else{
+    tempId = $("#"+ev).attr('data-label');
+            tempimg =$("#"+ev).attr('data-img');
+            $("#formName").val("Interview Name");
+            $("#temptype").val(ev);
+            $("#tempid").val(tempId);
+            $("#tempimg").val(tempimg);
+            $("#forNametitle").text("Interview Creation Wizard");
+            $("#formsubmit").text("Create Interview");
+            $("#intervtypesel").val("0");
+            $("#publicchk").prop("checked",false);
+            $("#negativScorechk").prop("checked",false);
+            $("#autoreportchk").prop("checked",false);
+            refreshFolSelect(0);
+            if(intertype == 'blank')
+                {
+                    $("#intervtypesel").prop("disabled",false);
+                }
+                else if(intertype == 'inteview')
+                {
+                    $("#intervtypesel").val("interview");
+                    $("#intervtypesel").prop("disabled",true);
+                }
+            $("#formNameModel").modal('show');
+}
+}
+function refreshFolSelect(id)
+{
+    $.ajax({
+		type:"POST",
+		url: "/get_folders/",
+		data: {},
+		success: function(data) 
+		{ 
+            $('#foldersel').empty();
+			$.each(data, function(k, v) {    
+            $('#foldersel').append(`<option value="${data[k][0]}">
+                                       ${data[k][1]}
+                                  </option>`);
+			});
+            if(id!=0)
+            {
+                $('#foldersel').val(id);
+            }
+		}
+    });
+}
+function importformview(ev)
+{
+    if(ev == "quiz")
+    {
+        $("#import_sample_quiz_div").show();
+        $("#import_sample_interview_div").hide();
+    }
+    else if(ev == "interview")
+    {
+        $("#import_sample_quiz_div").hide();
+        $("#import_sample_interview_div").show();
+    }
+    $('.ulimportformli').hide();
+    $("#impformtype").val(ev);
+    $("#impourl").hide();
+    $("#impoupload").show();
+    $("#imp-file-upload").attr("required",true);
+    $("#googlepurl").attr("required",false);
+    $("#googlebtn").prop("checked",false);
+    $("#googlepurl").val('');
+    $("#imp-file-upload").val(null);
+    $("#importformtitle").text('Create '+ev+' using ExcelSheet');
+    $("#importformModel").modal('show');
+}
+function Generator() {};
+	Generator.prototype.rand =  Math.floor(Math.random() * 26) + Date.now();
+	Generator.prototype.getId = function() {
+	return this.rand++;
+};
+function randomIntFromInterval(min, max) { // min and max included 
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+function googleurlclick(ev)
+{
+    if(ev.checked)
+    {
+        $("#impoupload").hide();
+        $("#impourl").show();
+        $("#imp-file-upload").attr("required",false);
+        $("#googlepurl").attr("required",true);
+    }
+    else{
+        $("#impoupload").show();
+        $("#impourl").hide();
+        $("#imp-file-upload").attr("required",true);
+        $("#googlepurl").attr("required",false);
+    }
+}
+function interviewtypeOnchange(ev)
+{
+    if(ev.value=="quiz")
+    {
+        $("#autoreportdiv").show();
+        $("#negativediv").show(); 
+    }
+    else if(ev.value=="code")
+    {
+        $("#autoreportdiv").hide();
+        $("#negativediv").show(); 
+    }
+    else if (ev.value == 'interview' || ev.value == 'viva' )
+	{
+		$('#autoreportdiv').show();
+		$("#negativediv").hide(); 
+	}
+    else{
+        $("#autoreportdiv").hide();
+        $("#negativediv").hide(); 
+        $('#negativScorechk').prop('checked', false);
+        $('#autoreportchk').prop('checked', false);
+    }
+}
+</script>
+</body>
+</html>
+
+
+{% endblock %}

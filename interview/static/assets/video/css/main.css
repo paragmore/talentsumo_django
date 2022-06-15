@@ -1,0 +1,513 @@
+/* nointernet page */ 
+.img img{
+    width: 20%;
+    margin: auto;
+}
+.img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.heading
+{
+padding:10px;
+display:flex;
+justify-content:center;
+}
+.countertxt
+{
+    height: 250px;
+    font-size: 132px;
+    text-align: center;
+    line-height: 250px;
+    font-weight: 600;
+}
+.copy{
+    text-align: center;
+}
+.nointernet{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button:hover,button:focus
+{
+    outline:none !important;
+}
+button:hover, button:focus
+{
+    outline:none !important;
+}
+.desktoprecordtimecont
+{
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #007bff;
+}
+.desktopvideocontainer
+{
+    width: 100%;
+    display: contents;
+}
+.desktopaudiocontainer
+{
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+.desktopaudiocontainer img
+{
+    width: 43%;
+}
+.videopage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+.previewvideo{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.previewvideo button{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    color: white;
+    background-color: transparent;
+    border-radius: 50%;
+}
+.blockquote p{
+    background-color: #DFE2FE;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: medium;
+}
+.bg-light{
+    background-color: transparent !important;
+}
+.mobileaudio{
+    display: none;
+    margin: auto;
+}
+.mobilevideo{
+    display: none;
+    vertical-align: middle;
+}
+.mobilebtn{
+    display: none;
+}
+.mobilebtnalign{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mobilepreview{
+    margin-top: 150%;
+    
+}
+.clode-model
+{
+    display: block;
+    font-size: 13px;
+    width: 140%;
+    text-align: center;
+    float: left;
+    color: black;
+    margin-bottom: -3%;
+    font-family: inherit;
+    background-color: #DFE2FE;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 30px;
+    margin-top: 1%;
+}
+  .mobilebtnalign button{
+    margin-top: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+    #procerecorded
+    {
+        height:70vh !important;
+        width: 10% !important;
+    }
+    .clode-model
+    {
+        width: 112%; 
+    }
+.modal-content
+  {
+      margin-top: 50% !important;
+  }
+    .blockquote{
+        display: none;
+    }
+    .navbar-brand img {
+        height: 60px !important;
+    }
+    .mobileupload{
+        background-color: #4353FF !important;
+        border-color: #4353FF !important;
+        margin: 5px;
+    }
+    .mobilerecoder{
+        height: 30vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .fileupload{
+        height: 30vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .desktoprecorder{
+        height: 30vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .heading h2{
+        font-size:large;
+    }
+    .heading{
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+    }
+    .progressbar{
+        display: none;
+        margin-left: 5%;
+        width: 93%;
+        font-size: 12px;
+    }
+    .processedvideobtn{
+        display: none;
+        margin: 5px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    #procerecorded
+    {
+        height:70vh !important;
+        width: 10% !important;
+    }
+.modal-content
+  {
+      margin-top:50% !important;
+  }
+    .fileupload{
+        height: 50vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .uploadsection{
+        border-left: solid 0.12rem #868686;
+        line-height: 10px;
+    }
+    .heading{
+        padding: 50px;
+        display: flex;
+        justify-content: center;
+    }
+}
+.mediastream{
+    display: none;
+}
+.errorMsg{
+    display: none;
+}
+
+.choosefile div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.choosefile span{
+    font-size: 3rem;
+}
+
+
+.form-group{
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+input[type=file]{
+    display: none;
+}
+.desktoprecorder{
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+.desktoprecordbtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.desktopvideo{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.btn-primary{
+    background-color: #EB4034;
+    border-color: #EB4034;
+}
+.btn-primary:disabled{
+    background-color: #e28079;
+    border-color: #e28079;
+}
+.btn-primary:hover{
+    background-color: #ce3025;
+    border-color: #ce3025;
+}
+video{
+    background-color: black;
+    width: 90%;
+    border-radius: 5px;
+}
+label{
+    background-color: #4353FF;
+    color: white;
+    display: flex !important;
+    align-items: center;
+    height: 6rem;
+    border-radius: 5px;
+    padding: 0 25px;
+    cursor: pointer;
+}
+.mobilerecoder label{
+    background-color: #EB4034;
+}
+.startvid{
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    padding: 10px;
+    background-color: #eb4034;
+    border: solid 0.12rem white;
+    color: white;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.retake{
+    display: flex;
+    justify-content: space-between;
+    
+}
+#recorded{
+    display: none;
+}
+.secondscreen{
+    display: none;
+}
+.retakebtn{
+    background-color: #4353FF !important;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 20px;
+    color:white;
+    cursor: pointer;
+}
+.uploadbtn{
+    background-color: #4353FF !important;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 20px;
+    color:white;
+    cursor: pointer;
+}
+.playbtn{
+    background-color: transparent;
+    border: solid 0.15rem #4353FF;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    padding: 5px 5px;
+    color:#4353FF;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.progressbar{
+    
+    height: 50px;
+    width: 50%;
+    margin: auto;
+    display: none;
+}
+.copyandprocess{
+    display: none;
+}
+.tooltip
+{
+    top: 0%;
+    left: 80% !important;
+    display: contents !important;
+    position: relative;
+}
+.tooltip-inner
+{
+    background: black;
+    width: 20%;
+    text-align: center;
+    color: white;
+}
+.maincont{
+    
+}
+.processedvideo button{
+    background-color: #4353FF !important;
+    border-color: #4353FF;
+}
+.processedvideo button:hover{
+    background-color: #4353FF !important;
+    border-color: #4353FF;
+}
+.processedvideo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-top: 2%;
+}
+.processedvideobtn{
+    display: none;
+}
+
+.processing{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    padding: 10px;
+}
+
+.processing p{
+    position: absolute;
+    color: white;
+}
+
+.uploadsection{
+    
+}
+.urlcopy{
+    background-color: #cfcfcf;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  .showurl{
+    display: none;
+  }
+  .urlcopy input{
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    outline:none;
+  }
+  #copytext:disabled ,#videopreviewpage:disabled ,#btnvideopreviewpage:disabled 
+  {
+     cursor: not-allowed; 
+  }
+  .urlcopy button{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+  }
+.copycontent{
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #D7DAFF;
+    top: 10px;
+}
+
+.progress-area .row .content{
+    width: 100%;
+    margin-left: 15px;
+  }
+  .progress-area .details{
+    display: flex;
+    align-items: center;
+    margin-bottom: 7px;
+    justify-content: space-between;
+  }
+.file-details .progress-bar{
+    height: 6px;
+    width: 100%;
+    margin-bottom: 4px;
+    background: #D7DAFF;
+    border-radius: 30px;
+  }
+    .file-details .progress{
+    height: 100%;
+    width: 0%;
+    background: #6990F2;
+    border-radius: inherit;
+  }
+  .uploaded-area{
+    max-height: 232px;
+    overflow-y: scroll;
+  }
+  .modal-dialog
+  {
+      margin-top: 13% !important;
+  }
+  .fade 
+{
+    opacity: 1;
+    background: #00000061;
+}
+  .uploaded-area.onprogress{
+    max-height: 150px;
+  }
+  .uploaded-area::-webkit-scrollbar{
+    width: 0px;
+  }
+  .uploaded-area .row .content{
+    display: flex;
+    align-items: center;
+  }
+  .uploaded-area .row .details{
+    display: flex;
+    margin-left: 15px;
+    flex-direction: column;
+  }
+  .uploaded-area .row .details .size{
+    color: #404040;
+    font-size: 11px;
+  }
+  .uploaded-area i.fa-check{
+    font-size: 16px;
+  }

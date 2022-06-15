@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "polynomial-aura-316612",
+  "private_key_id": "afbe766a4ca33fd70ec05dc7fc50d2872de0f958",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDIhvMVRE9YfkL6\nW7T+Zb2dCqCUaKEL5DxKDPrDVlL2XHH64NQTSOpm5MZV7TQa3gr0br0hRx8i/2TI\nt6zaSBSs0btqSvzTEXjqL1so+woc/1u40a4ZlL9HT6GkeMcoXCizG7yUPUIDU5hu\n+iQWzv5QarAFEazOmyvovuNq0xCOnya1NfBYnNtsWCK1hWUt0GR+xApLJ7xVkjH5\n1n3efpfwiFRCl7CbTGMnowZD9kI1q2mgeTihRCesbnLMLTDMdxzzitRsKz+PeQli\n/ro27EN75mtaq/zOkDrjoJ6Ivgs2Uxa/lM3nRuCdkkADZgao1b/w4q6F7Nkyt9d8\nFHuds/yHAgMBAAECggEAEdl+rn2bzoBsDTBim7k0t/49La4OlSoQz8qjUQX7G+Do\nvcXg5YKPvZmkVKZpBUc56b4oabDqAvSBj82saOsSTrvbQeqWN2I5GtIc/DiJvZZh\ndMHStzDiweyYXTU/DRxUUcp97ngcIIMCxkYlNj6LVrSDIesL2yw8LAXp5RVlRjyY\nyf/ssIPfFulffrdhtDdWo3RWzjiQfqs04OmEj9eE6Tb0m3XJH5XJIs/ggQ+C+D2W\nRJqBazdkmq5RiCP+f4kNufyJjAMRcLfoGNDZVrWJaNp1e/3B63x+2cADlg+6N90F\naxp0QMCnmUrX22oNrZUyWCvDNW5xUY/MRBAFP5KZsQKBgQDlu3/Bh53cJPPUPFkq\nnAVLLEPvIXvZ1gEo7PUW+38VCjgP5XkyosIBUd80NR1VzrJuev1wG7aPGbxQLxh4\n0n+jqKc+26eTw6RepVC38iqG1k7fTRfp3cKKYsWYvQ+HsP+AC+43GWw5woqeYHoU\n+nE7Vv2lbq8YzAMaheLo4c/x3wKBgQDfdJUjSPo3dXpn5HU/IunLVhXPP9/tlyyX\niKwXnivJI5wPqAothETH8Iw4pSHMKLFIZtmmAy8ySuvCV8ungvmgkPV61IVc2FY7\noE9CG9k1jqWW6pQItITbmbqIyKAX2XCrvuA0674cviod9ftbjuAYpZ8Vadg+/Use\navRMb6/aWQKBgFhBTNYzXGDLTWS2fmbRI3N6oOqICYVpIm7vgUR//5U8pMbumD3s\nqu1I35+12/wv+Ppag2yDKQIWl/KR9SvNaj2cOAv85IbuvQGjLrxL6yx7vjco7cvp\nZqg1Q8Xms8WkKLOvYaeHO72A0DIBzESs5b0vMShRujCjh3mz/7UJsxIvAoGBAKNq\nZwb+/74/M912vigGKGSD+D8wv1rKC9pmITTEf9EBMchhY9AVwxdVW7axTR45RC1m\nyhUWjxWApRnjixRePKCoYl4Jvd5AeA/zFQOLyjXYtFDCDLCxE9hlfH07+5h1dGil\nluIc5VOv3q06jzBONKTRup22YmbuZllAbpjXtQtBAoGBAJGXhIH5LZnPeLhhJjD7\nBSfzvrHAj4ZQvcVk9KQHExpKi8uo1LtW1hWZxtRjwkVMCagZVSpzzR6nINAR4/XX\nP+8ixDSt1zxU8nEXMdfdVg7qwFLetH+jqxkLAl9Eufh7rSxBuR44qoys257EgVRa\nYDPXxUfTQ/NzspurY/s875fY\n-----END PRIVATE KEY-----\n",
+  "client_email": "googlecloudspace@polynomial-aura-316612.iam.gserviceaccount.com",
+  "client_id": "102322091913041045783",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/googlecloudspace%40polynomial-aura-316612.iam.gserviceaccount.com"
+}

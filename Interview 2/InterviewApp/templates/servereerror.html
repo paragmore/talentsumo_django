@@ -1,0 +1,60 @@
+
+{% load static %}
+{% block content %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+  <link rel="shortcut icon" href="{% static 'assets/video/images/talentsumo.png' %}" />
+    <!-- Bootstrap CSS -->
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'assets/video/css/bootstrap.min.css' %}">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'assets/video/css/main.css' %}">
+
+    <!-- Google icon -->
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+
+    <title>Talent Sumo</title>
+</head>
+<body>
+    <!-- Just an image -->
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'assets/video/images/talentsumoLogo.jpg' %}" height="100" alt="">
+        </a>
+    </nav>
+    <!-- nav image end -->
+    <div class="container">
+        <div class="row ">
+            <div class="col-12 nointernet">
+                <div>
+                    <div class="img">
+                        <img  src="{% static 'assets/video/images/error.png' %}" alt="">
+                    </div>
+                    <div class="copy">
+                        <h4>Sorry, It's not you. It's us</h4>
+                        <p>We are facing sever and network issues. Please try later.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="{% static 'assets/video/js/jquery-3.2.1.slim.min.js' %}"></script>
+    <script src="{% static 'assets/video/js/popper.min.js' %}"></script>
+    <script src="{% static 'assets/video/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/video/js/script2.js' %}"></script>
+    <script src="script2.js"></script>
+</body>
+</html>
+
+{% endblock %}

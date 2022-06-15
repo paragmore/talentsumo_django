@@ -1,0 +1,455 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>TalentSumo - AI Feedback</title>
+
+    <link rel="icon" href="{% static 'assets/img/logo.png' %}"  type="image/png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}"  />
+    <!-- themefy CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/themefy_icon/themify-icons.css' %}"  />
+    <!-- select2 CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/niceselect/css/nice-select.css' %}"  />
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/owl_carousel/css/owl.carousel.css' %}"  />
+    <!-- gijgo css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/gijgo/gijgo.min.css' %}"  />
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/font_awesome/css/all.min.css' %}"  />
+    <link rel="stylesheet" href="{% static 'assets/vendors/tagsinput/tagsinput.css' %}"  />
+
+    <!-- date picker -->
+     <link rel="stylesheet" href="{% static 'assets/vendors/datepicker/date-picker.css' %}"  />
+
+     <link rel="stylesheet" href="{% static 'assets/vendors/vectormap-home/vectormap-2.0.2.css' %}"  />
+     
+     <!-- scrollabe  -->
+     <link rel="stylesheet" href="{% static 'assets/vendors/scroll/scrollable.css' %}"  />
+    <!-- datatable CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/datatable/css/jquery.dataTables.min.css' %}"  />
+    <link rel="stylesheet" href="{% static 'assets/vendors/datatable/css/responsive.dataTables.min.css' %}"  />
+    <link rel="stylesheet" href="{% static 'assets/vendors/datatable/css/buttons.dataTables.min.css' %}"  />
+    <!-- text editor css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/text_editor/summernote-bs4.css' %}"  />
+    <!-- morris css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/morris/morris.css' %}" >
+    <!-- metarial icon css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/material_icon/material-icons.css' %}"  />
+
+    <!-- menu css  -->
+    <link rel="stylesheet" href="{% static 'assets/css/metisMenu.css' %}" >
+    <!-- style CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}"  />
+    <link rel="stylesheet" href="{% static 'assets/css/colors/default.css' %}"  id="colorSkinCSS">
+</head>
+<body class="crm_body_bg">
+    
+<style>
+    .clist
+    {
+        color: #333333;
+        float: right;
+        padding: 7px;
+        font-size: 14px;
+        margin: 2%;
+    }
+.nav.nav-tabs .nav-item.show:focus, .nav.nav-tabs .nav-item.show.active, .nav.nav-tabs .nav-link:focus, .nav.nav-tabs .nav-link.active
+{
+    color: #333333;
+    background-color: #fff;
+    border-color: transparent transparent #333333;
+    font-size: 17px;
+    font-weight: 700;
+}
+.nav-item a
+{
+    color: #333333;
+    font-weight: 700;
+}
+.image-list-small
+{
+    float: left;
+    max-width:100% !important
+}
+.image-list-small li a{
+    text-align: center;
+}
+
+.image-list-small li
+{
+    float: left;
+}
+.image-list-small .details
+{
+    margin-bottom: 10px;
+}
+.image-author
+{
+    font-size: 14px !important;
+}
+.image-author i{
+    font-size: 8px;
+    padding-right: 2%;
+    padding-bottom: 3%;
+}
+.green
+{
+    color: green;
+}
+.gray
+{
+    color: gray;   
+}
+.tab-pane 
+{
+    padding: 4%;
+}
+#formName
+{
+    height: 35px;
+    width: 100%;
+    padding-left: 5%;
+    margin-bottom: 5%;
+    border:1px solid #dddddd;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 200px;
+}
+
+/* Make the image to responsive */
+.container img {
+  width: 100%;
+  height: auto;
+}
+
+/* The overlay effect (full height and width) - lays on top of the container and over the image */
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .3s ease;
+  background-color: white;
+}
+
+/* When you mouse over the container, fade in the overlay icon*/
+.container:hover .overlay {
+  opacity: 1;
+}
+.menu-btn
+{
+    position: absolute;
+    width: 24%;
+    padding-top: 5px;
+    color: black;
+}
+.menu-btn button{
+    background: none;
+    border: none;
+}
+.btn-open{
+    color: black;
+    cursor: pointer;
+}
+.overlay1
+{
+    position: absolute;
+    background-color: black;
+    padding: 5px;
+    border-radius: 12px;
+    margin-left: 2%;
+    top: 30px;
+}
+.overlay1 button {
+  background-color: black; /* Green background */
+  border: none;/* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  width: 100%; /* Set a width if needed */
+  display: block; /* Make the buttons appear below each other */
+  text-align: left;
+}
+.overlay1 button:last-child{
+    border-top: 2px solid #333333;
+}
+.overlay1 button i{
+    padding-right: 5px;
+}
+
+.overlay1 button:not(:last-child) {
+  border-bottom: none; /* Prevent double borders */
+}
+#folderName
+{
+    width: 100%;
+    margin-bottom: 5%;
+    border: 1px solid #333333b0;
+    height: 40px;
+    line-height: 40px;
+    padding: 2%;
+    font-size: 14px;
+}
+
+/* Add a background color on hover */
+
+.icon1:hover,.icon2:hover,.icon3:hover,.icon2:focus,.icon3:focus
+{
+    color: black;
+}
+/* The icon inside the overlay is positioned in the middle vertically and horizontally */
+.icon1 {
+    color: #333333;
+    height: 25px;
+    padding: 2%;
+    line-height: 15px;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+.small_logo img
+{
+    width: 20% !important;
+}
+.icon2 {
+    color: #333333;
+    height: 25px;
+    padding: 2%;
+    line-height: 15px;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    cursor: pointer;
+}
+.icon3 {
+    color: #333333;
+    height: 25px;
+    padding: 2%;
+    line-height: 15px;
+    font-size: 20px;
+    position: absolute;
+    top: 75%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    cursor: pointer;
+}
+.icon4 {
+    color: #333333;
+    height: 25px;
+    padding: 2%;
+    line-height: 15px;
+    font-size: 20px;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    cursor: pointer;
+}
+
+/* When you move the mouse over the icon, change color */
+.fa-user:hover {
+  color: #eee;
+}
+.image-list-small .details h3 a
+{
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.listimg
+{
+    height: 50%;
+    line-height: 200px;
+    vertical-align: middle;
+    margin: auto;
+    margin-top: 25%;
+    width: 100%;
+}
+.listimgform
+{
+    width: 100%;
+    height: 50%;
+    margin-top: 30%;
+}
+.wkdashboard
+{
+    color: black;
+    padding-left: 5px;
+    font-size: 12px;
+    font-weight: 600;
+}
+.col1
+{
+    width: 15%;
+    float: left;
+}
+.col2
+{
+    width: 85%;
+    float: left;
+    padding: 3%;
+}
+.main_content
+{
+    padding-left: 0px !important;
+}
+.main_content_iner img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+     width: 50%;
+}
+</style>
+
+<!-- main content part here -->
+ 
+<section class="main_content dashboard_part large_header_bg">
+        <!-- menu  -->
+    <div class="container-fluid no-gutters">
+        <div class="row">
+         <div class="col-lg-12 p-0 ">
+                <div class="header_iner d-flex justify-content-between align-items-center">
+                    <div class="sidebar_icon d-lg-none">
+                        <i class="ti-menu"></i>
+                    </div>
+                    <div class="line_icon open_miniSide d-none d-lg-block">
+                        <div class="logo d-flex justify-content-between">
+                            <a class="small_logo" href="{% url 'home' %}"><img src="{% static 'assets/img/logo.png' %}"  alt=></a>
+                            <div class="sidebar_close_icon d-lg-none">
+                                <i class="ti-close"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="serach_field-area d-flex align-items-center">
+                    </div>
+                    <div class="header_right d-flex justify-content-between align-items-center">
+                        <div class="header_notification_warp d-flex align-items-center">
+                            <li>
+                                <a class="CHATBOX_open" href="{% url 'home' %}"> <img src="{% static 'assets/img/menu-icon/dashboard.png' %}"  alt=><label class="wkdashboard">Dashboard</label> </a>
+                            </li>
+                        </div>
+                       <div class="profile_info">
+                            <img src="{% static 'assets/img/client_img.png' %}"  alt="#">
+                           <div class="profile_info_iner">
+                                <div class="profile_author_name">
+                                    <h5>{{ request.session.userName }}</h5>
+                                </div>
+                                <div class="profile_info_details">
+                                    <a href="{% url 'profile' %}">Profile </a>
+                                </div>
+                                <div class="profile_info_details">
+                                    <a href="{% url 'team'%}">Team Members </a>
+                                </div>
+                                <div class="profile_info_details">
+                                    <a href="{% url 'smtp' Id='1'%}">Settings </a>
+                                </div>
+                                <div class="profile_info_details">
+                                    <a href="/logout">Log Out </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ menu  -->
+    <div class="main_content_iner overly_inner " style="background-color: white;">
+        <img src="{% static 'assets/img/comingsoon.png' %}"  alt=>
+    </div>
+<!-- footer part -->
+<div class="footer_part">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="footer_iner text-center">
+                    <p>2022 © copyrights <a href="#"> <i class="ti-heart"></i> </a><a href="#"> Talent Sumo</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+ 
+
+  
+<script src="{% static 'assets/js/jquery-3.4.1.min.js' %}" ></script>
+<script src="{% static 'assets/js/modernizr-2.8.3.min.js' %}" ></script>
+<script src="{% static 'assets/js/responsive-overlay-menu.js' %}" ></script>
+<!-- popper js -->
+<script src="{% static 'assets/js/popper.min.js' %}" ></script>
+<!-- bootstarp js -->
+<script src="{% static 'assets/js/bootstrap.min.js' %}" ></script>
+<!-- sidebar menu  -->
+<script src="{% static 'assets/js/metisMenu.js' %}" ></script>
+<!-- waypoints js -->
+<script src="{% static 'assets/vendors/count_up/jquery.waypoints.min.js' %}" ></script>
+<!-- waypoints js -->
+<script src="{% static 'assets/vendors/chartlist/Chart.min.js' %}" ></script>
+<!-- counterup js -->
+<script src="{% static 'assets/vendors/count_up/jquery.counterup.min.js' %}" ></script>
+
+<!-- nice select -->
+<script src="{% static 'assets/vendors/niceselect/js/jquery.nice-select.min.js' %}" ></script>
+<!-- owl carousel -->
+<script src="{% static 'assets/vendors/owl_carousel/js/owl.carousel.min.js' %}" ></script>
+
+<!-- responsive table -->
+<script src="{% static 'assets/vendors/datatable/js/jquery.dataTables.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/dataTables.responsive.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/dataTables.buttons.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/buttons.flash.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/jszip.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/pdfmake.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/vfs_fonts.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/buttons.html5.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/buttons.print.min.js' %}" ></script>
+
+<!-- datepicker  -->
+<script src="{% static 'assets/vendors/datepicker/datepicker.js' %}" ></script>
+<script src="{% static 'assets/vendors/datepicker/datepicker.en.js' %}" ></script>
+<script src="{% static 'assets/vendors/datepicker/datepicker.custom.js' %}" ></script>
+
+<script src="{% static 'assets/js/chart.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/chartjs/roundedBar.min.js' %}" ></script>
+
+<!-- progressbar js -->
+<script src="{% static 'assets/vendors/progressbar/jquery.barfiller.js' %}" ></script>
+<!-- tag input -->
+<script src="{% static 'assets/vendors/tagsinput/tagsinput.js' %}" ></script>
+<!-- text editor js -->
+<script src="{% static 'assets/vendors/text_editor/summernote-bs4.js' %}" ></script>
+<script src="{% static 'assets/js/custom.js' %}"></script>
+
+</body>
+</html>
+
+
+{% endblock %}

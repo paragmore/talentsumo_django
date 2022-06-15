@@ -1,0 +1,403 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>TalentSumo - Profile</title>
+
+    <link rel="icon" href="{% static 'assets/img/logo.png' %}"  type="image/png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}"  />
+    <!-- themefy CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/themefy_icon/themify-icons.css' %}"  />
+    <!-- select2 CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/niceselect/css/nice-select.css' %}"  />
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/owl_carousel/css/owl.carousel.css' %}"  />
+    <!-- gijgo css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/gijgo/gijgo.min.css' %}"  />
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/font_awesome/css/all.min.css' %}"  />
+    <link rel="stylesheet" href="{% static 'assets/vendors/tagsinput/tagsinput.css' %}"  />
+
+    <!-- date picker -->
+     <link rel="stylesheet" href="{% static 'assets/vendors/datepicker/date-picker.css' %}"  />
+
+     <link rel="stylesheet" href="{% static 'assets/vendors/vectormap-home/vectormap-2.0.2.css' %}"  />
+     
+     <!-- scrollabe  -->
+     <link rel="stylesheet" href="{% static 'assets/vendors/scroll/scrollable.css' %}"  />
+    <!-- datatable CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/datatable/css/jquery.dataTables.min.css' %}"  />
+    <link rel="stylesheet" href="{% static 'assets/vendors/datatable/css/responsive.dataTables.min.css' %}"  />
+    <link rel="stylesheet" href="{% static 'assets/vendors/datatable/css/buttons.dataTables.min.css' %}"  />
+    <!-- text editor css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/text_editor/summernote-bs4.css' %}"  />
+    <!-- morris css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/morris/morris.css' %}" >
+    <!-- metarial icon css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/material_icon/material-icons.css' %}"  />
+
+    <!-- menu css  -->
+    <link rel="stylesheet" href="{% static 'assets/css/metisMenu.css' %}" >
+    <!-- style CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}"  />
+    <link rel="stylesheet" href="{% static 'assets/css/colors/default.css' %}"  id="colorSkinCSS">
+</head>
+<body class="crm_body_bg">
+    
+<style>
+
+.sformlbl
+{
+    line-height: 60px;
+    font-weight: 700;
+    font-size: 18px;
+}
+.revcom
+{
+    color:green;
+}
+    .metismenu li a.active .nav_title span:hover
+    {
+        color:#19191a !important;
+    }
+    .floated {
+   float:left;
+   margin-right:5px;
+}
+.search_field select {
+    height: 35px;
+    width: 100%;
+    margin: auto;
+    margin-top: 2%;
+}
+.cmargin
+{
+    margin-left: -15%;  
+}
+.tbltool
+{
+    color:cadetblue;
+}
+.reportsent
+{
+    width: 70%;
+    background: green;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+    font-size: 12px;
+}
+.marker
+{
+    padding-right: 1%;
+}
+ #tbl_formData_info td:last-child ,  #tbl_formData_info th:last-child{
+     width: 40%;
+ }
+.reportnotsent
+{
+    width: 70%;
+    background: orangered;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+    font-size: 12px;
+}
+#profileDetails input,span
+{
+    border: none !important;
+    background-color: white !important;
+}
+#profileDetails label{
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+}
+.opty img
+{
+    opacity: 0.7;
+}
+.form-control
+{
+    border:none !important;
+}
+
+</style>
+
+<!-- main content part here -->
+ 
+ <!-- sidebar  -->
+ <nav class="sidebar">
+    <div class="logo d-flex justify-content-between">
+        <a class="large_logo" href="{% url 'home' %}"><img src="{% static 'assets/img/logo.png' %}"  alt=></a>
+        <a class="small_logo" href="{% url 'home' %}"><img src="{% static 'assets/img/logo.png' %}"  alt=></a>
+        <div class="sidebar_close_icon d-lg-none">
+            <i class="ti-close"></i>
+        </div>
+    </div>
+    <ul id="sidebar_menu">
+        <li class=>
+            <a href="{% url 'home' %}" aria-expanded="false">
+                <div class="nav_icon_small">
+                    <img src="{% static 'assets/img/menu-icon/dashboard.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Dashboard </span>
+                </div>
+            </a>
+        </li>
+           <li class=>
+            <a href="{% url 'workspace' %}" aria-expanded="false">
+                <div class="nav_icon_small">
+                    <img src="{% static 'assets/img/menu-icon/form.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Workspace</span>
+                </div>
+            </a>
+        </li>
+            {% if request.session.Plan == 'Tier Four' %}
+            <li class=>
+                <a href="{% url 'aifeedback' %}" aria-expanded="false">
+                    <div class="nav_icon_small opty">
+                        <img src="{% static 'assets/img/menu-icon/feedback.png' %}"  alt=>
+                    </div>
+                    <div class="nav_title">
+                        <span>AI Feedback </span>
+                    </div>
+                </a>
+            </li>
+        {% endif %}
+        <li class=>
+            <a href="{% url 'team' %}" aria-expanded="false">
+                <div class="nav_icon_small opty">
+                    <img src="{% static 'assets/img/menu-icon/team.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Team Members </span>
+                </div>
+            </a>
+        </li>
+        <li class=>
+            <a href="{% url 'smtp' Id='1' %}" aria-expanded="false">
+                <div class="nav_icon_small opty">
+                    <img src="{% static 'assets/img/menu-icon/settings.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Settings </span>
+                </div>
+            </a>
+        </li>
+        <li class=>
+            <a href="{% url 'profile' %}" aria-expanded="false">
+                <div class="nav_icon_small opty">
+                    <img src="{% static 'assets/img/menu-icon/user.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Profile </span>
+                </div>
+            </a>
+        </li>
+      </ul>
+</nav>
+ <!--/ sidebar  -->
+
+
+<section class="main_content dashboard_part large_header_bg">
+        <!-- menu  -->
+    <div class="container-fluid no-gutters">
+        <div class="row">
+            <div class="col-lg-12 p-0 ">
+                <div class="header_iner d-flex justify-content-between align-items-center">
+                    <div class="sidebar_icon d-lg-none">
+                        <i class="ti-menu"></i>
+                    </div>
+                    <div class="line_icon open_miniSide d-none d-lg-block">
+                        <img src="{% static 'assets/img/line_img.png' %}"  alt=>
+                    </div>
+                    <div class="serach_field-area d-flex align-items-center">
+                    </div>
+                    <div class="header_right d-flex justify-content-between align-items-center">
+                        <!--<div class="header_notification_warp d-flex align-items-center">
+                            <li>
+                                <a class="CHATBOX_open" href="#"> <img src="{% static 'assets/img/icon/msg.svg' %}"  alt=> <span>2</span>  </a>
+                            </li>
+                        </div>-->
+                        <div class="profile_info">
+                            <img src="{% static 'assets/img/client_img.png' %}"  alt="#">
+                           <div class="profile_info_iner">
+                                <div class="profile_author_name">
+                                    <h5>{{ request.session.userName }}</h5>
+                                </div>
+                                <div class="profile_info_details">
+                                    <a href="{% url 'profile' %}">Profile </a>
+                                </div>
+                                <div class="profile_info_details">
+                                    <a href="{% url 'team'%}">Team Members </a>
+                                </div>
+                                <div class="profile_info_details">
+                                    <a href="{% url 'smtp' Id='1'%}">Settings </a>
+                                </div>
+                                <div class="profile_info_details">
+                                    <a href="/logout">Log Out </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ menu  -->
+    <div class="main_content_iner overly_inner ">
+        <div class="container-fluid p-0 ">
+            <!-- page title  -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page_title_box d-flex flex-wrap align-items-center justify-content-between">
+                        <div class="page_title_left d-flex align-items-center">
+                            <h3 class="f_s_25 f_w_700 dark_text mr_30" >Profile Details</h3>
+                        </div>
+                        <div class="page_title_right" id="profileDetails">
+                            <div class="page_date_button d-flex align-items-center"> 
+                                <div class="white_card card_height_100 mb_50 mt_50">
+                                    <div class="white_card_header">
+                                    <div class="box_header m-0">
+                                    </div>
+                                    </div>
+                                    <div class="white_card_body">
+                                    <div class="row">
+                                    <div class="col-lg-6">
+                                    <div class="common_input mb_15">
+                                    <label>Full Name:</label>
+                                    <input type="text" class="form-control" id="fullName" placeholder="Full Name" value="{{data.fullname}}" readonly>
+                                    </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                    <div class="common_input mb_15">
+                                        <label>Email Address:</label>
+                                    <input type="text" class="form-control" id="emailAddress" placeholder="Email Address" value="{{data.email}}" readonly>
+                                    </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                    <div class="common_input mb_15">
+                                        <label>Plan :</label>
+                                    <input type="text" class="form-control" id="planName" placeholder="Plan" value="{{data.Plan}}" readonly>
+                                    </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                    <div class="common_input mb_15">
+                                        <label>Member since  :</label>
+                                    <input type="text" class="form-control" id="registerAt" placeholder="Registered At" value="{{data.registered_at}}" readonly>
+                                    </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="common_input mb_15">
+                                            <label>Plan Details :</label>
+                                        {% for features in PlanDetails %}
+                                            <span class="form-control"  id="plandetails" readonly placeholder="Plan Details"><span class="marker">✔️</span> {{ features }} </span><br>
+                                        {% endfor %}
+                                    </div>
+                                    </div>
+                                 
+                                    </div>
+                                    </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       
+    </div>
+    </div>
+
+<!-- footer part -->
+<div class="footer_part">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="footer_iner text-center">
+                    <p>2022 © copyrights <a href="#"> <i class="ti-heart"></i> </a><a href="#"> Talent Sumo</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<!-- main content part end -->
+
+<!-- ### CHAT_MESSAGE_BOX   ### -->
+
+
+<!--/### CHAT_MESSAGE_BOX  ### -->
+
+<!--<div id="back-top" style="display: none;">
+    <a title="Go to Top" href="#">
+        <i class="ti-angle-up"></i>
+    </a>
+</div>-->
+
+<!-- footer  -->
+<script src="{% static 'assets/js/jquery-3.4.1.min.js' %}" ></script>
+<!-- popper js -->
+<script src="{% static 'assets/js/popper.min.js' %}" ></script>
+<!-- bootstarp js -->
+<script src="{% static 'assets/js/bootstrap.min.js' %}" ></script>
+<!-- sidebar menu  -->
+<script src="{% static 'assets/js/metisMenu.js' %}" ></script>
+<!-- waypoints js -->
+<script src="{% static 'assets/vendors/count_up/jquery.waypoints.min.js' %}" ></script>
+<!-- waypoints js -->
+<script src="{% static 'assets/vendors/chartlist/Chart.min.js' %}" ></script>
+<!-- counterup js -->
+<script src="{% static 'assets/vendors/count_up/jquery.counterup.min.js' %}" ></script>
+
+<!-- nice select -->
+<script src="{% static 'assets/vendors/niceselect/js/jquery.nice-select.min.js' %}" ></script>
+<!-- owl carousel -->
+<script src="{% static 'assets/vendors/owl_carousel/js/owl.carousel.min.js' %}" ></script>
+
+<!-- responsive table -->
+<script src="{% static 'assets/vendors/datatable/js/jquery.dataTables.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/dataTables.responsive.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/dataTables.buttons.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/buttons.flash.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/jszip.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/pdfmake.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/vfs_fonts.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/buttons.html5.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/buttons.print.min.js' %}" ></script>
+
+<!-- datepicker  -->
+<script src="{% static 'assets/vendors/datepicker/datepicker.js' %}" ></script>
+<script src="{% static 'assets/vendors/datepicker/datepicker.en.js' %}" ></script>
+<script src="{% static 'assets/vendors/datepicker/datepicker.custom.js' %}" ></script>
+
+<script src="{% static 'assets/js/chart.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/chartjs/roundedBar.min.js' %}" ></script>
+
+<!-- progressbar js -->
+<script src="{% static 'assets/vendors/progressbar/jquery.barfiller.js' %}" ></script>
+<!-- tag input -->
+<script src="{% static 'assets/vendors/tagsinput/tagsinput.js' %}" ></script>
+<!-- text editor js -->
+<script src="{% static 'assets/vendors/text_editor/summernote-bs4.js' %}" ></script>
+
+		<script>				
+		$(document).ready(function() {
+
+		});
+		</script>
+<script src="{% static 'assets/js/custom.js' %}"></script>
+</body>
+</html>
+
+
+{% endblock %}

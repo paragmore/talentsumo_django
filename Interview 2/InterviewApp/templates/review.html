@@ -1,0 +1,659 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>TalentSumo - Review</title>
+
+    <link rel="icon" href="{% static 'assets/img/logo.png' %}"  type="image/png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}"  />
+    <!-- themefy CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/themefy_icon/themify-icons.css' %}"  />
+    <!-- select2 CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/niceselect/css/nice-select.css' %}"  />
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/owl_carousel/css/owl.carousel.css' %}"  />
+    <!-- gijgo css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/gijgo/gijgo.min.css' %}"  />
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/font_awesome/css/all.min.css' %}"  />
+    <link rel="stylesheet" href="{% static 'assets/vendors/tagsinput/tagsinput.css' %}"  />
+
+    <!-- date picker -->
+     <link rel="stylesheet" href="{% static 'assets/vendors/datepicker/date-picker.css' %}"  />
+
+     <link rel="stylesheet" href="{% static 'assets/vendors/vectormap-home/vectormap-2.0.2.css' %}"  />
+     
+     <!-- scrollabe  -->
+     <link rel="stylesheet" href="{% static 'assets/vendors/scroll/scrollable.css' %}"  />
+    <!-- datatable CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/datatable/css/jquery.dataTables.min.css' %}"  />
+    <link rel="stylesheet" href="{% static 'assets/vendors/datatable/css/responsive.dataTables.min.css' %}"  />
+    <link rel="stylesheet" href="{% static 'assets/vendors/datatable/css/buttons.dataTables.min.css' %}"  />
+    <!-- text editor css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/text_editor/summernote-bs4.css' %}"  />
+    <!-- morris css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/morris/morris.css' %}" >
+    <!-- metarial icon css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/material_icon/material-icons.css' %}"  />
+
+    <!-- menu css  -->
+    <link rel="stylesheet" href="{% static 'assets/css/metisMenu.css' %}" >
+    <!-- style CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}"  />
+    <link rel="stylesheet" href="{% static 'assets/css/colors/default.css' %}"  id="colorSkinCSS">
+</head>
+<body class="crm_body_bg">
+    
+<style>
+    .ques
+    {
+        font-weight:700;
+        font-size:16px;
+            margin-bottom: 3%;
+    margin-top: 2%;
+    }
+    .rev_Inte
+    {
+        width:80%;
+    }
+    video{
+        width: 50%;
+        border-radius: 25px;
+        height: 45% !important;
+    }
+    #reviewForm .hidden{
+        display:none;
+    }
+     #reviewForm .novideodiv
+     {
+         height: 70px;
+     }
+     #reviewForm .collabdiv
+     {
+         height: 300px;
+     }
+     #reviewForm .collabdiv video
+     {
+         height: 65% !important;
+     }
+    textarea
+    {
+        width: 90%;
+    border-radius: 5px;
+    margin-top: 2%;
+    margin-bottom: 3%;
+    vertical-align: top;
+    margin-left: 0%;
+    }
+    .comReview .ques, .overGrade .ques,.comReview textarea, .overGrade textarea
+    {
+        margin-bottom: 1%
+    
+    .modal-backdrop {
+  z-index: -1;
+}
+#textgrade, #textarea
+{
+    margin-left:1%;
+}
+    .queslbl
+    {
+        color:#4b4545ba;
+    }
+    .cname,.cemail,.cname:hover,.cemail:hover,.cname:focus,.cemail:focus
+    {
+        padding-left: 20px;
+    }
+    .fieldtxt,.fieldtxt:hover,.fieldtxt:focus
+    {
+        padding-left: 0px;
+        border: 1px solid #4b4545ba;
+        box-sizing: none !important;
+        outline: none !important;
+        border-radius: 3px;
+    }
+
+    .anslbl
+    {
+        padding-top: 10px;
+    font-weight: 700;
+    color: #4b4545ba;
+    }
+
+</style>
+
+<!-- main content part here -->
+ 
+ <!-- sidebar  -->
+ <nav class="sidebar">
+    <div class="logo d-flex justify-content-between">
+        <a class="large_logo" href="{% url 'home' %}"><img src="{% static 'assets/img/logo.png' %}"  alt=></a>
+        <a class="small_logo" href="{% url 'home' %}"><img src="{% static 'assets/img/logo.png' %}"  alt=></a>
+        <div class="sidebar_close_icon d-lg-none">
+            <i class="ti-close"></i>
+        </div>
+    </div>
+    <ul id="sidebar_menu">
+        <li class=>
+            <a href="{% url 'home' %}" aria-expanded="false">
+                <div class="nav_icon_small">
+                    <img src="{% static 'assets/img/menu-icon/dashboard.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Dashboard </span>
+                </div>
+            </a>
+        </li>
+        <li class=>
+            <a href="{% url 'students' %}" aria-expanded="false">
+                <div class="nav_icon_small">
+                    <img src="{% static 'assets/img/menu-icon/students.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Students List</span>
+                </div>
+            </a>
+        </li>
+           <li class=>
+            <a href="{% url 'workspace' %}" aria-expanded="false">
+                <div class="nav_icon_small">
+                    <img src="{% static 'assets/img/menu-icon/form.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Workspace</span>
+                </div>
+            </a>
+        </li>
+             {% if request.session.Plan == 'Tier Four' %}
+            <li class=>
+                <a href="{% url 'aifeedback' %}" aria-expanded="false">
+                    <div class="nav_icon_small opty">
+                        <img src="{% static 'assets/img/menu-icon/feedback.png' %}"  alt=>
+                    </div>
+                    <div class="nav_title">
+                        <span>AI Feedback </span>
+                    </div>
+                </a>
+            </li>
+        {% endif %}
+        <li class=>
+            <a href="{% url 'team' %}" aria-expanded="false">
+                <div class="nav_icon_small opty">
+                    <img src="{% static 'assets/img/menu-icon/team.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Team Members </span>
+                </div>
+            </a>
+        </li>
+        
+        <li class=>
+            <a href="{% url 'smtp' Id='1' %}" aria-expanded="false">
+                <div class="nav_icon_small opty">
+                    <img src="{% static 'assets/img/menu-icon/settings.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Settings </span>
+                </div>
+            </a>
+        </li>
+        <li class=>
+            <a href="{% url 'profile' %}" aria-expanded="false">
+                <div class="nav_icon_small opty">
+                    <img src="{% static 'assets/img/menu-icon/user.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Profile </span>
+                </div>
+            </a>
+        </li>
+      </ul>
+</nav>
+ <!--/ sidebar  -->
+
+
+<section class="main_content dashboard_part large_header_bg">
+        <!-- menu  -->
+    <div class="container-fluid no-gutters">
+        <div class="row">
+         <div class="col-lg-12 p-0 ">
+                <div class="header_iner d-flex justify-content-between align-items-center">
+                    <div class="sidebar_icon d-lg-none">
+                        <i class="ti-menu"></i>
+                    </div>
+                    <div class="line_icon open_miniSide d-none d-lg-block">
+                        <img src="{% static 'assets/img/line_img.png' %}"  alt=>
+                    </div>
+                    <div class="serach_field-area d-flex align-items-center">
+                    </div>
+                    <div class="header_right d-flex justify-content-between align-items-center">
+                        <!--<div class="header_notification_warp d-flex align-items-center">
+                            <li>
+                                <a class="CHATBOX_open" href="#"> <img src="{% static 'assets/img/icon/msg.svg' %}"  alt=> <span>2</span>  </a>
+                            </li>
+                        </div>-->
+                        <div class="profile_info">
+                            <img src="{% static 'assets/img/client_img.png' %}"  alt="#">
+                           <div class="profile_info_iner">
+                                <div class="profile_author_name">
+                                    <h5>{{ request.session.userName }}</h5>
+                                </div>
+                                <div class="profile_info_details">
+                                    <a href="{% url 'profile' %}">Profile </a>
+                                </div>
+                                <div class="profile_info_details">
+                                    <a href="{% url 'team'%}">Team Members </a>
+                                </div>
+                                <div class="profile_info_details">
+                                    <a href="{% url 'smtp' Id='1'%}">Settings </a>
+                                </div>
+                                <div class="profile_info_details">
+                                    <a href="/logout">Log Out </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ menu  -->
+    <div class="main_content_iner overly_inner ">
+        <div class="container-fluid p-0 ">
+            <!-- page title  -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page_title_box d-flex flex-wrap align-items-center justify-content-between">
+                        <div class="page_title_left d-flex align-items-center">
+                            <h3 class="f_s_25 f_w_700 dark_text mr_30" >Review Candidate</h3>
+                        </div>
+                        <div class="page_title_right">
+                            <div class="page_date_button d-flex align-items-center"> 
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="white_card card_height_100 mb_30 pt-4">
+                        <div class="white_card_body">
+                            <div class="QA_section">
+                                <form id="reviewForm">
+                                    {% csrf_token %}
+                                 <div class="row" style="width: 100%;text-align: left;">
+                                     {% for col in data %}
+                                         {% if col.field == 'commReview' %}
+                                         <div class="col-lg-10 comReview">
+                                         <label class="ques"><span class="queslbl">{{ forloop.counter }}. </span> Common Review</label>
+                                         <br>
+                                         {% if col.ans == 'N/A' %}
+                                         <input type="hidden" id="hcommnReview" name="hcommnReview" class="hfields" value="{{col.field}}">
+                                         <label class="anslbl">Comments:  </label><textarea id="textarea" name="textarea" rows="4" cols="60" maxlength="50" required class="fieldtxt"></textarea>
+                                          <br>
+                                          {% else %}
+                                           <input type="hidden" id="hcommnReview" name="hcommnReview" class="hfields" value="{{col.field}}">
+                                         <label class="anslbl">Comments:  </label><textarea id="textarea" name="textarea" rows="4" cols="60" maxlength="50" required class="fieldtxt">{{col.ans}}</textarea>
+                                          <br>
+                                          {% endif %}
+                                         </div>
+                                         {% elif '_code' in col.field %}
+                                         <div class="col-lg-10">
+                                            
+                                            {% if 'youtube' in col.que|lower or 'loom' in col.que|lower or 'vimeo' in col.que|lower  or 'talentsumo' in col.que|lower%}
+                                                <label class="ques"><span class="queslbl">{{ forloop.counter }}. </span> Question : 
+                                                </label>
+                                                <div class="iframediv">
+                                                    <iframe src="{{col.que}}"></iframe>
+                                                </div>
+                                                <br>
+                                                <br>
+                                                <label class="anslbl"><div class="ceditor">{{col.ans |linebreaks}}</div></label>
+                                                <input type="hidden" class="hnamefields" value="{{col.field}}">
+                                                <br>
+                                            {% else %}
+                                                <label class="ques"><span class="queslbl">{{ forloop.counter }}. </span> {{col.que|title}}</label>
+                                                <br>
+                                                <label class="anslbl"><div class="ceditor">{{col.ans |linebreaks}}</div></label>
+                                                <input type="hidden" class="hnamefields" value="{{col.field}}">
+                                                <br>
+                                            {% endif %}
+                                           
+                                        </div>
+                                         {% elif col.field == 'SubDate' %}
+                                         <span id="subDate" name="subDate" style="display: none;"> {{col.ans}} </span>
+                                         {% elif col.field == 'overGrade' %}
+                                         <div class="col-lg-10 overGrade">
+                                         <label class="ques"><span class="queslbl">{{ forloop.counter }}. </span> Select Grade</label>
+                                         <br>
+                                         <input type="hidden" id="hoverGrade" name="hoverGrade" class="hfields"  value="{{col.field}}">
+                                         <input type="hidden" id="hiddengrade" name="hiddengrade" class="hiddengrade"  value="{{col.ans}}">
+                                         <label class="anslbl">Comments:  </label>
+                                         <select id="textgrade" name="textgrade" class="fieldtxt"> 
+                                             <option value="A+">A+</option>
+                                             <option value="A">A</option>
+                                             <option value="B">B</option>
+                                             <option value="B+">B+</option>
+                                             <option value="C">C</option>
+                                             <option value="C+">C+</option>
+                                         </select>
+                                          <br>
+                                         </div>
+                                          {% elif col.field == 'videoColloboration' and video == 1 %}
+                                            <div class="col-lg-10 collabdiv">
+                                                <label class="ques"><span class="queslbl">{{ forloop.counter }}. </span> Colloboration Video</label>
+                                                <br>
+                                                <video width="320" height="240" controls src="{{col.ans}}" type="video/mp4"></video>
+                                                <br> 
+                                            </div>
+                                         {% elif col.field == 'videoColloboration' and video == 0 %}
+                                         <div class="col-lg-10">
+                                        </div>
+                                         {% elif col.rev != 'No' and col.ans|length > 0 %}
+                                         <div class="col-lg-10 videodiv">
+                                            {% if 'youtube' in col.que|lower or 'loom' in col.que|lower or 'vimeo' in col.que|lower  or 'talentsumo' in col.que|lower%}
+                                                <label class="ques"><span class="queslbl">{{ forloop.counter }}. </span> Question : 
+                                                </label>
+                                                <div class="iframediv">
+                                                    <iframe src="{{col.que}}"></iframe>
+                                                </div>
+                                                <br>
+                                                {% if col.ans == 'N/A' %}
+                                                    <span><strong>Not Applicable</strong></span>
+                                                {% else %}
+                                                    <video width="320" height="240" controls src="{{col.ans}}" type="video/mp4"></video>
+                                                {% endif %}
+                                                <br>
+                                                <input type="hidden" class="hfields_video" value="{{col.field}}">
+                                                 {% if col.rev == 'N/A' %}
+                                                    <label class="anslbl">Comments:  </label> <textarea class="fieldtxt" name="txt" rows="4" cols="40" maxlength="50"  ></textarea>
+                                                <br>
+                                                {% else %}
+                                                    <label class="anslbl">Comments:  </label> <textarea class="fieldtxt" name="txt" rows="4" cols="40" maxlength="50"  >{{col.rev}}</textarea>
+                                                <br>
+                                                {% endif %}
+                                                
+                                            {% else %}
+                                                <label class="ques"><span class="queslbl">{{ forloop.counter }}. </span> Question : {{col.que|title}}</label>
+                                                <br>
+                                                {% if col.ans == 'N/A' %}
+                                                    <span><strong>Not Applicable</strong></span>
+                                                {% else %}
+                                                    <video width="320" height="240" controls src="{{col.ans}}" type="video/mp4"></video>
+                                                {% endif %}
+                                                <br>
+                                                <input type="hidden" class="hfields_video" value="{{col.field}}">
+                                                 {% if col.rev == 'N/A' %}
+                                                    <label class="anslbl">Comments:  </label> <textarea class="fieldtxt" name="txt" rows="4" cols="40" maxlength="50"  ></textarea>
+                                                <br>
+                                                {% else %}
+                                                    <label class="anslbl">Comments:  </label> <textarea class="fieldtxt" name="txt" rows="4" cols="40" maxlength="50"  >{{col.rev}}</textarea>
+                                                <br>
+                                                {% endif %}
+                                            {% endif %}
+                                        </div>
+                                         {% elif forloop.counter == 1 %}
+                                          <div class="col-lg-10">
+                                                {% if 'youtube' in col.que|lower or 'loom' in col.que|lower or 'vimeo' in col.que|lower  or 'talentsumo' in col.que|lower%}
+                                                <label class="ques"><span class="queslbl">{{ forloop.counter }}. </span> Question : 
+                                                </label>
+                                                <div class="iframediv">
+                                                    <iframe src="{{col.que}}"></iframe>
+                                                </div>
+                                                <br>
+                                                <label class="anslbl">Answer: <span class="cname">{{col.ans}}</span></label>
+                                                <br>
+                                                <input type="hidden" class="hnamefields" value="{{col.field}}">
+                                            {% else %}
+                                                <label class="ques"><span class="queslbl">{{ forloop.counter }}. </span> {{col.que|title}}</label>
+                                                <br>
+                                                 <input type="hidden" class="hnamefields" value="{{col.field}}">
+                                                <label class="anslbl">Answer: <span class="cname">{{col.ans}}</span></label>
+                                                <br>
+                                                
+                                            {% endif %}
+                                            </div>
+                                         {% elif forloop.counter == 2 %}
+                                          <div class="col-lg-10">
+                                                {% if 'youtube' in col.que|lower or 'loom' in col.que|lower or 'vimeo' in col.que|lower  or 'talentsumo' in col.que|lower%}
+                                                <label class="ques"><span class="queslbl">{{ forloop.counter }}. </span> Question : 
+                                                </label>
+                                                <div class="iframediv">
+                                                    <iframe src="{{col.que}}"></iframe>
+                                                </div>
+                                                <br>
+                                                  <label class="anslbl">Answer: <span class="cname">{{col.ans}}</span></label>
+                                                <br>
+                                                 <input type="hidden" class="hemailfields" value="{{col.field}}">
+                                            {% else %}
+                                                <label class="ques"><span class="queslbl">{{ forloop.counter }}. </span>  {{col.que|title}}</label>
+                                                 <br>
+                                                <input type="hidden" class="hemailfields" value="{{col.field}}">
+                                                <label class="anslbl">Answer: <span class="cemail">{{col.ans}}</span></label>
+                                                 <br>
+                                                
+                                            {% endif %}
+                                            </div>
+                                         {% elif  'data:image/png;base64' in col.ans %}
+                                          <div class="col-lg-10">
+
+                                            {% if 'youtube' in col.que|lower or 'loom' in col.que|lower or 'vimeo' in col.que|lower  or 'talentsumo' in col.que|lower%}
+                                            <label class="ques"><span class="queslbl">{{ forloop.counter }}. </span> Question : 
+                                            </label>
+                                            <div class="iframediv">
+                                                <iframe src="{{col.que}}"></iframe>
+                                            </div>
+                                            <br>
+                                            <label class="anslbl">Answer: {{col.ans}}</label>
+                                            <br>
+                                        {% else %}
+                                                <label class="ques"><span class="queslbl">{{ forloop.counter }}. </span> Question : {{col.que|title}}</label>
+                                                <br>
+                                                <label class="anslbl">Answer: {{col.ans}}</label>
+                                                <br>
+                                        {% endif %}
+                                         <br>
+                                         <img src="{{col.ans}}" alt="Girl in a jacket">
+                                          <br>
+                                         </div>
+                                         {% else %}
+                                         <div class="col-lg-10">
+                                            {% if 'youtube' in col.que|lower or 'loom' in col.que|lower or 'vimeo' in col.que|lower  or 'talentsumo' in col.que|lower%}
+                                                <label class="ques"><span class="queslbl">{{ forloop.counter }}. </span> Question : 
+                                                </label>
+                                                <div class="iframediv">
+                                                    <iframe src="{{col.que}}"></iframe>
+                                                </div>
+                                                <br>
+                                                <label class="anslbl">Answer: {{col.ans}}</label>
+                                                <br>
+                                            {% else %}
+                                                    <label class="ques"><span class="queslbl">{{ forloop.counter }}. </span> Question : {{col.que|title}}</label>
+                                                    <br>
+                                                    <label class="anslbl">Answer: {{col.ans}}</label>
+                                                    <br>
+                                            {% endif %}
+                                         </div>
+                                         {% endif %}
+                                         {% endfor %}
+                                    <div class="row" style="width: 100%;text-align: right;">
+                                        <div class="col-lg-5">
+                                            
+                                        </div>
+                                        <div class="col-lg-6">
+                                              <button type="submit" id="updateReview"  class="btn_1">Submit</button>
+                                        </div>
+                                        <div class="col-lg-1">
+
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- footer part -->
+<div class="footer_part">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="footer_iner text-center">
+                    <p>2022 © copyrights <a href="#"> <i class="ti-heart"></i> </a><a href="#"> Talent Sumo</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<div class="modal fade" id="updatedStatus" tabindex="-1" role="dialog" aria-labelledby="updatedStatusTitle" data-backdrop="static" data-keyboard="false" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Review Status</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p> Review Updated Successfully, Thank you for taking your time</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" onclick="modelOK()">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- main content part end -->
+
+<!-- ### CHAT_MESSAGE_BOX   ### -->
+
+
+<!--/### CHAT_MESSAGE_BOX  ### -->
+
+<!--<div id="back-top" style="display: none;">
+    <a title="Go to Top" href="#">
+        <i class="ti-angle-up"></i>
+    </a>
+</div>-->
+
+<!-- footer  -->
+<script src="{% static 'assets/js/jquery-3.4.1.min.js' %}" ></script>
+<!-- popper js -->
+<script src="{% static 'assets/js/popper.min.js' %}" ></script>
+<!-- bootstarp js -->
+<script src="{% static 'assets/js/bootstrap.min.js' %}" ></script>
+<!-- sidebar menu  -->
+<script src="{% static 'assets/js/metisMenu.js' %}" ></script>
+<!-- waypoints js -->
+<script src="{% static 'assets/vendors/count_up/jquery.waypoints.min.js' %}" ></script>
+<!-- waypoints js -->
+<script src="{% static 'assets/vendors/chartlist/Chart.min.js' %}" ></script>
+<!-- counterup js -->
+<script src="{% static 'assets/vendors/count_up/jquery.counterup.min.js' %}" ></script>
+
+<!-- nice select -->
+<script src="{% static 'assets/vendors/niceselect/js/jquery.nice-select.min.js' %}" ></script>
+<!-- owl carousel -->
+<script src="{% static 'assets/vendors/owl_carousel/js/owl.carousel.min.js' %}" ></script>
+
+<!-- responsive table -->
+<script src="{% static 'assets/vendors/datatable/js/jquery.dataTables.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/dataTables.responsive.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/dataTables.buttons.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/buttons.flash.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/jszip.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/pdfmake.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/vfs_fonts.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/buttons.html5.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/buttons.print.min.js' %}" ></script>
+
+<!-- datepicker  -->
+<script src="{% static 'assets/vendors/datepicker/datepicker.js' %}" ></script>
+<script src="{% static 'assets/vendors/datepicker/datepicker.en.js' %}" ></script>
+<script src="{% static 'assets/vendors/datepicker/datepicker.custom.js' %}" ></script>
+
+<script src="{% static 'assets/js/chart.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/chartjs/roundedBar.min.js' %}" ></script>
+
+<!-- progressbar js -->
+<script src="{% static 'assets/vendors/progressbar/jquery.barfiller.js' %}" ></script>
+<!-- tag input -->
+<script src="{% static 'assets/vendors/tagsinput/tagsinput.js' %}" ></script>
+<!-- text editor js -->
+<script src="{% static 'assets/vendors/text_editor/summernote-bs4.js' %}" ></script>
+<script src="{% static 'assets/js/custom.js' %}"></script>
+<script>
+    $(document).ready(function() {
+        if($("#hiddengrade").val().trim() !='No')
+        {
+            $("#textgrade").val($("#hiddengrade").val().trim());
+        }
+        else
+        {
+            $("#textgrade").val('A+');
+        }
+    $('#updateReview').click(function() {
+        var $form = $("#reviewForm");
+        $form.submit(function(e){
+        e.preventDefault(); 
+        lists = []
+         $("#reviewForm").find("input[type='hidden']").each(function(){
+             if($(this).attr('id')=="hoverGrade")
+             {
+                 fval = $(this).val();
+                 rval = $(this).closest('div').find('select').val();
+                 lists.push({ 'fieldName': 'overGrade', 'fieldValue': rval});
+             }
+             else if($(this).attr('id')=="hcommnReview")
+             {
+                 fval = $(this).val();
+                 rval = $(this).closest('div').find('textarea').val();
+                 lists.push({ 'fieldName': 'commReview', 'fieldValue': rval});
+             }
+             else if($(this).attr('class')=="hfields_video")
+             {
+                 fval = $(this).val();
+                 rval = $(this).closest('div').find('textarea').val();
+                 lists.push({ 'fieldName': fval, 'fieldValue': rval});
+             }
+         });
+         var pathname = window.location.pathname.split("/");
+         var tName = pathname[pathname.length-1];
+         var param = pathname[pathname.length-3];
+         var name = $(".cname").text();
+         var email = $(".cemail").text();
+         var subDate = $("#subDate").text();
+         $.ajax({
+             type:"POST",
+             url: "/update_reviews/",
+             data: {'utbl': tName.trim(),'uparam': param.trim(),'uname': name.trim(),'uemail': email.trim(),'udata':  JSON.stringify(lists),'uSubDate': subDate},
+             success: function(data) 
+             { 
+                 $("#updatedStatus").modal('show');
+             }
+         });
+        });
+    });
+});
+function modelOK()
+{
+    $("#updatedStatus").modal('hide');
+     window.location = "{% url 'home' %}"; 
+}
+</script>
+</body>
+</html>
+
+
+{% endblock %}

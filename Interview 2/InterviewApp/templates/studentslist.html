@@ -1,0 +1,815 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>TalentSumo - Students</title>
+
+    <link rel="icon" href="{% static 'assets/img/logo.png' %}"  type="image/png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}"  />
+    <!-- themefy CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/themefy_icon/themify-icons.css' %}"  />
+    <!-- select2 CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/niceselect/css/nice-select.css' %}"  />
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/owl_carousel/css/owl.carousel.css' %}"  />
+    <!-- gijgo css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/gijgo/gijgo.min.css' %}"  />
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/font_awesome/css/all.min.css' %}"  />
+    <link rel="stylesheet" href="{% static 'assets/vendors/tagsinput/tagsinput.css' %}"  />
+
+    <!-- date picker -->
+     <link rel="stylesheet" href="{% static 'assets/vendors/datepicker/date-picker.css' %}"  />
+
+     <link rel="stylesheet" href="{% static 'assets/vendors/vectormap-home/vectormap-2.0.2.css' %}"  />
+     
+     <!-- scrollabe  -->
+     <link rel="stylesheet" href="{% static 'assets/vendors/scroll/scrollable.css' %}"  />
+    <!-- datatable CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/datatable/css/jquery.dataTables.min.css' %}"  />
+    <link rel="stylesheet" href="{% static 'assets/vendors/datatable/css/responsive.dataTables.min.css' %}"  />
+    <link rel="stylesheet" href="{% static 'assets/vendors/datatable/css/buttons.dataTables.min.css' %}"  />
+    <!-- text editor css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/text_editor/summernote-bs4.css' %}"  />
+    <!-- morris css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/morris/morris.css' %}" >
+    <!-- metarial icon css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/material_icon/material-icons.css' %}"  />
+
+    <!-- menu css  -->
+    <link rel="stylesheet" href="{% static 'assets/css/metisMenu.css' %}" >
+    <!-- style CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}"  />
+    <link rel="stylesheet" href="{% static 'assets/css/colors/default.css' %}"  id="colorSkinCSS">
+</head>
+<body class="crm_body_bg">
+    
+<style>
+#importstudentModel .import-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  margin-top: 3%;
+}
+#importstudentModel input[type="file"] {
+  display: none;
+}
+#importstudentModel select
+{
+    margin-top: 2%;
+}
+#studentAddModel select
+{
+    width: 96%;
+}
+#studentAddModel input[type="text"],#studentAddModel input[type="email"],#studentAddModel select,#studentAddModel input[type="number"]
+{
+    float: right;
+    border: 1px solid #E5ECFF;
+    background-color: white !important;
+    height: 40px;
+    margin-bottom: 2%;
+}
+.editList
+{
+    margin-right: 2%;
+    color: #007bff !important;
+}
+.deleteList,.blocList
+{
+    margin-left: 2%;
+    color: red !important; 
+    margin-right: 8%;
+}
+.blocList
+{
+    color: #C738D8 !important; 
+}
+.sformlbl
+{
+    line-height: 60px;
+    font-weight: 700;
+    font-size: 18px;
+}
+.revcom
+{
+    color:green;
+}
+    .metismenu li a.active .nav_title span:hover
+    {
+        color:#19191a !important;
+    }
+    .floated {
+   float:left;
+   margin-right:5px;
+}
+.search_field select {
+    height: 35px;
+    width: 100%;
+    margin: auto;
+    margin-top: 2%;
+}
+.cmargin
+{
+    margin-left: -15%;  
+}
+.tbltool
+{
+    color:cadetblue;
+}
+.reportsent
+{
+    width: 70%;
+    background: green;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+    font-size: 12px;
+}
+ #tbl_formData_info td:last-child ,  #tbl_formData_info th:last-child{
+     width: 40%;
+ }
+ .alert-msg
+    {
+        color: red;
+        text-align: left !important;
+        width: 100%;
+        float: left;
+    }
+.reportnotsent
+{
+    width: 70%;
+    background: orangered;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+    font-size: 12px;
+}
+#memberEmail
+{
+    width: 100%;
+    height: 40px;
+    border: 1px solid #dddddd;
+    color: #333333;
+    margin-bottom: 5%;
+}
+.deleteMember
+{
+    color: red !important;
+}
+#profileDetails input,textarea
+{
+    border: 1px solid #E5ECFF;
+    background-color: white !important;
+}
+#profileDetails label{
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+}
+.opty img
+{
+    opacity: 0.7;
+}
+</style>
+
+<!-- main content part here -->
+ 
+ <!-- sidebar  -->
+ <nav class="sidebar">
+    <div class="logo d-flex justify-content-between">
+        <a class="large_logo" href="{% url 'home' %}"><img src="{% static 'assets/img/logo.png' %}"  alt=></a>
+        <a class="small_logo" href="{% url 'home' %}"><img src="{% static 'assets/img/logo.png' %}"  alt=></a>
+        <div class="sidebar_close_icon d-lg-none">
+            <i class="ti-close"></i>
+        </div>
+    </div>
+    <ul id="sidebar_menu">
+        <li class=>
+            <a href="{% url 'home' %}" aria-expanded="false">
+                <div class="nav_icon_small">
+                    <img src="{% static 'assets/img/menu-icon/dashboard.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Dashboard </span>
+                </div>
+            </a>
+        </li>
+        <li class=>
+            <a href="{% url 'students' %}" aria-expanded="false">
+                <div class="nav_icon_small">
+                    <img src="{% static 'assets/img/menu-icon/students.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Students List</span>
+                </div>
+            </a>
+        </li>
+           <li class=>
+            <a href="{% url 'workspace' %}" aria-expanded="false">
+                <div class="nav_icon_small">
+                    <img src="{% static 'assets/img/menu-icon/form.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Workspace </span>
+                </div>
+            </a>
+        </li>
+              {% if request.session.Plan == 'Tier Four' %}
+            <li class=>
+                <a href="{% url 'aifeedback' %}" aria-expanded="false">
+                    <div class="nav_icon_small opty">
+                        <img src="{% static 'assets/img/menu-icon/feedback.png' %}"  alt=>
+                    </div>
+                    <div class="nav_title">
+                        <span>AI Feedback </span>
+                    </div>
+                </a>
+            </li>
+        {% endif %}
+        <li class=>
+            <a href="{% url 'team' %}" aria-expanded="false">
+                <div class="nav_icon_small opty">
+                    <img src="{% static 'assets/img/menu-icon/team.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Team Members </span>
+                </div>
+            </a>
+        </li>
+        <li class=>
+            <a href="{% url 'Campaign' %}" aria-expanded="false">
+                <div class="nav_icon_small opty">
+                    <img src="{% static 'assets/img/menu-icon/campaign.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Campaign Details </span>
+                </div>
+            </a>
+        </li>
+        <li class=>
+            <a href="{% url 'smtp' Id='1' %}" aria-expanded="false">
+                <div class="nav_icon_small opty">
+                    <img src="{% static 'assets/img/menu-icon/settings.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Settings </span>
+                </div>
+            </a>
+        </li>
+        <li class=>
+            <a href="{% url 'profile' %}" aria-expanded="false">
+                <div class="nav_icon_small opty">
+                    <img src="{% static 'assets/img/menu-icon/user.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Profile </span>
+                </div>
+            </a>
+        </li>
+      </ul>
+</nav>
+ <!--/ sidebar  -->
+
+
+<section class="main_content dashboard_part large_header_bg">
+        <!-- menu  -->
+    <div class="container-fluid no-gutters">
+        <div class="row">
+            <div class="col-lg-12 p-0 ">
+                <div class="header_iner d-flex justify-content-between align-items-center">
+                    <div class="sidebar_icon d-lg-none">
+                        <i class="ti-menu"></i>
+                    </div>
+                    <div class="line_icon open_miniSide d-none d-lg-block">
+                        <img src="{% static 'assets/img/line_img.png' %}"  alt=>
+                    </div>
+                    <div class="serach_field-area d-flex align-items-center">
+                    </div>
+                    <div class="header_right d-flex justify-content-between align-items-center">
+                        <!--<div class="header_notification_warp d-flex align-items-center">
+                            <li>
+                                <a class="CHATBOX_open" href="#"> <img src="{% static 'assets/img/icon/msg.svg' %}"  alt=> <span>2</span>  </a>
+                            </li>
+                        </div>-->
+                        <div class="profile_info">
+                            <img src="{% static 'assets/img/client_img.png' %}"  alt="#">
+                           <div class="profile_info_iner">
+                                <div class="profile_author_name">
+                                    <h5>{{ request.session.userName }}</h5>
+                                </div>
+                                <div class="profile_info_details">
+                                    <a href="{% url 'profile' %}">Profile </a>
+                                </div>
+                                <div class="profile_info_details">
+                                    <a href="{% url 'team'%}">Team Members </a>
+                                </div>
+                                <div class="profile_info_details">
+                                    <a href="{% url 'smtp' Id='1'%}">Settings </a>
+                                </div>
+                                <div class="profile_info_details">
+                                    <a href="/logout">Log Out </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ menu  -->
+    <div class="main_content_iner overly_inner ">
+        <div class="container-fluid p-0 ">
+            <!-- page title  -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page_title_box d-flex flex-wrap align-items-center justify-content-between">
+                        <div class="page_title_left d-flex align-items-center">
+                            <h3 class="f_s_25 f_w_700 dark_text mr_30" >Students Details</h3>
+                        </div>
+                        <div class="page_title_right">
+                            <div class="page_date_button d-flex align-items-center"> 
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="white_card card_height_100 mb_30 pt-4">
+                        <div class="white_card_body">
+                            <div class="QA_section">
+                                <div class="white_box_tittle list_header">
+                                    <input type="hidden" id="userplan" name="userplan" value="{{ request.session.Plan }}">
+                                    <div class="row justify-content-center p-0 m-0" style="width: 100%;margin: 0px;">
+                                        <div class="col-sm-8">
+                                           
+                                          </div>
+                                          <div class="col-sm-2">
+                                           
+                                          </div>
+                                          <div class="col-sm-2">
+                                            <a  onclick="showAddStudent();" class="btn_1">Add New Student</a>
+                                          </div>
+                                    </div>
+                                    </div>
+                                </div>       
+                                <div class="QA_table mb_30">
+                                    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+                                        <table class="table table-custom ng-scope ng-table" id='tbl_studentsData'>
+                                            <thead class="ng-scope">
+                                            <tr>
+                                            <th class="header ">Student Name</th>
+                                            <th class="header ">Email</th>
+                                            <th class="header ">Course</th>
+                                            <th class="header ">Specialization</th>
+                                            <th class="header ">Collage</th>
+                                            <th class="header ">year</th>
+                                            <th class="header ">Status</th>
+                                            <th class="no-sort">Actions</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                            </table>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="studentAddModel" tabindex="-1" role="dialog" aria-labelledby="updatedStatusTitle" data-backdrop="static" data-keyboard="false" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="studenttitle">Student Creation Wizard</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">
+             <form id="Students_Addform">
+                    {% csrf_token %}
+                  <div class="row" style="width: 100%;text-align: left;padding-left: 4%;">
+                        <div class="col-lg-6">
+                            <input type="hidden" id="addstudentid" name="addstudentid" value="">
+                            <label for="studentName">Student Name</label>  
+                        </div>
+                        <div class="col-lg-6">
+                            <input type="text" id="studentName" name="studentName" required placeholder="Student Name" value="">
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="studentEmail">Email Address</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <input type="email" id="studentEmail" name="studentEmail" required placeholder="Email Address" value="">
+                            <label id="ealert-msg" class="alert-msg text-center" style="display: none;">This email already exits.</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="studentCourse">Course</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <input type="text" id="studentcourse" name="studentcourse" required placeholder="Course" value="">
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="studentspec">Specialization</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <input type="text" id="studentspec" name="studentspec" required placeholder="Specialization" value="">
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="studentcollage">Collage</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <input type="text" id="studentcollage" name="studentcollage" required placeholder="Collage" value="">
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="studentyear">Year</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <select  id="studentyear" name="studentyear" required>
+                            </select>
+                        </div>
+                          <div class="col-lg-12" style="text-align: right;">
+                              <button type="submit" id="studentaddsubmit"  class="btn_1">Add Now</button>
+                        </div>
+                </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="StudentDeleteModel" tabindex="-1" role="dialog" aria-labelledby="updatedStatusTitle" data-backdrop="static" data-keyboard="false" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="">Remove Student Wizard</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="row" style="width: 100%;text-align: left;padding-left: 4%;">
+                    <div class="col-lg-12 mb-2">
+                          <input type="hidden" id="studentid" name="studentid" value="">
+                          <strong>Are u sure you want to remove this student?</strong>
+                      </div>
+                        <div class="col-lg-12" style="text-align: right;">
+                            <button type="submit" id="studentDelsubmit" class="btn_1">Remove Student</button>
+                      </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="StudentBlockModel" tabindex="-1" role="dialog" aria-labelledby="updatedStatusTitle" data-backdrop="static" data-keyboard="false" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="">Block Student Wizard</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="row" style="width: 100%;text-align: left;padding-left: 4%;">
+                    <div class="col-lg-12 mb-2">
+                          <input type="hidden" id="studentblid" name="studentblid" value="">
+                          <strong>Are u sure you want to block this student?</strong>
+                      </div>
+                        <div class="col-lg-12" style="text-align: right;">
+                            <button type="submit" id="studentBlocksubmit" class="btn_1">Block Student</button>
+                      </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+<!-- footer part -->
+<div class="footer_part">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="footer_iner text-center">
+                    <p>2022 © copyrights <a href="#"> <i class="ti-heart"></i> </a><a href="#"> Talent Sumo</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<!-- main content part end -->
+
+<!-- ### CHAT_MESSAGE_BOX   ### -->
+
+
+<!--/### CHAT_MESSAGE_BOX  ### -->
+
+<!--<div id="back-top" style="display: none;">
+    <a title="Go to Top" href="#">
+        <i class="ti-angle-up"></i>
+    </a>
+</div>-->
+
+<!-- footer  -->
+<script src="{% static 'assets/js/jquery-3.4.1.min.js' %}" ></script>
+<!-- popper js -->
+<script src="{% static 'assets/js/popper.min.js' %}" ></script>
+<!-- bootstarp js -->
+<script src="{% static 'assets/js/bootstrap.min.js' %}" ></script>
+<!-- sidebar menu  -->
+<script src="{% static 'assets/js/metisMenu.js' %}" ></script>
+<!-- waypoints js -->
+<script src="{% static 'assets/vendors/count_up/jquery.waypoints.min.js' %}" ></script>
+<!-- waypoints js -->
+<script src="{% static 'assets/vendors/chartlist/Chart.min.js' %}" ></script>
+<!-- counterup js -->
+<script src="{% static 'assets/vendors/count_up/jquery.counterup.min.js' %}" ></script>
+
+<!-- nice select -->
+<script src="{% static 'assets/vendors/niceselect/js/jquery.nice-select.min.js' %}" ></script>
+<!-- owl carousel -->
+<script src="{% static 'assets/vendors/owl_carousel/js/owl.carousel.min.js' %}" ></script>
+
+<!-- responsive table -->
+<script src="{% static 'assets/vendors/datatable/js/jquery.dataTables.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/dataTables.responsive.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/dataTables.buttons.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/buttons.flash.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/jszip.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/pdfmake.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/vfs_fonts.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/buttons.html5.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/buttons.print.min.js' %}" ></script>
+
+<!-- datepicker  -->
+<script src="{% static 'assets/vendors/datepicker/datepicker.js' %}" ></script>
+<script src="{% static 'assets/vendors/datepicker/datepicker.en.js' %}" ></script>
+<script src="{% static 'assets/vendors/datepicker/datepicker.custom.js' %}" ></script>
+
+<script src="{% static 'assets/js/chart.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/chartjs/roundedBar.min.js' %}" ></script>
+
+<!-- progressbar js -->
+<script src="{% static 'assets/vendors/progressbar/jquery.barfiller.js' %}" ></script>
+<!-- tag input -->
+<script src="{% static 'assets/vendors/tagsinput/tagsinput.js' %}" ></script>
+<!-- text editor js -->
+<script src="{% static 'assets/vendors/text_editor/summernote-bs4.js' %}" ></script>
+
+		<script>				
+		$(document).ready(function() {
+            let dateDropdown = document.getElementById('studentyear');
+            let currentYear = new Date().getFullYear() + 5;
+            let earliestYear = 2000;
+            let dateOption = document.createElement('option');
+            dateOption.text = 'Select';
+            dateOption.value = '';
+            dateDropdown.add(dateOption);
+            while (currentYear >= earliestYear) {
+                let dateOption = document.createElement('option');
+                dateOption.text = currentYear;
+                dateOption.value = currentYear;
+                dateDropdown.add(dateOption);
+                currentYear -= 1;
+            }
+            $.ajax({
+		        type:"GET",
+		        url: "/get_students/",
+		        data: {'ulistName':location.pathname.split('/')[2]},
+		        success: function(data2) 
+		        { 
+                    $("#tbl_studentsData tbody").empty();
+                    $.each(data2, function(i, v) {
+                    if(i!=0)
+                    {
+                        $("#tbl_studentsData tbody").append('<tr><td>'+data2[i][1]+'</td><td>'+data2[i][2]+'</td><td>'+data2[i][3]+'</td><td>'+data2[i][4]+'</td><td>'+data2[i][5]+'</td><td>'+data2[i][6]+'</td><td>'+data2[i][7]+'</td><td><a onclick="StudentEdit(this.id)" data_label='+data2[i][0]+'  id="edit_'+data2[i][0]+'" class="editList"><span class="fas fa-edit"></span></a> <a onclick="studentBlock(this.id)" data_label='+data2[i][0]+'  id="block_'+data2[i][0]+'" class="blocList"><span class="fas fa-user-lock"></span></a><a onclick="studentDelete(this.id)" data_label='+data2[i][0]+'  id="del_'+data2[i][0]+'" class="deleteList"><span class="fas fa-times-circle"></span></a><input type="hidden" id="studentId" name="studentId" value="'+data2[i][0]+'"></td></tr>');
+                    }
+                    });
+                    var  table =$('#tbl_studentsData').DataTable({
+                        dom: 'lBfrtip',
+		                "lengthMenu": [[10,50, 100, 150, -1], [10,50, 100, 150, "All"]],
+		                "fixedColumns": true,
+		                "order": [[ 1, "asc" ]],
+		                "columnDefs": [{ targets: 'no-sort', orderable: false }],
+                        buttons: [
+                            {
+                                extend: 'excelHtml5',
+                                exportOptions: {
+                                columns: ':not(:last-child)',
+                            }
+                        },
+                        {
+                            extend: 'csvHtml5',
+                            exportOptions: {
+                                columns: ':not(:last-child)',
+                            }
+                        },
+                        {
+                            extend: 'print',
+                            exportOptions: {
+                                columns: ':not(:last-child)',
+                            }
+                        },
+                    ],
+		            "bDestroy": true,
+		        });
+		        }
+            });
+    $("#Students_Addform").submit(function(e)
+    {
+        e.preventDefault();
+        error_message = $("#ealert-msg").text();
+        if(error_message == 'valid')
+        {
+            $("#ealert-msg").hide();
+            btn_text = $("#studentaddsubmit").text();
+            if(btn_text.trim() == "Add Now")
+            {
+                $.ajax({
+                    type: "POST",
+                    url: "/add_student/",
+                    data: {'ulistName':location.pathname.split('/')[2],'ustudName':$("#studentName").val(),'ustudEmail':$("#studentEmail").val(),'ustudCourse':$("#studentcourse").val(),'ustudSpecial':$("#studentspec").val(),'ustudCollage':$("#studentcollage").val(),'ustudyear':$("#studentyear").val() },
+                    success: function (data) {
+                        if (data == "success") {
+                            $('#Students_Addform').trigger("reset");
+                            $("#studentAddModel").modal('hide');
+                            refreshStudents();
+                        }
+                    }
+                });
+            }
+            else if(btn_text.trim() == "Update Now")
+            {
+                $.ajax({
+                    type: "POST",
+                    url: "/update_student/",
+                    data: {'ulistName':location.pathname.split('/')[2],'ustudId':$("#addstudentid").val(),'ustudName':$("#studentName").val(),'ustudEmail':$("#studentEmail").val(),'ustudCourse':$("#studentcourse").val(),'ustudSpecial':$("#studentspec").val(),'ustudCollage':$("#studentcollage").val(),'ustudyear':$("#studentyear").val()},
+                    success: function (data) {
+                        if (data == "success") {
+                            $('#Students_Addform').trigger("reset");
+                            $("#studentAddModel").modal('hide');
+                            refreshStudents();
+                        }
+                    }
+                });
+            }
+        }
+        else{
+            $("#ealert-msg").show();
+            $("#ealert-msg").text("Please enter a valid Email Address");
+        }
+    });
+    $('#studentEmail').on("change", function(e){
+        $.ajax({
+            type: "GET",
+            url: "/check_student/",
+            data: { 'ustudentEmail': $('#studentEmail').val(), 'ulistName':location.pathname.split('/')[2]},
+            success: function (data) {
+                if (data == "Exits") {
+                    $("#ealert-msg").show();
+                    $("#ealert-msg").text("This email already exits.");
+                }
+                else {
+                    $("#ealert-msg").hide();
+                    $("#ealert-msg").text("valid");
+                }
+            }
+        });
+    });
+    $("#studentDelsubmit").click(function(e){
+        $.ajax({
+            type: "POST",
+            url: "/delete_student/",
+            data: { 'ustudid': $('#studentid').val(), 'ulistName':location.pathname.split('/')[2]},
+            success: function (data) {
+                if (data == "success") {
+                    $("#studentid").val('');
+                    $("#StudentDeleteModel").modal('hide');
+                    refreshStudents();
+                }
+            }
+        });
+    });
+    $("#studentBlocksubmit").click(function(e){
+        $.ajax({
+            type: "POST",
+            url: "/block_student/",
+            data: { 'ustudid': $('#studentblid').val(), 'ulistName':location.pathname.split('/')[2] },
+            success: function (data) {
+                if (data == "success") {
+                    $("#studentblid").val('');
+                    $("#StudentBlockModel").modal('hide');
+                    refreshStudents();
+                }
+            }
+        });
+    });
+});
+
+function showAddStudent()
+{
+    $('#Students_Addform').trigger("reset");
+    $("#studenttitle").text("Create Student Wizard");
+    $("#studentaddsubmit").text("Add Now");
+    $("#studentAddModel").modal('show');
+}
+function StudentEdit(ev)
+{
+    var row=$("#"+ev).closest("tr");
+    var id=$("#"+ev).attr("data_label");
+    var studentName=$("td:eq(0)",row).text();
+    var studentEmail=$("td:eq(1)",row).text();
+    var studentcourse=$("td:eq(2)",row).text();
+    var studentspecia=$("td:eq(3)",row).text();
+    var studentcollage=$("td:eq(4)",row).text();
+    var studentyear=$("td:eq(5)",row).text();
+    $('#Students_Addform').trigger("reset");
+    $("#studenttitle").text("Edit List Wizard");
+    $("#addstudentid").val(id);
+    $("#studentName").val(studentName);
+    $("#studentEmail").val(studentEmail);
+    $("#studentcourse").val(studentcourse);
+    $("#studentspec").val(studentspecia);
+    $("#studentcollage").val(studentcollage);
+    $("#studentyear").val(studentyear);
+    $("#studentaddsubmit").text("Update Now");
+    $("#studentAddModel").modal('show');
+}
+function studentDelete(ev)
+{
+    var id=$("#"+ev).attr("data_label");
+    $("#studentid").val(id);
+    $("#StudentDeleteModel").modal('show');
+}
+
+function studentBlock(ev)
+{
+    var id=$("#"+ev).attr("data_label");
+    $("#studentblid").val(id);
+    $("#StudentBlockModel").modal('show');
+}
+function refreshStudents()
+{
+    $('#tbl_studentsData').dataTable().fnDestroy();
+    $.ajax({
+		type:"GET",
+		url: "/get_students/",
+		data: {'ulistName':location.pathname.split('/')[2]},
+		success: function(data2) 
+		{ 
+            $("#tbl_studentsData tbody").empty();
+            $.each(data2, function(i, v) {
+            if(i!=0)
+            {
+                $("#tbl_studentsData tbody").append('<tr><td>'+data2[i][1]+'</td><td>'+data2[i][2]+'</td><td>'+data2[i][3]+'</td><td>'+data2[i][4]+'</td><td>'+data2[i][5]+'</td><td>'+data2[i][6]+'</td><td>'+data2[i][7]+'</td><td><a onclick="StudentEdit(this.id)" data_label='+data2[i][0]+'  id="edit_'+data2[i][0]+'" class="editList"><span class="fas fa-edit"></span></a> <a onclick="studentBlock(this.id)" data_label='+data2[i][0]+'  id="block_'+data2[i][0]+'" class="blocList"><span class="fas fa-user-lock"></span></a><a onclick="studentDelete(this.id)" data_label='+data2[i][0]+'  id="del_'+data2[i][0]+'" class="deleteList"><span class="fas fa-times-circle"></span></a><input type="hidden" id="studentId" name="studentId" value="'+data2[i][0]+'"></td></tr>');
+            }
+            });
+            var  table =$('#tbl_studentsData').DataTable({
+                dom: 'lBfrtip',
+		        "lengthMenu": [[10,50, 100, 150, -1], [10,50, 100, 150, "All"]],
+		        "fixedColumns": true,
+		        "order": [[ 1, "asc" ]],
+		        "columnDefs": [{ targets: 'no-sort', orderable: false }],
+                buttons: [
+                    {
+                        extend: 'excelHtml5',
+                        exportOptions: {
+                        columns: ':not(:last-child)',
+                    }
+                },
+                {
+                    extend: 'csvHtml5',
+                    exportOptions: {
+                        columns: ':not(:last-child)',
+                    }
+                },
+                {
+                    extend: 'print',
+                    exportOptions: {
+                    columns: ':not(:last-child)',
+                    }
+                },
+                ],
+		        "bDestroy": true,
+		    });
+		}
+    });
+}
+
+</script>
+<script src="{% static 'assets/js/custom.js' %}"></script>
+</body>
+</html>
+
+
+{% endblock %}

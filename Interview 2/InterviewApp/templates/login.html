@@ -1,0 +1,251 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>TalentSumo - Login</title>
+    <link rel="icon" href="{% static 'assets/img/logo.png' %}"  type="image/png">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}"  />
+    <link rel="stylesheet" href="{% static 'assets/css/login.css' %}"  />
+</head>
+    
+<style>
+    .pass_forget_btn {
+        margin-right: 2%;
+    }
+
+    .p-2 {
+        padding: 1.5rem !important;
+    }
+
+    .alert-msg {
+        display: none;
+        color: red;
+        text-align: left !important;
+        width: 100%;
+        float: left;
+    }
+
+    p {
+        margin-top: 3px !important;
+    }
+
+    .forget_btn {
+        color: #707070;
+        margin-top: -4%;
+        font-size: 10px;
+        font-weight: 400;
+        display: block;
+        float: right;
+        margin-bottom: 3%;
+    }
+
+    .needAccount {
+        font-size: 16px;
+        font-weight: 500;
+        margin-top: 25px;
+        color: #707070;
+        text-align: center;
+    }
+
+    .form {
+        padding: 30% 10px;
+    }
+
+    @media screen and (min-width: 550px) {
+        .form {
+            padding: 0;
+        }
+
+        .forget_btn {
+            color: #707070;
+            margin-top: -3%;
+            font-size: 15px;
+            font-weight: 400;
+            display: block;
+            float: right;
+        }
+
+    }
+
+    @media screen and (min-width: 1200px) {
+        .forget_btn {
+            color: #707070;
+            margin-top: -3%;
+            font-size: 15px;
+            font-weight: 400;
+            display: block;
+            float: right;
+        }
+
+    }
+</style>
+
+
+<body class="text-center">
+
+    <main class="form-signin border border-1 rounded">
+            <div class="activateDiv" style="display:none;">
+                            <p style="color: green;width: 100%;margin: 0px;">Your account is now active. </p>
+                            <p style="color: green;width: 100%;margin: 0px;">Please sign in using your credentials.</p>
+                            
+                </div>
+        <form class="form needs-validation" id="form_login">
+            <img class="mb-4 d-flex" style="margin: auto;" src="https://i.ibb.co/Ssq0KWY/logo.png" alt="" width="150"
+                height="80">
+            <h2 class="h2 mb-3 fw-normal text-center">Login to TalentSumo</h2>
+            <p class="needAccount mb-5">Need an account? <a href="{% url 'register' %}" style="color: #333333;"> Sign
+                    Up</a></p>
+            <div id="firstSection" class='mb-5'>
+                <div class="mb-3 text-start">
+                    <input type="email" class="form-control p-2" id="useremail" style="background-color: #F5F6FA;"
+                        id="emailId" placeholder="Email" required>
+                    <label id="ealert-msg" class="alert-msg text-center mb-2"></label>
+                </div>
+                <a href="{% url 'resend_activation' %}" class="forget_btn">Resend
+                    Email?</a>
+                <div class="mb-3 text-start">
+                    <input type="password" class="form-control p-2" style="background-color: #F5F6FA;" id="password"
+                        placeholder="Password" required onchange="PasswordChange()">
+                    <label id="palert-msg" class="alert-msg text-center mb-2">User Credentials
+                        Miss-Mactch</label>
+                </div>
+                <a href="{% url 'forgot' %}" class="forget_btn">Forget Password?</a>
+                <div class="form-group mb-3">
+                    <button type="submit" class="btn fs-6 w-100 p-3 text-light " id="lgnbtn"
+                        style="background-color: #333333;">Log in</button>
+                    <label id="btnalert-msg" class="alert-msg text-center mb-2">User Credentials
+                        Miss-Mactch</label>
+                </div>
+                <div class="text-center">
+                </div>
+        </form>
+    </main>
+    <!-- footer  -->
+    <script src="{% static 'assets/js/jquery-3.4.1.min.js' %}" ></script>
+    <!-- popper js -->
+    <script src="{% static 'assets/js/popper.min.js' %}" ></script>
+    <!-- bootstarp js -->
+    <script src="{% static 'assets/js/bootstrap.min.js' %}" ></script>
+    
+    <script>
+        $(document).ready(function () {
+            var url = $(location).attr('href');
+            parts = url.split("/"),
+            uuid= parts[parts.length-1];
+            uid= parts[parts.length-2];
+            pageId = parts[parts.length-3];
+            if(pageId=="activate")
+            {
+                $(".activateDiv").show();
+            }
+            else
+            {
+                $(".activateDiv").hide();
+            }
+            $(".alert-msg").hide();
+            $('#useremail').on("change", function (e) {
+                uemail = $("#useremail").val();
+                if (validateEmail(uemail)) {
+                    $("#ealert-msg").hide();
+                    $("#ealert-msg").text("Email valid");
+                    $.ajax({
+                        type: "GET",
+                        url: "/chk_email/",
+                        data: { 'uEmail': uemail },
+                        success: function (data) {
+                            if (data == "Exits") {
+                                $("#ealert-msg").hide();
+                                $("#ealert-msg").text("valid");
+                            }
+                            else {
+                                $("#ealert-msg").show();
+                                $("#ealert-msg").text("This email does't exist.");
+                            }
+                        }
+                    });
+                }
+                else {
+                    $("#ealert-msg").show();
+                    $("#ealert-msg").text("Please enter a valid email.");
+                }
+            });
+            $("#form_login").submit(function (e) {
+                e.preventDefault();
+                var uEmail = $("#useremail").val();
+                var uPass = $("#password").val();
+                vemailtxt = $("#ealert-msg").text();
+                if (vemailtxt == "valid") {
+                    $("#ealert-msg").hide();
+                    vpassword = $("#palert-msg").text();
+                    if (vpassword == "valid") {
+                        $("#palert-msg").hide();
+                         $("#lgnbtn").attr("disabled",true);
+                        $.ajax({
+                            type: "POST",
+                            url: "/post_login/",
+                            data: { 'userEmail': uEmail.trim(), 'userPass': uPass.trim() },
+                            success: function (data) {
+                                $("#lgnbtn").attr("disabled",false);
+                                if (data == "not valid") {
+                                    $("#form_login")[0].reset();
+                                    $("#btnalert-msg").show();
+                                    $("#btnalert-msg").text("Email Address and Password Miss-match");
+                                }
+                                else if (data == "In-active") {
+                                    $("#form_login")[0].reset();
+                                    $("#btnalert-msg").show();
+                                    $("#btnalert-msg").text("Please activate your account before login");
+                                }
+                                else {
+                                    $("#btnalert-msg").hide();
+                                    $("#form_login")[0].reset();
+                                    window.location = "https://test.techdivaa.com/home"
+                                }
+                            }
+                        });
+                    }
+                else {
+                    $("#palert-msg").show();
+                    $("#palert-msg").text("Enter a valid password.");
+                }
+                }
+                else {
+                    $("#ealert-msg").show();
+                    $("#ealert-msg").text("Enter a valid email address.");
+                }
+            });
+        });
+        function validateEmail($email) {
+            //var emailReg = /^([\w-.]+@(?!gmail\.com)(?!yahoo\.com)(?!hotmail.com)(?!yahoo.co.in)(?!aol.com)(?!abc.com)(?!xyz.com)(?!pqr.com)(?!rediffmail.com)(?!live.com)(?!outlook.com)(?!me.com)(?!msn.com)(?!ymail.com)(?!outlook\.com)([\w-]+.)+[\w-]{2,4})?$/;
+            var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+            return emailReg.test($email);
+        }
+        function PasswordChange() {
+            pswrd = $("#password").val();
+            pswlength = pswrd.length;
+            if (pswlength < 8) {
+                $("#palert-msg").show();
+                $("#palert-msg").text("Password Should be Minimum 8 Characters");
+            }
+            else {
+                if (pswrd.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/)) {
+                    $("#palert-msg").hide();
+                    $("#palert-msg").text("valid");
+                }
+                else {
+                    $("#palert-msg").show();
+                    $("#palert-msg").text("Must contain one uppercase, one special character and one number");
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+{% endblock %}

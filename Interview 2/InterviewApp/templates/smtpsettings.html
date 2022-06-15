@@ -1,0 +1,1487 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>TalentSumo - SMTP Settings</title>
+
+    <link rel="icon" href="{% static 'assets/img/logo.png' %}"  type="image/png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}"  />
+    <!-- themefy CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/themefy_icon/themify-icons.css' %}"  />
+    <!-- select2 CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/niceselect/css/nice-select.css' %}"  />
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/owl_carousel/css/owl.carousel.css' %}"  />
+    <!-- gijgo css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/gijgo/gijgo.min.css' %}"  />
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/font_awesome/css/all.min.css' %}"  />
+    <link rel="stylesheet" href="{% static 'assets/vendors/tagsinput/tagsinput.css' %}"  />
+
+    <!-- date picker -->
+     <link rel="stylesheet" href="{% static 'assets/vendors/datepicker/date-picker.css' %}"  />
+
+     <link rel="stylesheet" href="{% static 'assets/vendors/vectormap-home/vectormap-2.0.2.css' %}"  />
+     
+     <!-- scrollabe  -->
+     <link rel="stylesheet" href="{% static 'assets/vendors/scroll/scrollable.css' %}"  />
+    <!-- datatable CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/datatable/css/jquery.dataTables.min.css' %}"  />
+    <link rel="stylesheet" href="{% static 'assets/vendors/datatable/css/responsive.dataTables.min.css' %}"  />
+    <link rel="stylesheet" href="{% static 'assets/vendors/datatable/css/buttons.dataTables.min.css' %}"  />
+    <!-- text editor css -->
+    <!-- morris css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/morris/morris.css' %}" >
+    <!-- metarial icon css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/material_icon/material-icons.css' %}"  />
+    <!-- menu css  -->
+    <link rel="stylesheet" href="{% static 'assets/css/metisMenu.css' %}" >
+    <!-- style CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}"  />
+    <link rel="stylesheet" href="{% static 'assets/css/colors/default.css' %}"  id="colorSkinCSS">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-lite.min.css'>
+</head>
+<body class="crm_body_bg">
+    
+<style>
+.switchdiv input[type="file"] {
+  display: none;
+}
+.logofile
+{
+    text-align: center;
+}
+.logofile img
+{
+    width: 30%;
+    padding-left: 4%;
+}
+.sdivlblpdf
+{
+    width: 75%;
+    float: left;
+    font-size: 20px;
+    font-weight: 700;
+    color: #333333e8;
+}
+.switchdiv .logo-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.error{
+    color:red;
+}
+.revcom
+{
+    color:green;
+}
+    .metismenu li a.active .nav_title span:hover
+    {
+        color:#19191a !important;
+    }
+    .floated {
+   float:left;
+   margin-right:5px;
+}
+.search_field select {
+    height: 35px;
+    width: 100%;
+    margin: auto;
+    margin-top: 2%;
+}
+.note-editor.note-airframe .note-editing-area .note-codable, .note-editor.note-frame .note-editing-area .note-codable
+{
+    background-color: #fff;
+    color:#333333;
+}
+.note-editor.note-frame .note-toolbar
+{
+    background-color: transparent !important;
+}
+.cmargin
+{
+    margin-left: -15%;  
+}
+.tbltool
+{
+    color:cadetblue;
+}
+.note-modal-backdrop
+{
+  opacity: 0 !important;  
+  display: none !important;
+}
+.note-editor.note-frame .note-link-btn
+{
+    color: white;
+    background: #333333 !important;
+    opacity: 1;
+    border: 1px solid #333333;
+}
+.note-modal-footer
+{
+    margin-bottom: 2%;
+}
+
+.note-modal .note-modal-body input[type=checkbox]
+{
+    margin-right: 12px;
+}
+.reportsent
+{
+    width: 70%;
+    background: green;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+    font-size: 12px;
+}
+ #tbl_formData_info td:last-child ,  #tbl_formData_info th:last-child{
+     width: 40%;
+ }
+.reportnotsent
+{
+    width: 70%;
+    background: orangered;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.switch input {display:none;}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #333333e8;
+  padding: 14px 30px !important;
+  -webkit-transition: .4s;
+  transition: .4s;
+   border-radius: 34px;
+}
+.lms_block
+{
+    float: right !important;
+    text-align: right !important;
+    padding: 0%;
+    margin: 0%;
+    margin-right: -5%;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+height: 15px;
+    width: 15px;
+    left: 5px;
+    bottom: 8px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.card {
+    display:none; 
+    position:absolute;
+}
+
+input:checked + .slider {
+    background-color: green;
+    right: 0px;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(55px);
+  left: -16px;
+}
+.sformlbl
+{
+    line-height: 35px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+/*------ ADDED CSS ---------*/
+.slider:after
+{
+ content:'OFF';
+    color: white;
+    display: block;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 48%;
+    left: 63%;
+ font-size: 12px;
+ font-family: Verdana, sans-serif;
+ background-color: transparent !important;
+}
+.tooglediv textarea
+{
+    width:100%;
+}
+.switch::after
+{
+   background-color: transparent !important;  
+}
+input:checked + .slider:after
+{  
+  content:'ON';
+  left: 42%;
+  color: white;
+}
+.switchdiv
+{
+    width: 100%;
+}
+.switchdiv .sdivlbl
+{
+    width: 75%;
+    float: left;
+    font-size: 20px;
+    font-weight: 700;
+    color: #333333e8;
+}
+.switchdiv .switchbtn
+{
+    width: 7%;
+    float: right;
+}
+.submitDiv
+{
+    width: 100%;
+    text-align: right;
+    padding: 0px;
+    margin: 0px;
+    margin-top: 2%;
+}
+.submitDiv .col-lg-6
+{
+    padding: 0px;
+}
+.search_field select
+{
+    margin-top:0%;
+    border-color: #BBC1C9;
+    border-radius: 3px;
+}
+</style>
+
+<!-- main content part here -->
+ 
+ <!-- sidebar  -->
+ <nav class="sidebar">
+    <div class="logo d-flex justify-content-between">
+        <a class="large_logo" href="{% url 'home' %}"><img src="{% static 'assets/img/logo.png' %}"  alt=></a>
+        <a class="small_logo" href="{% url 'home' %}"><img src="{% static 'assets/img/logo.png' %}"  alt=></a>
+        <div class="sidebar_close_icon d-lg-none">
+            <i class="ti-close"></i>
+        </div>
+    </div>
+    <ul id="sidebar_menu">
+        <li class=>
+            <a href="{% url 'home' %}" aria-expanded="false">
+                <div class="nav_icon_small">
+                    <img src="{% static 'assets/img/menu-icon/dashboard.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Dashboard </span>
+                </div>
+            </a>
+        </li>
+        <li class=>
+            <a href="{% url 'students' %}" aria-expanded="false">
+                <div class="nav_icon_small">
+                    <img src="{% static 'assets/img/menu-icon/students.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Students List</span>
+                </div>
+            </a>
+        </li>
+           <li class=>
+            <a href="{% url 'workspace' %}" aria-expanded="false">
+                <div class="nav_icon_small">
+                    <img src="{% static 'assets/img/menu-icon/form.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Workspace</span>
+                </div>
+            </a>
+        </li>
+               {% if request.session.Plan == 'Tier Four' %}
+            <li class=>
+                <a href="{% url 'aifeedback' %}" aria-expanded="false">
+                    <div class="nav_icon_small opty">
+                        <img src="{% static 'assets/img/menu-icon/feedback.png' %}"  alt=>
+                    </div>
+                    <div class="nav_title">
+                        <span>AI Feedback </span>
+                    </div>
+                </a>
+            </li>
+        {% endif %}
+        <li class=>
+            <a href="{% url 'team' %}" aria-expanded="false">
+                <div class="nav_icon_small opty">
+                    <img src="{% static 'assets/img/menu-icon/team.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Team Members </span>
+                </div>
+            </a>
+        </li>
+        <li class=>
+            <a href="{% url 'Campaign' %}" aria-expanded="false">
+                <div class="nav_icon_small opty">
+                    <img src="{% static 'assets/img/menu-icon/campaign.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Campaign Details </span>
+                </div>
+            </a>
+        </li>
+        <li class=>
+            <a href="{% url 'smtp' Id='1' %}" aria-expanded="false">
+                <div class="nav_icon_small opty">
+                    <img src="{% static 'assets/img/menu-icon/settings.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Settings </span>
+                </div>
+            </a>
+        </li>
+        <li class=>
+            <a href="{% url 'profile' %}" aria-expanded="false">
+                <div class="nav_icon_small opty">
+                    <img src="{% static 'assets/img/menu-icon/user.png' %}"  alt=>
+                </div>
+                <div class="nav_title">
+                    <span>Profile </span>
+                </div>
+            </a>
+        </li>
+      </ul>
+</nav>
+ <!--/ sidebar  -->
+
+
+<section class="main_content dashboard_part large_header_bg">
+        <!-- menu  -->
+    <div class="container-fluid no-gutters">
+        <div class="row">
+            <div class="col-lg-12 p-0 ">
+                <div class="header_iner d-flex justify-content-between align-items-center">
+                    <div class="sidebar_icon d-lg-none">
+                        <i class="ti-menu"></i>
+                    </div>
+                    <div class="line_icon open_miniSide d-none d-lg-block">
+                        <img src="{% static 'assets/img/line_img.png' %}"  alt=>
+                    </div>
+                    <div class="serach_field-area d-flex align-items-center">
+                    </div>
+                    <div class="header_right d-flex justify-content-between align-items-center">
+                        <!--<div class="header_notification_warp d-flex align-items-center">
+                            <li>
+                                <a class="CHATBOX_open" href="#"> <img src="{% static 'assets/img/icon/msg.svg' %}"  alt=> <span>2</span>  </a>
+                            </li>
+                        </div>-->
+                        <div class="profile_info">
+                            <img src="{% static 'assets/img/client_img.png' %}"  alt="#">
+                           <div class="profile_info_iner">
+                                <div class="profile_author_name">
+                                    <h5>{{ request.session.userName }}</h5>
+                                </div>
+                                <div class="profile_info_details">
+                                    <a href="{% url 'profile' %}">Profile </a>
+                                </div>
+                                <div class="profile_info_details">
+                                    <a href="{% url 'team'%}">Team Members </a>
+                                </div>
+                                <div class="profile_info_details">
+                                    <a href="{% url 'smtp' Id='1'%}">Settings </a>
+                                </div>
+                                <div class="profile_info_details">
+                                    <a href="/logout">Log Out </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ menu  -->
+    <div class="main_content_iner overly_inner ">
+        <div class="container-fluid p-0 ">
+            <!-- page title  -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page_title_box d-flex flex-wrap align-items-center justify-content-between">
+                        <div class="page_title_left d-flex align-items-center">
+                            <h3 class="f_s_25 f_w_700 dark_text mr_30" >SMTP Settings</h3>
+                        </div>
+                        <div class="page_title_right">
+                            <div class="page_date_button d-flex align-items-center"> 
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="white_card card_height_100 mb_30 pt-4">
+                        <div class="white_card_body">
+                            <div class="QA_section">
+                                
+                            </div>
+        
+                                <div class="QA_table mb_30">
+                                   
+                                    <form id="settingsForm">
+                                        <input type="hidden" id="defaultValue" name="defaultValue" value="">
+                                            <div class="row">
+                                            <div class="col-lg-6 form-group">
+                                                <input type="text" class="form-control" placeholder="Hosting Server" required id="inputHost">
+                                            </div>
+                                            <div class="col-lg-6 form-group">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <label class="input-group-text" for="inputPort">Port</label>
+                                                    </div>
+                                                    <select class="custom-select" id="inputPort" required>
+                                                        <option selected value="25">25</option>
+                                                        <option value="465">465</option>
+                                                        <option value="587">587</option>
+                                                        </select>
+                                                </div>
+                                            </div>
+                                            </div>
+                                            <div class="row">
+                                            <div class="col-lg-6 form-group">
+                                                <input type="email" class="form-control" placeholder="Login ID" required id="inputlogin">
+                                            </div>
+                                            <div class="col-lg-6 form-group">
+                                                <input type="password" class="form-control" placeholder="Password" required id="inputpasswrd">
+                                            </div>
+                                            </div>
+                                            <div class="row">
+                                            <div class="col-lg-6 form-group">
+                                                <input type="email" class="form-control" placeholder="From Email Address" required id="inputfrom">
+                                            </div>
+                                            
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12 form-group">
+                                                    <div class="switchdiv">
+                                                        <div class="sdivlbl"><label>Candidate Notification Email</label></div>
+                                                        <div class="switchbtn">
+                                                            <label class="switch">
+                                                                <input type="checkbox" id="ctogBtn" onclick='cemailclilck(this);'>
+                                                                <div class="slider round"></div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row tooglediv" id="cemaildiv">
+                                                 <div class="col-lg-12 form-group">
+                                                    <textarea class="form-control" rows="3" name="maxlength-textarea" id="cemailtext" placeholder=""></textarea>
+                                                    <span class="error" id="ecemailtext">This field is required.</span>
+                                                 </div>
+                                                 
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12 form-group">
+                                                    <div class="switchdiv">
+                                                        <div class="sdivlbl"><label>External Reviewer Request Mail</label></div>
+                                                        <div class="switchbtn">
+                                                            <label class="switch">
+                                                                <input type="checkbox" id="rtogBtn" onclick='remailclilck(this);'>
+                                                                <div class="slider round"></div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row tooglediv" id="remaildiv">
+                                                 <div class="col-lg-12 form-group">
+                                                     <textarea class="form-control" rows="3" name="maxlength-textarea" id="remailtext" placeholder=""></textarea>
+                                                    <span class="error" id="eremailtext">This field is required.</span>
+                                                 </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12 form-group">
+                                                    <div class="switchdiv">
+                                                        <div class="sdivlbl"><label>Interview Referral Email</label></div>
+                                                        <div class="switchbtn">
+                                                            <label class="switch">
+                                                                <input type="checkbox" id="ntogBtn" onclick='nemailclilck(this);'>
+                                                                <div class="slider round"></div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row tooglediv" id="nemaildiv">
+                                                 <div class="col-lg-12 form-group">
+                                                     <textarea class="form-control" rows="3" name="maxlength-textarea" id="nemailtext" placeholder=""></textarea>
+                                                     <span class="error" id="enemailtext">This field is required.</span>
+                                                 </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12 form-group">
+                                                    <div class="switchdiv">
+                                                        <div class="sdivlbl"><label>Candidate Feedback Email</label></div>
+                                                        <div class="switchbtn">
+                                                            <label class="switch">
+                                                                <input type="checkbox" id="ftogBtn" onclick='femailclilck(this);'>
+                                                                <div class="slider round"></div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row tooglediv" id="femaildiv">
+                                                 <div class="col-lg-12 form-group">
+                                                     <textarea class="form-control" rows="3" name="maxlength-textarea" id="femailtext" placeholder=""></textarea>
+                                                     <span class="error" id="efemailtext">This field is required.</span>
+                                                 </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12 form-group">
+                                                    <div class="switchdiv">
+                                                        <div class="sdivlbl"><label>Campaign Email</label></div>
+                                                        <div class="switchbtn">
+                                                            <label class="switch">
+                                                                <input type="checkbox" id="camptogBtn" onclick='campemailclilck(this);'>
+                                                                <div class="slider round"></div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row tooglediv" id="campemaildiv">
+                                                 <div class="col-lg-12 form-group">
+                                                     <textarea class="form-control" rows="3" name="maxlength-textarea" id="campEmailText" placeholder=""></textarea>
+                                                     <span class="error" id="ecampemailtext">This field is required.</span>
+                                                 </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12 form-group">
+                                                    <div class="switchdiv">
+                                                        <div class="sdivlbl"><label>Automatic Report Email</label></div>
+                                                        <div class="switchbtn">
+                                                            <label class="switch">
+                                                                <input type="checkbox" id="autorpttogBtn" onclick='autorptemailclilck(this);'>
+                                                                <div class="slider round"></div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row tooglediv" id="autorptemaildiv">
+                                                 <div class="col-lg-12 form-group">
+                                                     <textarea class="form-control" rows="3" name="maxlength-textarea" id="autorptEmailText" placeholder=""></textarea>
+                                                     <span class="error" id="eautorptemailtext">This field is required.</span>
+                                                 </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12 form-group">
+                                                    <div class="switchdiv">
+                                                        <div class="sdivlbl"><label>Report Logo</label></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12 form-group">
+                                                    <div class="switchdiv logofile">
+                                                        <label for="logo-file-upload" class="logo-file-upload">
+                                                            <i class="fas fa-upload"></i> Upload LOGO
+                                                        </label>
+                                                        <image src="" id="imglogopdf"></image>
+                                                        <input id="logo-file-upload" type="file" accept="image/*" onchange="pdfLogoChange(this)" />
+                                                        <input type="hidden" id="logo_file_url" name="logo_file_url" class="logo_file_url">
+                                                    </div>
+                                                </div>
+                                                
+                                                    <div class="col-lg-6 form-group">
+                                                        <div class="sdivlblpdf"><label>PDF Signature</label></div>
+                                                    </div>
+                                                    <div class="col-lg-6 form-group">
+                                                        <input type="text" id="pdfsignnature" class="form-control"/>
+                                                    </div>
+                                                
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12 form-group">
+                                                    <div class="switchdiv">
+                                                        <div class="sdivlbl"><label>Report Footer Text</label></div>
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row tooglediv" id="pdffooterdiv">
+                                                <div class="col-lg-12 form-group">
+                                                    <textarea class="form-control" rows="3" name="maxlength-textarea" id="pdffootertext" placeholder=""></textarea>
+                                                    <span class="error" id="epdffootertext">This field is required.</span>
+                                                </div>
+                                           </div>
+                                        <div class="row submitDiv">
+                                        <div class="col-lg-6">
+                                            
+                                        </div>
+                                        <div class="col-lg-6">
+                                              <button type="submit" id="updateSettings"  class="btn_1">Update</button>
+                                        </div>
+                                    </div>
+                                        </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+<!-- footer part -->
+<div class="footer_part">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="footer_iner text-center">
+                    <p>2022 © copyrights <a href="#"> <i class="ti-heart"></i> </a><a href="#"> Talent Sumo</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<div class="modal fade" id="updatedStatus" tabindex="-1" role="dialog" aria-labelledby="updatedStatusTitle" data-backdrop="static" data-keyboard="false" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Updated Status</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p> SMTP Settings Updated Successfully.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" onclick="modelOK()">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- main content part end -->
+
+<!-- ### CHAT_MESSAGE_BOX   ### -->
+
+
+<!--/### CHAT_MESSAGE_BOX  ### -->
+
+<!--<div id="back-top" style="display: none;">
+    <a title="Go to Top" href="#">
+        <i class="ti-angle-up"></i>
+    </a>
+</div>-->
+
+<!-- footer  -->
+<script src="{% static 'assets/js/jquery-3.4.1.min.js' %}" ></script>
+<script src="{% static 'assets/js/jquery.caretposition.js' %}" ></script>
+<!-- popper js -->
+<script src="{% static 'assets/js/popper.min.js' %}" ></script>
+<!-- bootstarp js -->
+<script src="{% static 'assets/js/bootstrap.min.js' %}" ></script>
+<!-- sidebar menu  -->
+<script src="{% static 'assets/js/metisMenu.js' %}" ></script>
+<!-- waypoints js -->
+<script src="{% static 'assets/vendors/count_up/jquery.waypoints.min.js' %}" ></script>
+<!-- waypoints js -->
+<script src="{% static 'assets/vendors/chartlist/Chart.min.js' %}" ></script>
+<!-- counterup js -->
+<script src="{% static 'assets/vendors/count_up/jquery.counterup.min.js' %}" ></script>
+
+<!-- nice select -->
+<script src="{% static 'assets/vendors/niceselect/js/jquery.nice-select.min.js' %}" ></script>
+<!-- owl carousel -->
+<script src="{% static 'assets/vendors/owl_carousel/js/owl.carousel.min.js' %}" ></script>
+
+<!-- responsive table -->
+<script src="{% static 'assets/vendors/datatable/js/jquery.dataTables.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/dataTables.responsive.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/dataTables.buttons.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/buttons.flash.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/jszip.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/pdfmake.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/vfs_fonts.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/buttons.html5.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/datatable/js/buttons.print.min.js' %}" ></script>
+<!-- datepicker  -->
+<script src="{% static 'assets/vendors/datepicker/datepicker.js' %}" ></script>
+<script src="{% static 'assets/vendors/datepicker/datepicker.en.js' %}" ></script>
+<script src="{% static 'assets/vendors/datepicker/datepicker.custom.js' %}" ></script>
+
+<script src="{% static 'assets/js/chart.min.js' %}" ></script>
+<script src="{% static 'assets/vendors/chartjs/roundedBar.min.js' %}" ></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-lite.min.js'></script>
+<!-- progressbar js -->
+<script src="{% static 'assets/vendors/progressbar/jquery.barfiller.js' %}" ></script>
+<!-- tag input -->
+<script src="{% static 'assets/vendors/tagsinput/tagsinput.js' %}" ></script>
+<!-- text editor js -->
+
+		<script>				
+		$(document).ready(function() {
+		    $('.error').hide();
+            $.ajax({
+		            type:"POST",
+		            url: "/getsettings/",
+		            data: {},
+		            success: function(response) 
+		            { 
+                        $("#defaultValue").val(response.default);
+                        $.each(response.data, function(i, v) {
+                            console.log(response.data[i][0]);
+                            if(response.data[i][0]=='host'){
+                                if(response.default=="Default")
+                                {
+                                    $("#inputHost").attr("placeholder","");
+                                    $("#inputHost").val('xxxx.xxxxxxxxxx.xxx');
+                                }
+                                else{
+                                    if(response.data[i][1].trim().indexOf('acumbamail') == -1){
+                                        $("#inputHost").val(response.data[i][1].trim());
+                                    }
+                                    else{
+                                        $("#inputHost").attr("placeholder","");
+                                        $("#inputHost").val('xxxx.xxxxxxxxxx.xxx');
+                                    }
+                                }               
+                            }
+                            else if(response.data[i][0]=='port')
+                            {                                
+                                $("#inputPort").val(response.data[i][1].trim());                              
+                            }
+                            else if(response.data[i][0]=='login')
+                            {
+                                if(response.default=="Default")
+                                {
+                                    $("#inputlogin").attr("placeholder","xxxxxxx@abc.com");
+                                    $("#inputlogin").val('xxxxxxx@abc.com');
+                                }
+                                else{
+                                    if(response.data[i][1].trim().indexOf('talentsumo') == -1){
+                                        $("#inputlogin").val(response.data[i][1].trim()); 
+                                    }
+                                    else{
+                                        $("#inputlogin").attr("placeholder","xxxxxxx@abc.com");
+                                        $("#inputlogin").val('xxxxxxx@abc.com');
+                                    }
+                                }      
+                               
+                            }
+                            else if(response.data[i][0]=='password')
+                            {
+                                if(response.default=="Default")
+                                {
+                                    $("#inputpasswrd").attr("placeholder","xxxxxxxxxxx");
+                                    $("#inputpasswrd").val('xxxxxxxxxxx');
+                                }
+                                else{
+                                    if(response.data[i][1].trim().indexOf('fdtmQ') == -1){
+                                        $("#inputpasswrd").val(response.data[i][1].trim());
+                                    }
+                                    else{
+                                        $("#inputpasswrd").attr("placeholder","xxxxxxxxxxx");
+                                        $("#inputpasswrd").val('xxxxxxxxxxx');
+                                    }
+                                }  
+                            }
+                            else if(response.data[i][0]=='from')
+                            {
+                                if(response.default=="Default")
+                                {
+                                    $("#inputfrom").attr("placeholder","xxxxxxx@abc.com");
+                                    $("#inputfrom").val('xxxxxxx@abc.com');
+                                }
+                                else{
+                                    if(response.data[i][1].trim().indexOf('talentsumo') == -1){
+                                        $("#inputfrom").val(response.data[i][1].trim());
+                                    }
+                                    else{
+                                        $("#inputfrom").attr("placeholder","xxxxxxx@abc.com");
+                                        $("#inputfrom").val('xxxxxxx@abc.com');
+                                    }
+                                }                                 
+                            }
+                            else if(response.data[i][0]=='cEmailStatus')
+                            {
+                                if(response.data[i][1]=='true')
+                                {
+                                    $('#ctogBtn').prop('checked', true);
+                                }
+                                else{
+                                    $('#ctogBtn').prop('checked', false);
+                                }
+                            }
+                            else if(response.data[i][0]=='rEmailStatus')
+                            {
+                                if(response.data[i][1]=='true')
+                                {
+                                    $('#rtogBtn').prop('checked', true);
+                                }
+                                else{
+                                    $('#rtogBtn').prop('checked', false);
+                                }
+                            }
+                            else if(response.data[i][0]=='nEmailStatus')
+                            {
+                                if(response.data[i][1]=='true')
+                                {
+                                    $('#ntogBtn').prop('checked', true);
+                                }
+                                else{
+                                    $('#ntogBtn').prop('checked', false);
+                                }
+                            }
+                            else if(response.data[i][0]=='fEmailStatus')
+                            {
+                                if(response.data[i][1]=='true')
+                                {
+                                    $('#ftogBtn').prop('checked', true);
+                                }
+                                else{
+                                    $('#ftogBtn').prop('checked', false);
+                                }
+                            }
+                            else if(response.data[i][0]=='campEmailStatus')
+                            {
+                                if(response.data[i][1]=='true')
+                                {
+                                    $('#camptogBtn').prop('checked', true);
+                                }
+                                else{
+                                    $('#camptogBtn').prop('checked', false);
+                                }
+                            }
+                            else if(response.data[i][0]=='arptEmailStatus')
+                            {
+                                if(response.data[i][1]=='true')
+                                {
+                                    $('#autorpttogBtn').prop('checked', true);
+                                }
+                                else{
+                                    $('#autorpttogBtn').prop('checked', false);
+                                }
+                            }
+                            
+                            else if(response.data[i][0]=='cEmailText')
+                            {
+                                $('#cemailtext').summernote('code', response.data[i][1]);
+                            }
+                            else if(response.data[i][0]=='rEmailText')
+                            {
+                                $('#remailtext').summernote('code', response.data[i][1]);
+                            }
+                            else if(response.data[i][0]=='nEmailText')
+                            {
+                                $('#nemailtext').summernote('code', response.data[i][1]);
+                            }
+                            else if(response.data[i][0]=='fEmailText')
+                            {
+                                $('#femailtext').summernote('code', response.data[i][1]);
+                            }
+                            else if(response.data[i][0]=='campEmailText')
+                            {
+                                $('#campEmailText').summernote('code', response.data[i][1]);
+                            }
+                            else if(response.data[i][0]=='arptEmailText')
+                            {
+                                $('#autorptEmailText').summernote('code', response.data[i][1]);
+                            }
+                            else if(response.data[i][0]=='arptlogo')
+                            {
+                                $('#logo_file_url').val(response.data[i][1]);
+                                $("#imglogopdf").attr("src",'https://test.techdivaa.com/'+response.data[i][1]);
+                            }
+                            else if(response.data[i][0]=='PdfSignature')
+                            {
+                                $('#pdfsignnature').val(response.data[i][1]);
+                            }
+                            else if(response.data[i][0]=='arpfooterText')
+                            {
+                                $('#pdffootertext').summernote('code', response.data[i][1]);
+                            }
+                        });
+                }
+            });
+		    $('#settingsForm').submit(function(e) {
+		        e.preventDefault(); 
+		        jsonObj = [];
+		        var $form = $("#settingsForm");
+		        var candemailtxt = $($("#cemailtext").summernote("code")).text();
+		        var revemailtxt = $($("#remailtext").summernote("code")).text();
+		        var nomemailtxt =  $($("#nemailtext").summernote("code")).text();
+		        var feedemailtxt = $($("#femailtext").summernote("code")).text();
+                var campeedemailtxt = $($("#campEmailText").summernote("code")).text();
+                var autorptemailtxt = $($("#autorptEmailText").summernote("code")).text();
+                var pdffootertxt = $($("#pdffootertext").summernote("code")).text();
+		        item1 = {}
+		        item1 ["formName"] = $( "#formDtls option:selected" ).text();
+		        item1 ["tbl_Name"] = $( "#formDtls option:selected" ).val();
+		        item1 ["settings_Field"] = "host";
+		        item1 ["settings_Val"] =  $("#inputHost").val();
+		        jsonObj.push(item1);
+		        item2 = {}
+		        item2 ["formName"] = $( "#formDtls option:selected" ).text();;
+		        item2 ["tbl_Name"] = $( "#formDtls option:selected" ).val();;
+		        item2 ["settings_Field"] = "port";
+		        item2 ["settings_Val"] =  $("#inputPort").val();
+		        jsonObj.push(item2);
+		        item3 = {}
+		        item3 ["formName"] = $( "#formDtls option:selected" ).text();;
+		        item3 ["tbl_Name"] = $( "#formDtls option:selected" ).val();;
+		        item3 ["settings_Field"] = "login";
+		        item3 ["settings_Val"] =   $("#inputlogin").val();
+		        jsonObj.push(item3);
+		        item4 = {}
+		        item4 ["formName"] = $( "#formDtls option:selected" ).text();;
+		        item4 ["tbl_Name"] = $( "#formDtls option:selected" ).val();;
+		        item4 ["settings_Field"] = "password";
+		        item4 ["settings_Val"] =   $("#inputpasswrd").val();
+		        jsonObj.push(item4);
+		        item5 = {}
+		        item5 ["formName"] = $( "#formDtls option:selected" ).text();;
+		        item5 ["tbl_Name"] = $( "#formDtls option:selected" ).val();;
+		        item5 ["settings_Field"] = "from";
+		        item5 ["settings_Val"] =   $("#inputfrom").val();
+		        jsonObj.push(item5);
+		        if ($('#ctogBtn').is(":checked"))
+		        {
+		            if(candemailtxt.length == 0)
+		            {
+		                 $('#ecemailtext').show();
+		            }
+		            else
+		            {
+		                $('#ecemailtext').hide();  
+		            }
+		            item6 = {}
+		            item6 ["formName"] = $("#formDtls option:selected" ).text();
+		            item6 ["tbl_Name"] = $("#formDtls option:selected" ).val();
+		            item6 ["settings_Field"] = "cEmailStatus";
+		            item6 ["settings_Val"] =  'true';
+		            jsonObj.push(item6);
+		        }
+		        else
+		        {
+		            item7 = {}
+		            item7 ["formName"] = $("#formDtls option:selected" ).text();
+		            item7 ["tbl_Name"] = $("#formDtls option:selected" ).val();
+		            item7 ["settings_Field"] = "cEmailStatus";
+		            item7 ["settings_Val"] =  'false';
+		            jsonObj.push(item7); 
+		        }
+		        item8 = {}
+		        item8 ["formName"] = $("#formDtls option:selected" ).text();
+		        item8 ["tbl_Name"] = $("#formDtls option:selected" ).val();
+		        item8 ["settings_Field"] = "cEmailText";
+		        item8 ["settings_Val"] =  $('#cemailtext').summernote('code');
+		        jsonObj.push(item8);
+                if ($('#rtogBtn').is(":checked"))
+		        {
+		            if(revemailtxt.length == 0)
+		            {
+		                 $('#eremailtext').show();
+		            }
+		            else
+		            {
+		                $('#eremailtext').hide();  
+		            }
+		            item9 = {}
+		            item9 ["formName"] = $("#formDtls option:selected" ).text();
+		            item9 ["tbl_Name"] = $("#formDtls option:selected" ).val();
+		            item9 ["settings_Field"] = "rEmailStatus";
+		            item9 ["settings_Val"] =  'true';
+		            jsonObj.push(item9);
+		        }
+		        else
+		        {
+		            item10 = {}
+		            item10 ["formName"] = $("#formDtls option:selected" ).text();
+		            item10 ["tbl_Name"] = $("#formDtls option:selected" ).val();
+		            item10 ["settings_Field"] = "rEmailStatus";
+		            item10 ["settings_Val"] =  'false';
+		            jsonObj.push(item10); 
+		        }
+		        item11 = {}
+		        item11 ["formName"] = $("#formDtls option:selected" ).text();
+		        item11 ["tbl_Name"] = $("#formDtls option:selected" ).val();
+		        item11 ["settings_Field"] = "rEmailText";
+		        item11 ["settings_Val"] =  $('#remailtext').summernote('code');
+		        jsonObj.push(item11);
+		        if ($('#ntogBtn').is(":checked"))
+		        {
+		            if(nomemailtxt.length == 0)
+		            {
+		                 $('#enemailtext').show();
+		            }
+		            else
+		            {
+		                $('#enemailtext').hide();  
+		            }
+		            item12 = {}
+		            item12 ["formName"] = $("#formDtls option:selected" ).text();
+		            item12 ["tbl_Name"] = $("#formDtls option:selected" ).val();
+		            item12 ["settings_Field"] = "nEmailStatus";
+		            item12 ["settings_Val"] =  'true';
+		            jsonObj.push(item12);
+		        }
+		        else
+		        {
+		            item13 = {}
+		            item13 ["formName"] = $("#formDtls option:selected" ).text();
+		            item13 ["tbl_Name"] = $("#formDtls option:selected" ).val();
+		            item13 ["settings_Field"] = "nEmailStatus";
+		            item13 ["settings_Val"] =  'false';
+		            jsonObj.push(item13); 
+		        }
+		        item14 = {}
+		        item14 ["formName"] = $("#formDtls option:selected" ).text();
+		        item14 ["tbl_Name"] = $("#formDtls option:selected" ).val();
+		        item14 ["settings_Field"] = "nEmailText";
+		        item14 ["settings_Val"] =  $('#nemailtext').summernote('code');
+		        jsonObj.push(item14);
+		        if ($('#ftogBtn').is(":checked"))
+		        {
+		            if(feedemailtxt.length == 0)
+		            {
+		                 $('#efemailtext').show();
+		            }
+		            else
+		            {
+		                $('#efemailtext').hide();  
+		            }
+		            item15 = {}
+		            item15 ["formName"] = $("#formDtls option:selected" ).text();
+		            item15 ["tbl_Name"] = $("#formDtls option:selected" ).val();
+		            item15 ["settings_Field"] = "fEmailStatus";
+		            item15 ["settings_Val"] =  'true';
+		            jsonObj.push(item15);
+		        }
+		        else
+		        {
+		            item16 = {}
+		            item16 ["formName"] = $("#formDtls option:selected" ).text();
+		            item16 ["tbl_Name"] = $("#formDtls option:selected" ).val();
+		            item16 ["settings_Field"] = "fEmailStatus";
+		            item16 ["settings_Val"] =  'false';
+		            jsonObj.push(item16); 
+		        }
+		        item17 = {}
+		        item17 ["formName"] = $("#formDtls option:selected" ).text();
+		        item17 ["tbl_Name"] = $("#formDtls option:selected" ).val();
+		        item17 ["settings_Field"] = "fEmailText";
+		        item17 ["settings_Val"] =  $('#femailtext').summernote('code');
+		        jsonObj.push(item17);
+                if ($('#camptogBtn').is(":checked"))
+		        {
+		            if(campEmailText.length == 0)
+		            {
+		                 $('#ecampemailtext').show();
+		            }
+		            else
+		            {
+		                $('#ecampemailtext').hide();  
+		            }
+		            item18 = {}
+		            item18 ["formName"] = $("#formDtls option:selected" ).text();
+		            item18 ["tbl_Name"] = $("#formDtls option:selected" ).val();
+		            item18 ["settings_Field"] = "campEmailStatus";
+		            item18 ["settings_Val"] =  'true';
+		            jsonObj.push(item18);
+		        }
+		        else
+		        {
+		            item19 = {}
+		            item19 ["formName"] = $("#formDtls option:selected" ).text();
+		            item19 ["tbl_Name"] = $("#formDtls option:selected" ).val();
+		            item19 ["settings_Field"] = "campEmailStatus";
+		            item19 ["settings_Val"] =  'false';
+		            jsonObj.push(item19); 
+		        }
+		        item20 = {}
+		        item20 ["formName"] = $("#formDtls option:selected" ).text();
+		        item20 ["tbl_Name"] = $("#formDtls option:selected" ).val();
+		        item20 ["settings_Field"] = "campEmailText";
+		        item20 ["settings_Val"] =  $('#campEmailText').summernote('code');
+		        jsonObj.push(item20);
+                if ($('#autorpttogBtn').is(":checked"))
+		        {
+		            if(campEmailText.length == 0)
+		            {
+		                 $('#eautorptemailtext').show();
+		            }
+		            else
+		            {
+		                $('#eautorptemailtext').hide();  
+		            }
+		            item21 = {}
+		            item21 ["formName"] = $("#formDtls option:selected" ).text();
+		            item21 ["tbl_Name"] = $("#formDtls option:selected" ).val();
+		            item21 ["settings_Field"] = "arptEmailStatus";
+		            item21 ["settings_Val"] =  'true';
+		            jsonObj.push(item21);
+		        }
+		        else
+		        {
+		            item22 = {}
+		            item22 ["formName"] = $("#formDtls option:selected" ).text();
+		            item22 ["tbl_Name"] = $("#formDtls option:selected" ).val();
+		            item22 ["settings_Field"] = "arptEmailStatus";
+		            item22 ["settings_Val"] =  'false';
+		            jsonObj.push(item22); 
+		        }
+		        item23 = {}
+		        item23 ["formName"] = $("#formDtls option:selected" ).text();
+		        item23 ["tbl_Name"] = $("#formDtls option:selected" ).val();
+		        item23 ["settings_Field"] = "arptEmailText";
+		        item23 ["settings_Val"] =  $('#autorptEmailText').summernote('code');
+		        jsonObj.push(item23);
+                item24 = {}
+		        item24 ["formName"] = $("#formDtls option:selected" ).text();
+		        item24 ["tbl_Name"] = $("#formDtls option:selected" ).val();
+		        item24 ["settings_Field"] = "arptlogo";
+		        item24 ["settings_Val"] =  $('#logo_file_url').val();
+		        jsonObj.push(item24);
+                item25 = {}
+		        item25 ["formName"] = $("#formDtls option:selected" ).text();
+		        item25 ["tbl_Name"] = $("#formDtls option:selected" ).val();
+		        item25 ["settings_Field"] = "arpfooterText";
+		        item25 ["settings_Val"] =  $('#pdffootertext').summernote('code');
+		        jsonObj.push(item25);
+                item26 = {}
+		        item26 ["formName"] = $("#formDtls option:selected" ).text();
+		        item26 ["tbl_Name"] = $("#formDtls option:selected" ).val();
+		        item26 ["settings_Field"] = "PdfSignature";
+		        item26 ["settings_Val"] =  $('#pdfsignnature').val();
+		        jsonObj.push(item26);
+		        if($("#ecemailtext").is(":visible") == false && $("#eremailtext").is(":visible") == false && $("#enemailtext").is(":visible") == false && $("#efemailtext").is(":visible") == false)
+		        {
+		            $.ajax({
+		                type:"POST",
+		                url: "/update_settings/",
+		                data: {'udata':  JSON.stringify(jsonObj)},
+		                success: function(data) 
+		                { 
+		                    $("#updatedStatus").modal('show');
+		                }
+		            });
+		        }
+		            
+		    });
+		    var EventData = function (context) {
+		        var ui = $.summernote.ui;
+		        var event = ui.buttonGroup([
+		            ui.button({
+		                contents: 'Custom Fields <i class="fa fa-caret-down" aria-hidden="true"></i>',
+		                tooltip: 'Custom Fields',
+		                data: {
+		                    toggle: 'dropdown'
+		                }
+		            }),
+            ui.dropdown({
+                items: [
+                    '@Name', '@Email','@FormName','@SubmittedAt','@InterviewLink','@FormLink','@ReviewFormLink'
+                ],
+                callback: function (items) {
+                    $(items).find('a').on('click', function(e){
+                       // context.invoke("editor.insertText", 'abc');
+                       console.log($(this).html());
+                       context.invoke('editor.insertText', " "+$(this).html());
+                       e.preventDefault();
+                    });
+                }
+            })
+            ]);
+            return event.render();   // return button as jquery object
+            }
+
+            var campEventData = function (context) {
+		        var ui = $.summernote.ui;
+		        var event = ui.buttonGroup([
+		            ui.button({
+		                contents: 'Custom Fields <i class="fa fa-caret-down" aria-hidden="true"></i>',
+		                tooltip: 'Custom Fields',
+		                data: {
+		                    toggle: 'dropdown'
+		                }
+		            }),
+            ui.dropdown({
+                items: [
+                    '@Name', '@Email','@Collage','@Specialization','@Course','@Year','@InterviewLink'
+                ],
+                callback: function (items) {
+                    $(items).find('a').on('click', function(e){
+                       // context.invoke("editor.insertText", 'abc');
+                       console.log($(this).html());
+                       context.invoke('editor.insertText', " "+$(this).html());
+                       e.preventDefault();
+                    });
+                }
+            })
+            ]);
+            return event.render();   // return button as jquery object
+            }
+            var autosendEventData = function (context) {
+		        var ui = $.summernote.ui;
+		        var event = ui.buttonGroup([
+		            ui.button({
+		                contents: 'Custom Fields <i class="fa fa-caret-down" aria-hidden="true"></i>',
+		                tooltip: 'Custom Fields',
+		                data: {
+		                    toggle: 'dropdown'
+		                }
+		            }),
+            ui.dropdown({
+                items: [
+                '@Name', '@Email','@FormName','@SubmittedAt','@InterviewLink','@FormLink','@ReviewFormLink','@PDFReportLink'
+                ],
+                callback: function (items) {
+                    $(items).find('a').on('click', function(e){
+                       // context.invoke("editor.insertText", 'abc');
+                       console.log($(this).html());
+                       context.invoke('editor.insertText', " "+$(this).html());
+                       e.preventDefault();
+                    });
+                }
+            })            ]);
+            return event.render();   // return button as jquery object
+            }
+            $('#cemailtext').summernote({
+                tabsize: 2,
+                height: 50,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'italic', 'underline', 'clear']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['insert', ['link']],
+                    ['view', ['codeview']],
+                    ['eventButton', ['event']]
+                ],
+                buttons: {
+                    event: EventData
+                }
+            });
+            $('#remailtext').summernote({
+                tabsize: 2,
+                height: 50,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'italic', 'underline', 'clear']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['insert', ['link']],
+                    ['view', ['codeview']],
+                    ['eventButton', ['event']]
+                ],
+                buttons: {
+                    event: EventData
+                }
+            });
+            $('#nemailtext').summernote({
+                tabsize: 2,
+                height: 50,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'italic', 'underline', 'clear']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['insert', ['link']],
+                    ['view', ['codeview']],
+                    ['eventButton', ['event']]
+                ],
+                buttons: {
+                    event: EventData
+                }
+            });
+            $('#femailtext').summernote({
+                tabsize: 2,
+                height: 50,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'italic', 'underline', 'clear']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['insert', ['link']],
+                    ['view', ['codeview']],
+                    ['eventButton', ['event']]
+                ],
+                buttons: {
+                    event: EventData
+                }
+            });
+            $('#campEmailText').summernote({
+                tabsize: 2,
+                height: 50,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'italic', 'underline', 'clear']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['insert', ['link']],
+                    ['view', ['codeview']],
+                    ['eventButton', ['event']]
+                ],
+                buttons: {
+                    event: campEventData
+                }
+            });
+            $('#autorptEmailText').summernote({
+                tabsize: 2,
+                height: 50,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'italic', 'underline', 'clear']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['insert', ['link']],
+                    ['view', ['codeview']],
+                    ['eventButton', ['event']]
+                ],
+                buttons: {
+                    event: autosendEventData
+                }
+            });
+            $('#pdffootertext').summernote({
+                tabsize: 2,
+                height: 50,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'italic', 'underline', 'clear']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['insert', ['link']],
+                    ['view', ['codeview']],
+                    ['eventButton', ['event']]
+                ],
+            });
+		});
+		 function cemailclilck(cb) {
+		     if(cb.checked){
+		         $("#cemaildiv").show();
+		     }
+		     else
+		     {
+		         $("#cemaildiv").hide();
+		     }
+		 }
+		 function remailclilck(cb) {
+		     if(cb.checked){
+		         $("#remaildiv").show();
+		     }
+		     else
+		     {
+		         $("#remaildiv").hide();
+		     }
+		 }
+		 function nemailclilck(cb) {
+		     if(cb.checked){
+		         $("#nemaildiv").show();
+		     }
+		     else
+		     {
+		         $("#nemaildiv").hide();
+		     }
+		 }
+		 function femailclilck(cb) {
+		     if(cb.checked){
+		         $("#femaildiv").show();
+		     }
+		     else
+		     {
+		         $("#femaildiv").hide();
+		     }
+		 }
+         function campemailclilck(cb) {
+		     if(cb.checked){
+		         $("#campemaildiv").show();
+		     }
+		     else
+		     {
+		         $("#campemaildiv").hide();
+		     }
+         }
+         function autorptemailclilck(cb) {
+		     if(cb.checked){
+		         $("#autorptemaildiv").show();
+		     }
+		     else
+		     {
+		         $("#autorptemaildiv").hide();
+		     }
+		 }
+		 function modelOK()
+		 {
+		      $("#updatedStatus").modal('hide');
+		 }
+    function Generator() {};
+	    Generator.prototype.rand =  Math.floor(Math.random() * 26) + Date.now();
+	    Generator.prototype.getId = function() {
+	    return this.rand++;
+    };
+    function pdfLogoChange(e)
+	{
+		id=$(e).attr('id');
+		filename = e.files[0];
+		var fd = new FormData();
+		var files = $('#'+id)[0].files;
+        extension=$('#'+id).val().replace(/^.*\./, '');
+        idGen =new Generator();
+        ffileName =  idGen.getId() + "." + extension; 
+		if(files.length > 0 ){
+		   fd.append('file',files[0]);
+           fd.append('fileName',ffileName);
+			var xhr=new XMLHttpRequest();
+			xhr.open("POST","https://test.techdivaa.com/pdflogo_image_upload/",true);
+			xhr.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+				     if (xhr.status === 200) {
+					    var data=xhr.responseText;
+                        $('#logo_file_url').val(data);
+                        $("#imglogopdf").attr("src",'https://test.techdivaa.com/'+data);
+				     } 
+				     else {
+				         console.log("Error", xhr.statusText);
+				     }
+				}};
+			xhr.send(fd);
+		}
+		else{
+			alert("Please select a file.");
+		}
+	}
+		</script>
+		<div class="tempdiv" style="display:none;"></div>
+<script src="{% static 'assets/js/custom.js' %}"></script>
+</body>
+</html>
+
+
+{% endblock %}

@@ -1,0 +1,585 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      <title>TalentSumo - Dashboard</title>
+      <link rel="icon" href="{% static 'assets/img/logo.png' %}"  type="image/png">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}"  />
+      <!-- themefy CSS -->
+      <link rel="stylesheet" href="{% static 'assets/vendors/themefy_icon/themify-icons.css' %}"  />
+      <!-- select2 CSS -->
+      <link rel="stylesheet" href="{% static 'assets/vendors/niceselect/css/nice-select.css' %}"  />
+      <!-- owl carousel CSS -->
+      <link rel="stylesheet" href="{% static 'assets/vendors/owl_carousel/css/owl.carousel.css' %}"  />
+      <!-- gijgo css -->
+      <link rel="stylesheet" href="{% static 'assets/vendors/gijgo/gijgo.min.css' %}"  />
+      <!-- font awesome CSS -->
+      <link rel="stylesheet" href="{% static 'assets/vendors/font_awesome/css/all.min.css' %}"  />
+      <link rel="stylesheet" href="{% static 'assets/vendors/tagsinput/tagsinput.css' %}"  />
+      <!-- date picker -->
+      <link rel="stylesheet" href="{% static 'assets/vendors/datepicker/date-picker.css' %}"  />
+      <link rel="stylesheet" href="{% static 'assets/vendors/vectormap-home/vectormap-2.0.2.css' %}"  />
+      <!-- scrollabe  -->
+      <link rel="stylesheet" href="{% static 'assets/vendors/scroll/scrollable.css' %}"  />
+      <!-- datatable CSS -->
+      <link rel="stylesheet" href="{% static 'assets/vendors/datatable/css/jquery.dataTables.min.css' %}"  />
+      <link rel="stylesheet" href="{% static 'assets/vendors/datatable/css/responsive.dataTables.min.css' %}"  />
+      <!-- <link rel="stylesheet" href="{% static 'assets/vendors/datatable/css/buttons.dataTables.min.css' %}"  /> -->
+      <!-- text editor css -->
+      <link rel="stylesheet" href="{% static 'assets/vendors/text_editor/summernote-bs4.css' %}"  />
+      <!-- morris css -->
+      <link rel="stylesheet" href="{% static 'assets/vendors/morris/morris.css' %}" >
+      <!-- metarial icon css -->
+      <link rel="stylesheet" href="{% static 'assets/vendors/material_icon/material-icons.css' %}"  />
+      <!-- menu css  -->
+      <link rel="stylesheet" href="{% static 'assets/css/metisMenu.css' %}" >
+      <!-- style CSS -->
+      <link rel="stylesheet" href="{% static 'assets/css/style.css' %}"  />
+      <link rel="stylesheet" href="{% static 'assets/css/colors/default.css' %}"  id="colorSkinCSS">
+   </head>
+   <body class="crm_body_bg">
+      <style>
+         .sendreport
+         {
+         cursor: pointer;
+         color: #007bff !important;
+         margin-right: 5%;
+         }
+         .sentreport
+         {
+            padding-right: 4%;
+         }
+         .sformlbl
+         {
+         line-height: 60px;
+         font-weight: 700;
+         font-size: 18px;
+         }
+         .revcom
+         {
+         color:green;
+         }
+         .metismenu li a.active .nav_title span:hover
+         {
+         color:#19191a !important;
+         }
+         .floated {
+         float:left;
+         margin-right:5px;
+         }
+         .search_field select {
+         height: 35px;
+         width: 100%;
+         margin: auto;
+         margin-top: 2%;
+         background: none;
+         border: 1px solid #0909097a;
+         }
+         .cmargin
+         {
+         margin-left: -15%;  
+         }
+         .tbltool
+         {
+         color:cadetblue;
+         }
+         .reportsent
+         {
+         width: 70%;
+         background: green;
+         text-align: center;
+         color: white;
+         border-radius: 5px;
+         font-size: 12px;
+         }
+         #tbl_formData_info td:last-child ,  #tbl_formData_info th:last-child{
+         width: 40%;
+         }
+         .reportnotsent
+         {
+         width: 70%;
+         background: orangered;
+         text-align: center;
+         color: white;
+         border-radius: 5px;
+         font-size: 12px;
+         }
+         .opty img
+         {
+         opacity: 0.7;
+         }
+         #interselediv
+         {
+            padding: 0;
+            margin: 0;
+         }
+         #interselediv .lms_block
+         {
+            float: right;
+         }
+         #exportdiv .btn_1
+         {
+            padding: 5px 15px;
+         }
+      </style>
+      <!-- main content part here -->
+      <!-- sidebar  -->
+      <nav class="sidebar">
+         <div class="logo d-flex justify-content-between">
+            <a class="large_logo" href="{% url 'home' %}"><img src="{% static 'assets/img/logo.png' %}"  alt=></a>
+            <a class="small_logo" href="{% url 'home' %}"><img src="{% static 'assets/img/logo.png' %}"  alt=></a>
+            <div class="sidebar_close_icon d-lg-none">
+               <i class="ti-close"></i>
+            </div>
+         </div>
+         <ul id="sidebar_menu">
+            <li class=>
+               <a href="{% url 'home' %}" aria-expanded="false">
+                  <div class="nav_icon_small">
+                     <img src="{% static 'assets/img/menu-icon/dashboard.png' %}"  alt=>
+                  </div>
+                  <div class="nav_title">
+                     <span>Dashboard </span>
+                  </div>
+               </a>
+            </li>
+            <li class=>
+               <a href="{% url 'students' %}" aria-expanded="false">
+                  <div class="nav_icon_small">
+                     <img src="{% static 'assets/img/menu-icon/students.png' %}"  alt=>
+                  </div>
+                  <div class="nav_title">
+                     <span>Students List</span>
+                  </div>
+               </a>
+            </li>
+            <li class=>
+               <a href="{% url 'workspace' %}" aria-expanded="false">
+                  <div class="nav_icon_small">
+                     <img src="{% static 'assets/img/menu-icon/form.png' %}"  alt=>
+                  </div>
+                  <div class="nav_title">
+                     <span>Workspace</span>
+                  </div>
+               </a>
+            </li>
+            {% if request.session.Plan == 'Tier Four' %}
+            <li class=>
+               <a href="{% url 'aifeedback' %}" aria-expanded="false">
+                  <div class="nav_icon_small opty">
+                     <img src="{% static 'assets/img/menu-icon/feedback.png' %}"  alt=>
+                  </div>
+                  <div class="nav_title">
+                     <span>AI Feedback </span>
+                  </div>
+               </a>
+            </li>
+            {% endif %}
+            <li class=>
+               <a href="{% url 'team' %}" aria-expanded="false">
+                  <div class="nav_icon_small opty">
+                     <img src="{% static 'assets/img/menu-icon/team.png' %}"  alt=>
+                  </div>
+                  <div class="nav_title">
+                     <span>Team Members </span>
+                  </div>
+               </a>
+            </li>
+            <li class=>
+               <a href="{% url 'Campaign' %}" aria-expanded="false">
+                  <div class="nav_icon_small opty">
+                     <img src="{% static 'assets/img/menu-icon/campaign.png' %}"  alt=>
+                  </div>
+                  <div class="nav_title">
+                     <span>Campaign Details </span>
+                  </div>
+               </a>
+            </li>
+            <li class=>
+               <a href="{% url 'smtp' Id='1' %}" aria-expanded="false">
+                  <div class="nav_icon_small opty">
+                     <img src="{% static 'assets/img/menu-icon/settings.png' %}"  alt=>
+                  </div>
+                  <div class="nav_title">
+                     <span>Settings </span>
+                  </div>
+               </a>
+            </li>
+            <li class=>
+               <a href="{% url 'profile' %}" aria-expanded="false">
+                  <div class="nav_icon_small opty">
+                     <img src="{% static 'assets/img/menu-icon/user.png' %}"  alt=>
+                  </div>
+                  <div class="nav_title">
+                     <span>Profile </span>
+                  </div>
+               </a>
+            </li>
+         </ul>
+      </nav>
+      <!--/ sidebar  -->
+      <section class="main_content dashboard_part large_header_bg">
+         <!-- menu  -->
+         <div class="container-fluid no-gutters">
+            <div class="row">
+               <div class="col-lg-12 p-0 ">
+                  <div class="header_iner d-flex justify-content-between align-items-center">
+                     <div class="sidebar_icon d-lg-none">
+                        <i class="ti-menu"></i>
+                     </div>
+                     <div class="line_icon open_miniSide d-none d-lg-block">
+                        <img src="{% static 'assets/img/line_img.png' %}"  alt=>
+                     </div>
+                     <div class="serach_field-area d-flex align-items-center">
+                     </div>
+                     <div class="header_right d-flex justify-content-between align-items-center">
+                        <!--<div class="header_notification_warp d-flex align-items-center">
+                           <li>
+                               <a class="CHATBOX_open" href="#"> <img src="{% static 'assets/img/icon/msg.svg' %}"  alt=> <span>2</span>  </a>
+                           </li>
+                           </div>-->
+                        <div class="profile_info">
+                           <img src="{% static 'assets/img/client_img.png' %}"  alt="#">
+                           <div class="profile_info_iner">
+                              <div class="profile_author_name">
+                                 <h5>{{ request.session.userName }}</h5>
+                              </div>
+                              <div class="profile_info_details">
+                                 <a href="{% url 'profile' %}">Profile </a>
+                              </div>
+                              <div class="profile_info_details">
+                                 <a href="{% url 'team'%}">Team Members </a>
+                              </div>
+                              <div class="profile_info_details">
+                                 <a href="{% url 'smtp' Id='1'%}">Settings </a>
+                              </div>
+                              <div class="profile_info_details">
+                                 <a href="/logout">Log Out </a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!--/ menu  -->
+         <div class="main_content_iner overly_inner ">
+            <div class="container-fluid p-0 ">
+               <!-- page title  -->
+               <div class="row">
+                  <div class="col-12">
+                     <div class="page_title_box d-flex flex-wrap align-items-center justify-content-between">
+                        <div class="page_title_left d-flex align-items-center">
+                           <h3 class="f_s_25 f_w_700 dark_text mr_30" >Interview Response Dashboard</h3>
+                        </div>
+                        <div class="page_title_right">
+                           <div class="page_date_button d-flex align-items-center"> 
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-lg-12">
+                     <div class="white_card card_height_100 mb_30 pt-4">
+                        <div class="white_card_body">
+                           <div class="QA_section">
+                              <div class="white_box_tittle list_header">
+                                 <div class="row" style="width: 100%;text-align: right;">
+                                    <div class="col-lg-6">
+                                       <span class="sformlbl">Select Interview:</span>
+                                    </div>
+                                    <div class="col-lg-6" id="interselediv">
+                                       <div class="box_right d-flex lms_block">
+                                          <div class="add_button ml-10">
+                                             <div class="serach_field_2">
+                                                <div class="search_inner">
+                                                   <div class="search_field">
+                                                      <select name="formDtls" id="formDtls">
+                                                         <option value="">Select Interview to show Responses</option>
+                                                         {% for form in forms %}
+                                                         <option value="{{form.tblName}}" data-report="{{form.frmReport}}" data-type="{{form.frmType}}">{{form.frmName}}</option>
+                                                         {% endfor %}
+                                                      </select>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-lg-12" id="exportdiv">
+                                       <div class="add_button ml-10">
+                                       <a id="exportExcel"  class="btn_1" onclick="btnexportClick('excel');">Excel</a>
+                                       <a id="exportCSV"  class="btn_1" onclick="btnexportClick('csv');">CSV</a>
+                                       <a id="exportPrint"  class="btn_1" onclick="btnexportClick('print');">Print</a>
+                                       </div>
+                                       </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="QA_table mb_30">
+                              <!-- table-responsive -->
+                              <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+                                 <table class="table table-custom ng-scope ng-table" id='tbl_formData'>
+                                    <thead class="ng-scope">
+                                        <tr>
+                                            <!-- <th class="no-sort">Select</th>-->
+                                             <th class="header ">Candidate Name</th>
+                                             <th class="header ">Submission Date</th></th>
+                                             <th class="header ">Grade</th>
+                                             <th class="no-sort">Review Status</th>
+                                            </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                 </table>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         </div>
+         <!-- footer part -->
+         <div class="footer_part">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-lg-12">
+                     <div class="footer_iner text-center">
+                        <p>2022 © copyrights <a href="#"> <i class="ti-heart"></i> </a><a href="#"> Talent Sumo</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <script src="{% static 'assets/js/jquery-3.4.1.min.js' %}" ></script>
+      <!-- popper js -->
+      <script src="{% static 'assets/js/popper.min.js' %}" ></script>
+      <!-- bootstarp js -->
+      <script src="{% static 'assets/js/bootstrap.min.js' %}" ></script>
+      <!-- sidebar menu  -->
+      <script src="{% static 'assets/js/metisMenu.js' %}" ></script>
+      <!-- waypoints js -->
+      <script src="{% static 'assets/vendors/count_up/jquery.waypoints.min.js' %}" ></script>
+      <!-- waypoints js -->
+      <script src="{% static 'assets/vendors/chartlist/Chart.min.js' %}" ></script>
+      <!-- counterup js -->
+      <script src="{% static 'assets/vendors/count_up/jquery.counterup.min.js' %}" ></script>
+      <!-- nice select -->
+      <script src="{% static 'assets/vendors/niceselect/js/jquery.nice-select.min.js' %}" ></script>
+      <!-- owl carousel -->
+      <script src="{% static 'assets/vendors/owl_carousel/js/owl.carousel.min.js' %}" ></script>
+      <!-- responsive table -->
+      <script src="{% static 'assets/vendors/datatable/js/jquery.dataTables.min.js' %}" ></script>
+      <script src="{% static 'assets/vendors/datatable/js/dataTables.responsive.min.js' %}" ></script>
+      <!-- datepicker  -->
+      <script src="{% static 'assets/vendors/datepicker/datepicker.js' %}" ></script>
+      <script src="{% static 'assets/vendors/datepicker/datepicker.en.js' %}" ></script>
+      <script src="{% static 'assets/vendors/datepicker/datepicker.custom.js' %}" ></script>
+      <script src="{% static 'assets/js/chart.min.js' %}" ></script>
+      <script src="{% static 'assets/vendors/chartjs/roundedBar.min.js' %}" ></script>
+      <!-- progressbar js -->
+      <script src="{% static 'assets/vendors/progressbar/jquery.barfiller.js' %}" ></script>
+      <!-- tag input -->
+      <script src="{% static 'assets/vendors/tagsinput/tagsinput.js' %}" ></script>
+      <!-- text editor js -->
+      <script src="{% static 'assets/vendors/text_editor/summernote-bs4.js' %}" ></script>
+      <script src="{% static 'assets/js/xlsx.full.min.js' %}" ></script>
+      <script>				
+		$(document).ready(function() {
+		     formID = $("#formDtls").val();
+		     if(formID.length != 0)
+		     {
+		     $.ajax({
+		            type:"POST",
+		            url: "/getformData/",
+		            data: {'formId': formID.trim()},
+		            success: function(response) 
+		            { 
+		                $.each(response, function(i, v) {
+		                    if((v.name).toString().trim().length== 0)
+		                    {
+		                        v.name = 'N/A';
+		                    }
+		                    if(v.repstatus == "No" ){
+		                        $("#tbl_formData tbody").append('<tr><td>'+v.name+'</td><td>'+v.subon+'</td><td>'+v.grade+'</td><td><a href="https://test.techdivaa.com/assign_review/'+v.id+'/'+interType+'/'+formID+'" target="_blank" class="revstart">Start Review</a></td></tr>');
+		                    }
+		                    else
+		                    {
+		                        $("#tbl_formData tbody").append('<tr><td>'+v.name+'</td><td>'+v.subon+'</td><td>'+v.grade+'</td><td><a href="https://test.techdivaa.com/review/'+v.id+'/'+interType+'/'+formID+'"  target="_blank" class="revcom">Review Completed</a></td></tr>');
+		                    }
+		                });
+		                var  table =$('#tbl_formData').DataTable({
+                            dom: 'lBfrtip',
+		                    "lengthMenu": [[10,50, 100, 150, -1], [10,50, 100, 150, "All"]],
+		                    "fixedColumns": true,
+		                    "order": [[ 1, "asc" ]],
+		                    "columnDefs": [{ targets: 'no-sort', orderable: false }],
+		                    "bDestroy": true,
+		                });
+		            }
+		            });
+		     }
+		$("#formDtls").change(function() {
+            refreshData();
+        });
+
+		});
+
+        function refreshData()
+        {
+            formID = $("#formDtls").val();
+		           $('#tbl_formData').dataTable().fnDestroy();
+		           $.ajax({
+		            type:"POST",
+		            url: "/getformData/",
+		            data: {'formId': formID.trim()},
+		            success: function(response) 
+		            { 
+                        interType = $("#formDtls").find('option:selected').attr('data-type');
+                        reportAuto = $("#formDtls").find('option:selected').attr('data-report');
+		                $("#tbl_formData tbody").empty();
+		                $.each(response, function(i, v) {
+		                    if((v.name).toString().trim().length== 0)
+		                    {
+		                        v.name = 'N/A';
+		                    }
+		                   if(v.repstatus == "No" ){
+		                        $("#tbl_formData tbody").append('<tr><td>'+v.name+'</td><td>'+v.subon+'</td><td>'+v.grade+'</td><td><a href="https://test.techdivaa.com/assign_review/'+v.id+'/'+interType+'/'+formID+'" target="_blank" class="revstart">Start Review</a></td></tr>');
+		                    }
+		                    else
+		                    {
+                                if(interType == 'public_interview')
+                                {
+                                    $("#tbl_formData tbody").append('<tr><td>'+v.name+'</td><td>'+v.subon+'</td><td>'+v.grade+'</td><td><a href="https://test.techdivaa.com/response/'+v.id+'/'+interType+'/'+formID+'" target="_blank" class="revcom">Review Completed</a></td></tr>');
+                                }
+                                else{
+                                    sendreport = '';
+                                    if((interType == 'interview' || interType == 'quiz'  || interType == 'viva') &&  reportAuto == 'no')
+                                    {
+                                        if(v.scorereport == "No" ){
+                                            sendreport = '<a onclick="sendReport(this)" class="sendreport" data-label = "'+v.id+'" data-formid = "'+$("#formDtls").val().trim()+'" id="sendrpt'+(i+1)+'">Send Report</a>';
+                                        }
+                                        else{
+                                            sendreport = '<a class="sentreport"  href="'+v.scoreLink+'" target="_blank" data-label = "'+v.id+'" id="sentrpt'+(i+1)+'">Report Sent</a>';
+                                        }
+                                    }
+                                    else{
+                                        sendreport = '';
+                                    }
+                                    $("#tbl_formData tbody").append('<tr><td>'+v.name+'</td><td>'+v.subon+'</td><td>'+v.grade+'</td><td>'+sendreport+'<a href="https://test.techdivaa.com/review/'+v.id+'/'+interType+'/'+formID+'" target="_blank" class="revcom">Review Completed</a></td></tr>');
+                                }     
+		                    }
+		                });
+		     		   var  table =$('#tbl_formData').DataTable({
+                            dom: 'lBfrtip',
+		                    "lengthMenu": [[10,50, 100, 150, -1], [10,50, 100, 150, "All"]],
+		                    "fixedColumns": true,
+		                    "order": [[ 1, "asc" ]],
+		                    "columnDefs": [{ targets: 'no-sort', orderable: false }],
+		                    "bDestroy": true,   
+		                });
+		            }
+		            });
+        }
+        function sendReport(ev)
+        {
+            stuId = $(ev).attr('data-label');
+            formtblName =  $(ev).attr('data-formid');
+            interType = $("#formDtls").find('option:selected').attr('data-type');
+            $.ajax({
+		        type:"POST",
+		        url: "/send_report/",
+		        data: {'formtbName': formtblName.trim(),'formstudId':stuId,"formType":interType},
+		        success: function(data) 
+		        { 
+                    if(data == "sucess")
+                    {
+                        refreshData();
+                    }
+                }
+            });
+        }
+        function testbtnClick()
+        {
+            $.ajax({
+		      type:"GET",
+		      url: "/test_btn/",
+		      data: {},
+		      success: function(data) 
+		      { 
+		          console.log(data);
+		      }
+            });
+        }
+        function btnexportClick(type)
+        {
+            formName =  $("#formDtls").find('option:selected').text();
+            tableName  =   $("#formDtls").val();
+            if($("#formDtls").val().length != 0)
+            {
+                $.ajax({
+		            type:"GET",
+		            url: "/export_Data/",
+		            data: {'uFormName':formName,'utblName':tableName},
+		            success: function(data) 
+		            { 
+                     if(type == 'excel')
+                     {
+                        ExportData(formName.replace(" ","_") +".xlsx", data);
+                     }
+                     else if(type == 'csv')
+                     {
+                        ExportData(formName.replace(" ","_") +".csv", data);
+                     }
+                     else if(type == 'print')
+                     {
+                        var keys = Object.keys(data);
+                        thdrow = '<tr>';
+                        $.each(data[0], function(i, v) {
+                           thdrow += '<th>' + i + '<th>';
+                        });
+                        thdrow += '</tr>';
+                        rows = '';
+                        for (var i = 0; i < keys.length; i++) {
+                           var value = data[i];
+                           rows += '<tr>';
+                           $.each(value, function(j, vv) {
+                              rows += '<td>' + vv + '<td>';
+                           });
+                           rows += '</tr>';
+                        }
+                        var winPrint = window.open('', '', 'left=0,top=0,width=800,height=600,toolbar=0,scrollbars=0,status=0');
+                        winPrint.document.write('<title>'+formName+'</title><br /><br /> <table border= 1 style="border-collapse: collapse;width:100%;"><thead>'+thdrow+'</thead><tbody>'+ rows +'</tbody></table>');
+                        winPrint.document.close();
+                        winPrint.focus();
+                        winPrint.print();
+                        winPrint.close();
+                     }
+                    }
+                });
+            }
+            else{
+                alert("Please select the Interview");
+            }
+        }
+        function ExportData(filename,data)
+         {
+			   var ws = XLSX.utils.json_to_sheet(data);
+            var wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, "Sheet 1");
+            XLSX.writeFile(wb,filename);
+         }
+		</script>
+      <script src="{% static 'assets/js/custom.js' %}"></script>
+   </body>
+</html>
+{% endblock %}
